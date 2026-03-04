@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - BreakOff</title>
+    <meta name="description" content="BreakOff Privacy Policy. Your data stays with you. We don't collect, transmit, or store any of your personal information on our servers.">
+    <meta property="og:title" content="Privacy Policy - BreakOff">
+    <meta property="og:description" content="BreakOff Privacy Policy. Your data stays with you.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://breakoff.io/privacy">
+    <meta property="og:image" content="https://breakoff.io/assets/og-image.png">
+    <link rel="canonical" href="https://breakoff.io/privacy">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #000000; --white: #ffffff; --gray-50: #fafafa; --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5; --gray-300: #d4d4d4; --gray-400: #a3a3a3; --gray-500: #737373;
+            --gray-600: #525252; --gray-700: #404040; --gray-800: #262626; --gray-900: #171717;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+        }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font); background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.7; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+        .nav-logo-icon { width: 32px; height: 32px; }
+        .nav-links { display: flex; gap: 32px; font-size: 0.9rem; font-weight: 500; color: var(--gray-600); }
+        .nav-links a:hover { color: var(--black); opacity: 1; }
+        .nav-cta { display: flex; align-items: center; gap: 6px; background: var(--black); color: var(--white); padding: 10px 20px; border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+        .nav-cta:hover { opacity: 1; background: var(--gray-800); transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 16px 24px; z-index: 999; flex-direction: column; gap: 12px; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { font-size: 1rem; font-weight: 500; padding: 8px 0; color: var(--gray-700); }
+        .section-badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--gray-300); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-radius: var(--radius-full); margin-bottom: 20px; color: var(--gray-500); }
+        .page-content { padding-top: 120px; padding-bottom: 80px; min-height: 60vh; }
+        .page-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .page-header p { font-size: 1.05rem; color: var(--gray-500); line-height: 1.7; }
+        .page-highlight { max-width: 680px; margin: 0 auto 40px; padding: 24px 32px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-lg); text-align: center; }
+        .page-highlight p { font-size: 1.125rem; font-weight: 700; letter-spacing: -0.01em; }
+        .page-body { max-width: 680px; margin: 0 auto; }
+        .page-body h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
+        .page-body h3 { font-size: 1.125rem; font-weight: 700; margin-top: 32px; margin-bottom: 8px; }
+        .page-body p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .page-body a { color: var(--black); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+        .page-body a:hover { opacity: 0.7; }
+        .page-body ul { margin: 8px 0 16px 20px; color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; }
+        .page-body li { margin-bottom: 4px; }
+        .page-body strong { color: var(--black); font-weight: 600; }
+        .page-meta { font-size: 0.85rem !important; color: var(--gray-400) !important; font-style: italic; }
+        .footer { padding: 60px 0 32px; background: var(--black); color: var(--white); }
+        .footer-top { display: flex; justify-content: space-between; gap: 64px; margin-bottom: 48px; }
+        .footer-brand { max-width: 280px; }
+        .footer-brand .nav-logo { margin-bottom: 12px; }
+        .footer-brand p { color: var(--gray-400); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 64px; }
+        .footer-col { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col h5 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); margin-bottom: 4px; }
+        .footer-col a { font-size: 0.9rem; color: var(--gray-400); }
+        .footer-col a:hover { color: var(--white); opacity: 1; }
+        .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 24px; }
+        .footer-bottom p { font-size: 0.8rem; color: var(--gray-500); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .footer-top { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#000"/>
+                    <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                    <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                </svg>
+                <span>BreakOff</span>
+            </a>
+            <div class="nav-links">
+                <a href="../">Home</a>
+            </div>
+            <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
+                Download
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </a>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="../">Home</a>
+        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="section-badge">Privacy</div>
+                <h1>Your data stays with you</h1>
+                <p>At BreakOff, we believe your privacy is paramount. That's why we've designed our app with a simple privacy principle:</p>
+            </div>
+
+            <div class="page-highlight">
+                <p>All your data is stored directly on your device.</p>
+            </div>
+
+            <div class="page-body">
+                <p>We don't collect, transmit, or store any of your personal information on our servers. Your break times, app preferences, and usage patterns remain completely private and under your control.</p>
+                <p>This means your information never leaves your device, and we have no access to your data whatsoever.</p>
+
+                <h2>Privacy Policy for BreakOff: Digital Wellness</h2>
+                <p class="page-meta">Last updated: February 23, 2026</p>
+
+                <h3>1. Introduction</h3>
+                <p>Welcome to BreakOff: Digital Wellness. We respect your privacy and are committed to protecting your personal data. This privacy policy explains what data we collect, how we use it, and your rights regarding your information.</p>
+
+                <h3>2. Data Collection</h3>
+                <p>We practice data minimization. The only data the app may ask for is:</p>
+                <p><strong>Name (Optional):</strong> Used to address you personally within the app. Stored only on your device.</p>
+                <p><strong>Age (Optional):</strong> Used to tailor the app experience to your life stage. Stored only on your device.</p>
+                <p>Providing this information is strictly voluntary. You may skip these steps during onboarding and still enjoy the full functionality of the BreakOff app. This data is never transmitted to our servers or any third party.</p>
+
+                <h3>3. How We Use Your Data</h3>
+                <p>Any data you choose to provide is used solely for in-app personalization.</p>
+                <p>We do not sell your personal data to third parties.</p>
+                <p>We do not use your data for advertising tracking purposes.</p>
+
+                <h3>4. Data Storage and Security</h3>
+                <p>All data is stored locally on your device using your operating system's built-in security protections. We do not operate servers that store your personal information. Since your data never leaves your device, there is no risk of a server-side data breach.</p>
+
+                <h3>5. Data Retention and Deletion</h3>
+                <p>Since all data is stored on your device, you have full control over it at all times.</p>
+                <p><strong>Delete via App:</strong> You can clear all app data directly within the app's Settings menu.</p>
+                <p><strong>Delete via Uninstall:</strong> Removing the BreakOff app from your device deletes all associated data.</p>
+                <p>If you have any questions about data deletion, you may contact us at <a href="mailto:support@breakoff.io">support@breakoff.io</a>.</p>
+
+                <h3>6. Contact Us</h3>
+                <p>If you have any questions about this Privacy Policy, please contact us at: <a href="mailto:support@breakoff.io">support@breakoff.io</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo footer-logo">
+                        <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="#fff"/>
+                            <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                            <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                        </svg>
+                        <span>BreakOff</span>
+                    </a>
+                    <p>Unplug and reclaim your time.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Product</h5>
+                        <a href="../">Home</a>
+                        <a href="../#features">Features</a>
+                        <a href="../#how-it-works">How It Works</a>
+                        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Legal</h5>
+                        <a href="../privacy/">Privacy Policy</a>
+                        <a href="../terms/">Terms of Service</a>
+                        <a href="../support/">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="footer-year"></span> BreakOff LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>document.querySelectorAll('.footer-year').forEach(el => { el.textContent = new Date().getFullYear(); });</script>
+</body>
+</html>

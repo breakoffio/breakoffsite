@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - BreakOff</title>
+    <meta name="description" content="BreakOff Terms of Service. Read our terms and conditions for using the BreakOff digital wellness app.">
+    <meta property="og:title" content="Terms of Service - BreakOff">
+    <meta property="og:description" content="BreakOff Terms of Service.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://breakoff.io/terms">
+    <meta property="og:image" content="https://breakoff.io/assets/og-image.png">
+    <link rel="canonical" href="https://breakoff.io/terms">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #000000; --white: #ffffff; --gray-50: #fafafa; --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5; --gray-300: #d4d4d4; --gray-400: #a3a3a3; --gray-500: #737373;
+            --gray-600: #525252; --gray-700: #404040; --gray-800: #262626; --gray-900: #171717;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+        }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font); background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.7; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+        .nav-logo-icon { width: 32px; height: 32px; }
+        .nav-links { display: flex; gap: 32px; font-size: 0.9rem; font-weight: 500; color: var(--gray-600); }
+        .nav-links a:hover { color: var(--black); opacity: 1; }
+        .nav-cta { display: flex; align-items: center; gap: 6px; background: var(--black); color: var(--white); padding: 10px 20px; border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+        .nav-cta:hover { opacity: 1; background: var(--gray-800); transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 16px 24px; z-index: 999; flex-direction: column; gap: 12px; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { font-size: 1rem; font-weight: 500; padding: 8px 0; color: var(--gray-700); }
+        .section-badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--gray-300); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-radius: var(--radius-full); margin-bottom: 20px; color: var(--gray-500); }
+        .page-content { padding-top: 120px; padding-bottom: 80px; min-height: 60vh; }
+        .page-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .page-header p { font-size: 1.05rem; color: var(--gray-500); line-height: 1.7; }
+        .page-body { max-width: 680px; margin: 0 auto; }
+        .page-body h2 { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.02em; margin-top: 48px; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--gray-200); }
+        .page-body h3 { font-size: 1.125rem; font-weight: 700; margin-top: 32px; margin-bottom: 8px; }
+        .page-body p { color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; margin-bottom: 12px; }
+        .page-body a { color: var(--black); font-weight: 600; text-decoration: underline; text-underline-offset: 2px; }
+        .page-body a:hover { opacity: 0.7; }
+        .page-body ul { margin: 8px 0 16px 20px; color: var(--gray-600); font-size: 0.95rem; line-height: 1.8; }
+        .page-body li { margin-bottom: 4px; }
+        .page-body strong { color: var(--black); font-weight: 600; }
+        .page-meta { font-size: 0.85rem !important; color: var(--gray-400) !important; font-style: italic; }
+        .footer { padding: 60px 0 32px; background: var(--black); color: var(--white); }
+        .footer-top { display: flex; justify-content: space-between; gap: 64px; margin-bottom: 48px; }
+        .footer-brand { max-width: 280px; }
+        .footer-brand .nav-logo { margin-bottom: 12px; }
+        .footer-brand p { color: var(--gray-400); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 64px; }
+        .footer-col { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col h5 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); margin-bottom: 4px; }
+        .footer-col a { font-size: 0.9rem; color: var(--gray-400); }
+        .footer-col a:hover { color: var(--white); opacity: 1; }
+        .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 24px; }
+        .footer-bottom p { font-size: 0.8rem; color: var(--gray-500); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .footer-top { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#000"/>
+                    <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                    <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                </svg>
+                <span>BreakOff</span>
+            </a>
+            <div class="nav-links">
+                <a href="../">Home</a>
+            </div>
+            <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
+                Download
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </a>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="../">Home</a>
+        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="section-badge">Legal</div>
+                <h1>Terms of Service</h1>
+                <p>Please read these terms carefully before using the BreakOff app.</p>
+            </div>
+
+            <div class="page-body">
+                <h2>Terms of Service for BreakOff: Digital Wellness</h2>
+                <p class="page-meta">Last updated: December 18, 2025</p>
+
+                <h3>1. Acceptance of Terms</h3>
+                <p>By downloading, installing, or using the BreakOff: Digital Wellness application ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
+
+                <h3>2. Description of Service</h3>
+                <p>BreakOff is a digital wellness application designed to help users manage their screen time through scheduled breaks, app blocking, progress tracking, and streak-based motivation. The App is available on iOS and compatible Apple devices.</p>
+
+                <h3>3. Eligibility</h3>
+                <p>The App is rated 4+ and is available to users of all ages. By using the App, you represent that you have the legal capacity to enter into these Terms, or that a parent or guardian has agreed on your behalf.</p>
+
+                <h3>4. License</h3>
+                <p>We grant you a limited, non-exclusive, non-transferable, revocable license to use the App for your personal, non-commercial purposes, subject to these Terms. You may not copy, modify, distribute, sell, or lease any part of the App.</p>
+
+                <h3>5. User Accounts</h3>
+                <p>Certain features of the App may require you to create an account. You are responsible for maintaining the confidentiality of your account information. You may delete your account at any time through the App's Settings menu.</p>
+
+                <h3>6. Acceptable Use</h3>
+                <p>You agree not to:</p>
+                <ul>
+                    <li>Use the App for any unlawful purpose</li>
+                    <li>Attempt to reverse engineer, decompile, or disassemble the App</li>
+                    <li>Interfere with or disrupt the App's functionality</li>
+                    <li>Use the App in any way that could damage or impair the service</li>
+                </ul>
+
+                <h3>7. Intellectual Property</h3>
+                <p>The App and its original content, features, and functionality are owned by BreakOff LLC and are protected by copyright, trademark, and other intellectual property laws. The BreakOff name, logo, and all related marks are trademarks of BreakOff LLC.</p>
+
+                <h3>8. Disclaimer of Warranties</h3>
+                <p>The App is provided "as is" and "as available" without warranties of any kind, either express or implied. BreakOff LLC does not warrant that the App will be uninterrupted, error-free, or free of harmful components. The App is a wellness tool and is not intended as a substitute for professional medical or psychological advice.</p>
+
+                <h3>9. Limitation of Liability</h3>
+                <p>To the fullest extent permitted by law, BreakOff LLC shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising out of or related to your use of the App. Our total liability shall not exceed the amount you paid for the App in the twelve months prior to the claim.</p>
+
+                <h3>10. Changes to Terms</h3>
+                <p>We reserve the right to modify these Terms at any time. We will notify users of material changes through the App or by updating the "Last updated" date above. Your continued use of the App after changes constitutes acceptance of the revised Terms.</p>
+
+                <h3>11. Termination</h3>
+                <p>We may suspend or terminate your access to the App at any time, without notice, for conduct that we believe violates these Terms or is harmful to other users or the App.</p>
+
+                <h3>12. Governing Law</h3>
+                <p>These Terms shall be governed by and construed in accordance with the laws of the United States, without regard to conflict of law principles.</p>
+
+                <h3>13. Contact Us</h3>
+                <p>If you have any questions about these Terms, please contact us at: <a href="mailto:support@breakoff.io">support@breakoff.io</a></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo footer-logo">
+                        <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="#fff"/>
+                            <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                            <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                        </svg>
+                        <span>BreakOff</span>
+                    </a>
+                    <p>Unplug and reclaim your time.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Product</h5>
+                        <a href="../">Home</a>
+                        <a href="../#features">Features</a>
+                        <a href="../#how-it-works">How It Works</a>
+                        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Legal</h5>
+                        <a href="../privacy/">Privacy Policy</a>
+                        <a href="../terms/">Terms of Service</a>
+                        <a href="../support/">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="footer-year"></span> BreakOff LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>document.querySelectorAll('.footer-year').forEach(el => { el.textContent = new Date().getFullYear(); });</script>
+</body>
+</html>

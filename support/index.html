@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - BreakOff</title>
+    <meta name="description" content="Get help with BreakOff. Contact our support team at support@breakoff.io for questions, feedback, or assistance.">
+    <meta property="og:title" content="Support - BreakOff">
+    <meta property="og:description" content="Get help with BreakOff. Contact our support team.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://breakoff.io/support">
+    <meta property="og:image" content="https://breakoff.io/assets/og-image.png">
+    <link rel="canonical" href="https://breakoff.io/support">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #000000; --white: #ffffff; --gray-50: #fafafa; --gray-100: #f5f5f5;
+            --gray-200: #e5e5e5; --gray-300: #d4d4d4; --gray-400: #a3a3a3; --gray-500: #737373;
+            --gray-600: #525252; --gray-700: #404040; --gray-800: #262626; --gray-900: #171717;
+            --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --radius-sm: 8px; --radius-md: 12px; --radius-lg: 16px; --radius-xl: 24px; --radius-full: 9999px;
+        }
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+        body { font-family: var(--font); background: var(--white); color: var(--black); line-height: 1.6; overflow-x: hidden; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        a { text-decoration: none; color: inherit; transition: opacity 0.2s; }
+        a:hover { opacity: 0.7; }
+        img { max-width: 100%; display: block; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(255,255,255,0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-bottom: 1px solid var(--gray-200); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: -0.02em; }
+        .nav-logo-icon { width: 32px; height: 32px; }
+        .nav-links { display: flex; gap: 32px; font-size: 0.9rem; font-weight: 500; color: var(--gray-600); }
+        .nav-links a:hover { color: var(--black); opacity: 1; }
+        .nav-cta { display: flex; align-items: center; gap: 6px; background: var(--black); color: var(--white); padding: 10px 20px; border-radius: var(--radius-full); font-size: 0.875rem; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+        .nav-cta:hover { opacity: 1; background: var(--gray-800); transform: translateY(-1px); }
+        .nav-mobile-toggle { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+        .nav-mobile-toggle span { display: block; width: 22px; height: 2px; background: var(--black); border-radius: 2px; transition: transform 0.3s, opacity 0.3s; }
+        .mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--white); border-bottom: 1px solid var(--gray-200); padding: 16px 24px; z-index: 999; flex-direction: column; gap: 12px; }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a { font-size: 1rem; font-weight: 500; padding: 8px 0; color: var(--gray-700); }
+        .section-badge { display: inline-block; padding: 6px 14px; border: 1px solid var(--gray-300); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; border-radius: var(--radius-full); margin-bottom: 20px; color: var(--gray-500); }
+        .page-content { padding-top: 120px; padding-bottom: 80px; min-height: 60vh; }
+        .page-header { text-align: center; max-width: 600px; margin: 0 auto 48px; }
+        .page-header h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 16px; }
+        .page-header p { font-size: 1.05rem; color: var(--gray-500); line-height: 1.7; }
+        .support-card { max-width: 480px; margin: 0 auto; text-align: center; padding: 48px 40px; background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-xl); }
+        .support-icon { width: 64px; height: 64px; background: var(--black); color: var(--white); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+        .support-label { font-size: 0.95rem; color: var(--gray-500); margin-bottom: 8px; }
+        .support-email { font-size: 1.25rem; font-weight: 700; color: var(--black); text-decoration: underline; text-underline-offset: 3px; }
+        .support-email:hover { opacity: 0.7; }
+        .footer { padding: 60px 0 32px; background: var(--black); color: var(--white); }
+        .footer-top { display: flex; justify-content: space-between; gap: 64px; margin-bottom: 48px; }
+        .footer-brand { max-width: 280px; }
+        .footer-brand .nav-logo { margin-bottom: 12px; }
+        .footer-brand p { color: var(--gray-400); font-size: 0.9rem; }
+        .footer-links { display: flex; gap: 64px; }
+        .footer-col { display: flex; flex-direction: column; gap: 8px; }
+        .footer-col h5 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--gray-500); margin-bottom: 4px; }
+        .footer-col a { font-size: 0.9rem; color: var(--gray-400); }
+        .footer-col a:hover { color: var(--white); opacity: 1; }
+        .footer-bottom { border-top: 1px solid var(--gray-800); padding-top: 24px; }
+        .footer-bottom p { font-size: 0.8rem; color: var(--gray-500); }
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .nav-cta { display: none; }
+            .nav-mobile-toggle { display: flex; }
+            .footer-top { flex-direction: column; gap: 40px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="../" class="nav-logo">
+                <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="8" fill="#000"/>
+                    <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                    <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
+                </svg>
+                <span>BreakOff</span>
+            </a>
+            <div class="nav-links">
+                <a href="../">Home</a>
+            </div>
+            <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
+                Download
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </a>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <a href="../">Home</a>
+        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+    </div>
+
+    <!-- Page Content -->
+    <main class="page-content">
+        <div class="container">
+            <div class="page-header">
+                <div class="section-badge">Support</div>
+                <h1>We're here to help</h1>
+                <p>Have questions, feedback, or need assistance? We'd love to hear from you.</p>
+            </div>
+
+            <div class="support-card">
+                <div class="support-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                </div>
+                <p class="support-label">Please contact us at:</p>
+                <a href="mailto:support@breakoff.io" class="support-email">support@breakoff.io</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="../" class="nav-logo footer-logo">
+                        <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="32" height="32" rx="8" fill="#fff"/>
+                            <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                            <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#000"/>
+                        </svg>
+                        <span>BreakOff</span>
+                    </a>
+                    <p>Unplug and reclaim your time.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-col">
+                        <h5>Product</h5>
+                        <a href="../">Home</a>
+                        <a href="../#features">Features</a>
+                        <a href="../#how-it-works">How It Works</a>
+                        <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Legal</h5>
+                        <a href="../privacy/">Privacy Policy</a>
+                        <a href="../terms/">Terms of Service</a>
+                        <a href="../support/">Support</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span class="footer-year"></span> BreakOff LLC. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>document.querySelectorAll('.footer-year').forEach(el => { el.textContent = new Date().getFullYear(); });</script>
+</body>
+</html>
