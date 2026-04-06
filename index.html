@@ -17,8 +17,9 @@
     <meta name="twitter:description" content="Unplug and reclaim your time. Build streaks, earn real rewards, and finally take control of your screen time.">
     <meta name="twitter:image" content="https://breakoff.io/assets/og-image.png">
     <link rel="canonical" href="https://breakoff.io/">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="apple-touch-icon" href="/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/icon-16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -48,11 +49,7 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="#" class="nav-logo">
-                <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="32" height="32" rx="8" fill="#000"/>
-                    <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
-                    <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#fff"/>
-                </svg>
+                <img class="nav-logo-icon" src="assets/logo-dark.png" alt="BreakOff" width="32" height="32">
                 <span>BreakOff</span>
             </a>
             <div class="nav-links">
@@ -105,196 +102,22 @@
         </div>
 
         <div class="hero-phones">
-            <!-- Left Phone: Timer/Break Screen -->
+            <!-- Left Phone: Add Schedule -->
             <div class="phone phone-left">
                 <div class="phone-frame">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <div class="screen-timer">
-                            <div class="screen-timer-icon">
-                                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>
-                            </div>
-                            <div class="screen-timer-title">BreakOff Completely</div>
-                            <div class="screen-timer-badge">
-                                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                Flexible
-                            </div>
-                            <div class="screen-timer-time">14:57</div>
-                            <div class="screen-timer-buttons">
-                                <div class="screen-timer-btn-pause">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
-                                    Pause Break
-                                </div>
-                                <div class="screen-timer-btn-end">End Break</div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="assets/screen-schedule.png" alt="BreakOff Add Schedule screen" class="phone-screenshot">
                 </div>
             </div>
             <!-- Center Phone: Home Screen -->
             <div class="phone phone-center">
                 <div class="phone-frame">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <div class="screen-home">
-                            <div class="screen-home-status">
-                                <span class="screen-home-time">9:41</span>
-                                <span class="screen-home-icons">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="white"><path d="M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"/></svg>
-                                    <svg width="14" height="12" viewBox="0 0 24 24" fill="white"><rect x="1" y="6" width="18" height="12" rx="2" stroke="white" stroke-width="2" fill="none"/><rect x="4" y="9" width="10" height="6" rx="1" fill="white"/><path d="M21 10v4" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                                </span>
-                            </div>
-                            <div class="screen-home-header">
-                                <span class="screen-home-logo">BreakOff</span>
-                                <span class="screen-home-streak">
-                                    <svg width="10" height="12" viewBox="0 0 24 24" fill="#ff6b35"><path d="M12 2c-1 4-4 6-4 10a6 6 0 0 0 12 0c0-4-3-6-4-10-1 2-3 3-4 0z"/></svg>
-                                    5
-                                </span>
-                            </div>
-                            <div class="screen-home-actions">
-                                <div class="screen-home-action">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                                    <span>Start Break</span>
-                                </div>
-                                <div class="screen-home-action">
-                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                    <span>Add Schedule</span>
-                                </div>
-                            </div>
-                            <div class="screen-home-schedule">
-                                <div class="screen-home-schedule-left">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>
-                                </div>
-                                <div class="screen-home-schedule-info">
-                                    <div class="screen-home-schedule-row">
-                                        <span class="screen-home-schedule-name">BreakOff Completely</span>
-                                        <span class="screen-home-schedule-tag">Flexible</span>
-                                    </div>
-                                    <div class="screen-home-schedule-detail">
-                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                                        7:00 AM - 5:00 PM
-                                    </div>
-                                    <div class="screen-home-schedule-detail">
-                                        <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                        Mon, Tue, Wed, Thu, Fri
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="screen-home-progress">
-                                <div class="screen-home-progress-title">Daily Progress</div>
-                                <div class="screen-home-progress-row">
-                                    <span class="screen-home-progress-count">2</span>
-                                    <span class="screen-home-progress-goal">Goal: 5 Hours</span>
-                                </div>
-                                <div class="screen-home-progress-bar">
-                                    <div class="screen-home-progress-fill"></div>
-                                </div>
-                            </div>
-                            <div class="screen-home-history">
-                                <div class="screen-home-history-header">
-                                    <span>History</span>
-                                    <span class="screen-home-history-show">Show All &rsaquo;</span>
-                                </div>
-                                <div class="screen-home-history-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>
-                                    <div class="screen-home-history-info">
-                                        <span class="screen-home-history-name">Flip Phone</span>
-                                        <span class="screen-home-history-date">Today</span>
-                                    </div>
-                                    <span class="screen-home-history-dur">5m</span>
-                                </div>
-                                <div class="screen-home-history-item">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-                                    <div class="screen-home-history-info">
-                                        <span class="screen-home-history-name">Social Media</span>
-                                        <span class="screen-home-history-date">9/25/2025</span>
-                                    </div>
-                                    <span class="screen-home-history-dur">30m</span>
-                                </div>
-                            </div>
-                            <div class="screen-home-tab-bar">
-                                <div class="screen-home-tab active">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="7" y="4" width="3" height="16" rx="1"/><rect x="14" y="4" width="3" height="16" rx="1"/></svg>
-                                    <span>BreakOff</span>
-                                </div>
-                                <div class="screen-home-tab">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-                                    <span>Friends</span>
-                                </div>
-                                <div class="screen-home-tab">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
-                                    <span>Settings</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <img src="assets/screen-home.png" alt="BreakOff home screen" class="phone-screenshot">
                 </div>
             </div>
-            <!-- Right Phone: Edit Schedule Screen -->
+            <!-- Right Phone: App Groups -->
             <div class="phone phone-right">
                 <div class="phone-frame">
-                    <div class="phone-notch"></div>
-                    <div class="phone-screen">
-                        <div class="screen-edit">
-                            <div class="screen-edit-handle"></div>
-                            <div class="screen-edit-header">
-                                <div class="screen-edit-header-left">
-                                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                    Edit Schedule
-                                </div>
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
-                            </div>
-                            <div class="screen-edit-label">App Group</div>
-                            <div class="screen-edit-group screen-edit-group-active">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><rect x="5" y="2" width="14" height="20" rx="3"/></svg>
-                                <div>
-                                    <div class="screen-edit-group-name">BreakOff Completely</div>
-                                    <div class="screen-edit-group-count">105 apps selected</div>
-                                </div>
-                            </div>
-                            <div class="screen-edit-group">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>
-                                <div>
-                                    <div class="screen-edit-group-name">Social Media</div>
-                                    <div class="screen-edit-group-count">8 apps selected</div>
-                                </div>
-                            </div>
-                            <div class="screen-edit-label">Break Type</div>
-                            <div class="screen-edit-types">
-                                <div class="screen-edit-type screen-edit-type-active">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                    Flexible
-                                </div>
-                                <div class="screen-edit-type">
-                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                                    Locked
-                                </div>
-                            </div>
-                            <div class="screen-edit-label">Time Range</div>
-                            <div class="screen-edit-time-row">
-                                <div class="screen-edit-time-col">
-                                    <div class="screen-edit-time-sublabel">Start Time</div>
-                                    <div class="screen-edit-time-value">9:00 AM</div>
-                                </div>
-                                <div class="screen-edit-time-col">
-                                    <div class="screen-edit-time-sublabel">End Time</div>
-                                    <div class="screen-edit-time-value">5:00 PM</div>
-                                </div>
-                            </div>
-                            <div class="screen-edit-label">Repeat On</div>
-                            <div class="screen-edit-days">
-                                <span class="screen-edit-day active">M</span>
-                                <span class="screen-edit-day">T</span>
-                                <span class="screen-edit-day">W</span>
-                                <span class="screen-edit-day">T</span>
-                                <span class="screen-edit-day">F</span>
-                                <span class="screen-edit-day filled">S</span>
-                                <span class="screen-edit-day filled">S</span>
-                            </div>
-                            <div class="screen-edit-save">Save Schedule</div>
-                            <div class="screen-edit-delete">Delete Schedule</div>
-                        </div>
-                    </div>
+                    <img src="assets/screen-groups.png" alt="BreakOff app groups screen" class="phone-screenshot">
                 </div>
             </div>
         </div>
@@ -312,27 +135,7 @@
             <div class="features-grid">
                 <div class="feature-card-large">
                     <div class="feature-phone">
-                        <div class="phone-frame phone-frame-small">
-                            <div class="phone-notch"></div>
-                            <div class="phone-screen">
-                                <div class="phone-ui">
-                                    <div class="phone-ui-header">
-                                        <span class="phone-ui-title">BreakOff</span>
-                                        <span class="phone-ui-streak">5</span>
-                                    </div>
-                                    <div class="phone-ui-buttons">
-                                        <div class="phone-ui-btn">Start Break</div>
-                                        <div class="phone-ui-btn">Schedule</div>
-                                    </div>
-                                    <div class="phone-ui-progress">
-                                        <div class="phone-ui-progress-label">Daily Progress</div>
-                                        <div class="phone-ui-progress-bar">
-                                            <div class="phone-ui-progress-fill"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <img src="assets/screen-schedule.png" alt="BreakOff Add Schedule screen" class="feature-phone-screenshot">
                     </div>
                     <div class="feature-card-large-content">
                         <h3>Scheduled Breaks</h3>
@@ -433,11 +236,7 @@
             <div class="footer-top">
                 <div class="footer-brand">
                     <a href="#" class="nav-logo footer-logo">
-                        <svg class="nav-logo-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="32" height="32" rx="8" fill="#fff"/>
-                            <rect x="10" y="8" width="4" height="16" rx="1.5" fill="#000"/>
-                            <rect x="18" y="8" width="4" height="16" rx="1.5" fill="#000"/>
-                        </svg>
+                        <img class="nav-logo-icon" src="assets/logo-dark.png" alt="BreakOff" width="32" height="32">
                         <span>BreakOff</span>
                     </a>
                     <p>Unplug and reclaim your time.</p>
