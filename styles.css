@@ -354,7 +354,7 @@ img {
 
 .phone-left {
     transform: translateY(40px);
-    opacity: 0.85;
+    opacity: 1;
 }
 
 .phone-left .phone-frame {
@@ -363,7 +363,7 @@ img {
 
 .phone-right {
     transform: translateY(40px);
-    opacity: 0.85;
+    opacity: 1;
 }
 
 .phone-right .phone-frame {
@@ -1507,7 +1507,7 @@ img {
 
     .phone-left,
     .phone-right {
-        transform: translateY(24px);
+        display: none;
     }
 
     .hero-phones::before {

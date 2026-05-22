@@ -133,7 +133,7 @@
                 <p>BreakOff uses Apple's Family Controls and Screen Time APIs to block apps on your device. Apple's rules — and our own product design — require that the list of apps you choose to block never leaves your device. We take this seriously. Everything else on this page describes the much smaller set of account and product data that does sync to our servers to make features like cross-device sync and subscriptions work.</p>
 
                 <h2>Privacy Policy for BreakOff</h2>
-                <p class="page-meta">Last updated: April 23, 2026</p>
+                <p class="page-meta">Last updated: May 21, 2026</p>
 
                 <h3>1. Introduction</h3>
                 <p>This Privacy Policy describes how BreakOff LLC ("BreakOff," "we," "us," or "our") handles personal information in connection with the BreakOff mobile application ("the App") and the website at breakoff.io ("the Site"). It applies to users in all regions and is written in plain language.</p>
@@ -148,18 +148,33 @@
                 </ul>
                 <p><strong>Data we collect automatically.</strong></p>
                 <ul>
-                    <li><strong>Break history</strong> — timestamps and durations of breaks you've taken, synced to your account so they appear across your devices.</li>
+                    <li><strong>Break history</strong> — timestamps and durations of breaks you've taken, synced to your account so they appear across your devices. This includes every kind of break: ones you start manually, scheduled breaks, QR Code breaks, and &ldquo;I'm Done for the Day&rdquo; breaks. <strong>I'm Done</strong> ends your day early and stays in effect until midnight; like any other break it is recorded only as a timestamp and duration — it does not collect any additional data.</li>
                     <li><strong>Subscription status</strong> — whether you're on the free tier or BreakOff Pro, managed through Apple's App Store and RevenueCat.</li>
                     <li><strong>Crash and performance data</strong> — if the App crashes or performs slowly, diagnostic information is sent to our error-reporting tool (Sentry) so we can fix issues.</li>
+                </ul>
+                <p><strong>Profile data.</strong></p>
+                <ul>
+                    <li><strong>Profile</strong> — when you create a BreakOff account, we generate a basic profile for you: a username and a simple avatar (a colored circle showing your initial). This profile lets your account sync across your devices and is the identity used by the optional Friends feature. You can change your username from within the app.</li>
+                </ul>
+                <p><strong>Friends-feature data (only if you use Friends).</strong> The Friends feature is available only to users 16 and older — see &ldquo;Children's Privacy&rdquo; below.</p>
+                <ul>
+                    <li><strong>Username and stats</strong> — your username, display name, avatar, and break stats (current streak, longest streak, total hours, daily goal, last break time) are visible to users you have accepted as friends, and another user who searches for your exact username can find you and send a friend request. These same stats are used to rank you on the <strong>friends leaderboard</strong>, which is visible only to people you have accepted as friends — there is no global or public leaderboard.</li>
+                    <li><strong>Friend connections</strong> — pairs of users who have accepted a friend request. We do not expose your friend list to anyone outside that pair.</li>
+                    <li><strong>Break invites</strong> — when you send or receive a phone-free break invite, we store the sender, recipient, break name, start and end times, and status (pending, accepted, declined, etc.) until the invite is acted on or you delete your account.</li>
+                    <li><strong>Age</strong> — the first time you open Friends, we ask for your birthdate for the sole purpose of checking that you meet the 16+ minimum age. We derive your age from the date you enter and store that age; we do not store the birthdate itself. Your age is used only to determine Friends eligibility and is never shown to other users.</li>
+                    <li><strong>Block and report records</strong> — if you block or report another user, we record that action so we can keep the two of you separated and follow up on what was reported.</li>
+                    <li><strong>Push tokens</strong> — when you enable notifications, your device registers an Apple push token with us so we can deliver friend-request and invite alerts. The token identifies the device, not you personally.</li>
                 </ul>
                 <p><strong>Data that stays on your device.</strong></p>
                 <ul>
                     <li><strong>Your Family Controls / Screen Time app selections</strong> — the specific apps you choose to block are represented on your device by an opaque token from Apple's <code>FamilyActivitySelection</code> API. This token is never transmitted to our servers, never shared with RevenueCat, never sent to Sentry, and never used for advertising or profiling. Apple's Family Controls Distribution Agreement requires this, and our code strips these identifiers before any cloud sync.</li>
+                    <li><strong>Camera (QR Code breaks)</strong> — the QR Code break lets you scan a QR or barcode of your choosing as a physical &ldquo;unlock anchor.&rdquo; Your camera is used only to read that code on your device. BreakOff does not take photos, record video, or transmit any camera data to our servers or to anyone else — only the decoded text of the code is stored on your device, so the app can recognize the same anchor when you scan it again to end the break.</li>
                 </ul>
 
                 <h3>3. How We Use Your Data</h3>
                 <ul>
                     <li><strong>To operate the App</strong> — authenticate you, sync your breaks and settings across your devices, and manage your subscription.</li>
+                    <li><strong>To run the Friends feature (if you use it)</strong> — let other users find you by username, deliver friend requests and break invites, show streak and stats data (including the friends leaderboard) to your accepted friends, and enforce age and abuse-prevention rules (block, report).</li>
                     <li><strong>To improve the App</strong> — aggregated, de-identified analytics on how features are used, which onboarding paths convert, and which features crash.</li>
                     <li><strong>To support you</strong> — if you email us, we use your email to reply.</li>
                 </ul>
@@ -205,7 +220,9 @@
                 <p>We verify requests by confirming control of the account email or Sign-in-with-Apple identity on file. We respond within the timeframes required by applicable law (typically 30–45 days).</p>
 
                 <h3>10. Children's Privacy</h3>
-                <p>BreakOff is rated 4+ on the App Store because it contains no objectionable content, but the App requires an account. We do not knowingly collect personal information from children under 13 in the United States, under 16 in most EU/EEA countries, or under the applicable minimum age in other jurisdictions. If you believe a child has created an account, please email <a href="mailto:support@breakoff.io">support@breakoff.io</a> and we will delete the account and associated data promptly.</p>
+                <p>BreakOff is rated 4+ on the App Store because it contains no objectionable content, but it is not intended for young children. Setting up a BreakOff account requires entering your birthdate, and anyone who indicates they are under 13 cannot complete setup or use the App's account-based features. We do not knowingly collect personal information from children under 13 in the United States, or under the digital-consent age that applies in their country (16 in much of the EU/EEA). If you are a parent or guardian and believe a child under the applicable age has created an account, please email <a href="mailto:support@breakoff.io">support@breakoff.io</a> and we will delete the account and the data associated with it.</p>
+                <p><strong>Friends feature minimum age.</strong> The Friends feature — searching for and adding friends, friend connections, break invites, the leaderboard, and the related notifications — is restricted to users <strong>16 years of age or older</strong>. The first time you open Friends, we ask for your birthdate solely to check this minimum. We derive your age from it, store the age (not the birthdate), and use it only for this eligibility check. Users under 16 see a message explaining that Friends is unavailable to them; no friend connections, break invites, or leaderboard entries are created for them, and the rest of BreakOff continues to work normally. Every BreakOff account has a basic profile (a username and avatar) that exists only to sync your data across your own devices, but for users who do not meet the 16+ threshold that profile is not used to connect them with any other person.</p>
+                <p>If you believe someone under the applicable minimum age has signed up or is using Friends, please email <a href="mailto:support@breakoff.io">support@breakoff.io</a> and we will delete the account and associated data promptly.</p>
 
                 <h3>11. Website Privacy (breakoff.io)</h3>
                 <p>The marketing site at breakoff.io does not set analytics or advertising cookies and does not embed third-party tracking scripts. Our hosting provider may record standard server logs (IP address, request URL, timestamp, user agent) for security and uptime monitoring. Links from the Site to third-party sites (such as the App Store) are governed by those sites' own privacy policies.</p>

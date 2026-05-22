@@ -23,7 +23,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css?v=2">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
@@ -112,22 +112,28 @@
         </div>
 
         <div class="hero-phones">
-            <!-- Left Phone: Start a Break -->
+            <!-- Phone 1: Start a Break -->
             <div class="phone phone-left">
                 <div class="phone-frame">
-                    <img src="assets/screen-start-break.png" alt="BreakOff Start a Break screen" class="phone-screenshot">
+                    <img src="assets/app-start-break-v2.png" alt="BreakOff Start a Break screen" class="phone-screenshot">
                 </div>
             </div>
-            <!-- Center Phone: Home Screen -->
+            <!-- Phone 2: Home Screen -->
             <div class="phone phone-center">
                 <div class="phone-frame">
-                    <img src="assets/screen-home.png" alt="BreakOff home screen" class="phone-screenshot">
+                    <img src="assets/app-home-v2.png" alt="BreakOff home screen" class="phone-screenshot">
                 </div>
             </div>
-            <!-- Right Phone: Streak History -->
+            <!-- Phone 3: Friends & Leaderboard -->
+            <div class="phone phone-center">
+                <div class="phone-frame">
+                    <img src="assets/app-friends-v2.png" alt="BreakOff Friends and Leaderboard screen" class="phone-screenshot">
+                </div>
+            </div>
+            <!-- Phone 4: Streak History -->
             <div class="phone phone-right">
                 <div class="phone-frame">
-                    <img src="assets/screen-streaks.png" alt="BreakOff Streak History screen" class="phone-screenshot">
+                    <img src="assets/app-streaks-v2.png" alt="BreakOff Streak History screen" class="phone-screenshot">
                 </div>
             </div>
         </div>
@@ -145,7 +151,7 @@
             <div class="features-grid">
                 <div class="feature-card-large">
                     <div class="feature-phone">
-                        <img src="assets/screen-schedule.png" alt="BreakOff Add Schedule screen" class="feature-phone-screenshot">
+                        <img src="assets/app-schedule-v2.png" alt="BreakOff Add Schedule screen" class="feature-phone-screenshot">
                     </div>
                     <div class="feature-card-large-content">
                         <h3>Scheduled Breaks</h3>
@@ -188,6 +194,75 @@
                         <h4>App Blocking</h4>
                         <p>Block distracting apps during your break sessions. Choose from presets like Flip Phone mode or customize your own blocklist.</p>
                     </div>
+                </div>
+            </div>
+
+            <div class="features-grid-extra" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px;">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                            <line x1="14" y1="14" x2="14" y2="21"/>
+                            <line x1="21" y1="14" x2="21" y2="21"/>
+                            <line x1="14" y1="17.5" x2="21" y2="17.5"/>
+                        </svg>
+                    </div>
+                    <h4>QR Code Breaks</h4>
+                    <p>Turn any QR code into a commitment device. Scan a code to lock in &mdash; stick it on the fridge, leave it in another room &mdash; and your break won't end until you come back and scan it again.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                            <polyline points="22 4 12 14.01 9 11.01"/>
+                        </svg>
+                    </div>
+                    <h4>I'm Done for the Day</h4>
+                    <p>One tap ends your scrolling for good. &ldquo;I'm Done&rdquo; locks your distracting apps until midnight &mdash; no pause, no undo. The strongest commitment BreakOff offers.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <h4>Friends</h4>
+                    <p>Add friends by username and take phone-free breaks together. Accountability works better with someone in it with you. Available for ages 16 and up.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="4" y1="21" x2="4" y2="12"/>
+                            <line x1="12" y1="21" x2="12" y2="4"/>
+                            <line x1="20" y1="21" x2="20" y2="14"/>
+                        </svg>
+                    </div>
+                    <h4>Leaderboard</h4>
+                    <p>See how your streaks and focus hours stack up against your friends. A little friendly competition goes a long way toward staying off your phone.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Friends Showcase -->
+    <section class="friends-showcase" style="padding:0 0 64px;">
+        <div class="container">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
+                <div style="flex:0 0 240px;display:flex;justify-content:center;">
+                    <img src="assets/app-friends-v2.png" alt="BreakOff Friends and Leaderboard screen" class="phone-screenshot" style="width:240px;">
+                </div>
+                <div style="flex:1 1 320px;min-width:280px;">
+                    <div class="section-badge">Friends &amp; Leaderboard</div>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">Stay off your phone,<br>together</h2>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Add friends by username, send break invites, and take phone-free time together. The leaderboard ranks your streaks and focus hours against the friends you've added &mdash; a little accountability goes a long way. Friends is available for ages 16 and up.</p>
                 </div>
             </div>
         </div>
