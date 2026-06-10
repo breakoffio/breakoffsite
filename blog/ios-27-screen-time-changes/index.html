@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple's New Screen Time in iOS 27: What Changed, and Why You'll Still Need More - BreakOff</title>
+    <meta name="description" content="Apple redesigned Screen Time at WWDC 2026 with Time Allowances, Ask to Browse, and new Safety APIs. Here's what actually changed in iOS 27, and the gap Apple still won't fill.">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Apple's New Screen Time in iOS 27: What Changed, and Why You'll Still Need More">
+    <meta property="og:description" content="Apple redesigned Screen Time at WWDC 2026. We break down Time Allowances, Ask to Browse, and the gap Apple still won't fill.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://breakoff.io/blog/ios-27-screen-time-changes">
+    <meta property="article:published_time" content="2026-06-10">
+    <link rel="canonical" href="https://breakoff.io/blog/ios-27-screen-time-changes">
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon-16.png">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/blog/blog.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Apple's New Screen Time in iOS 27: What Changed, and Why You'll Still Need More",
+        "description": "Apple redesigned Screen Time at WWDC 2026 with Time Allowances, Ask to Browse, and new Safety APIs. We break down what actually changed in iOS 27 and the gap Apple still won't fill.",
+        "datePublished": "2026-06-10",
+        "author": { "@type": "Organization", "name": "BreakOff" },
+        "publisher": { "@type": "Organization", "name": "BreakOff", "url": "https://breakoff.io" }
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="/" class="nav-logo">
+                <img class="nav-logo-icon" src="/assets/logo-dark.png" alt="BreakOff" width="32" height="32">
+                <span>BreakOff</span>
+            </a>
+            <div class="nav-links">
+                <a href="/#features">Features</a>
+                <a href="/blog/" style="color: var(--black);">Blog</a>
+            </div>
+            <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
+                Download
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
+            </a>
+            <button class="nav-mobile-toggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article -->
+    <article class="blog-article">
+        <a href="/blog/" class="blog-article-back">&larr; Back to Blog</a>
+        <span class="blog-article-tag">Platform</span>
+        <h1>Apple's New Screen Time in iOS 27: What Changed, and Why You'll Still Need More</h1>
+        <div class="blog-article-meta">June 10, 2026 &middot; 6 min read</div>
+
+        <p>Apple finally redesigned Screen Time. On Monday at WWDC 2026, it announced the biggest overhaul since the feature launched in 2018: a new look, Time Allowances, Ask to Browse, simpler Child Accounts, and a fresh set of Safety APIs for developers. Everything ships this fall with iOS 27.</p>
+
+        <p>We build a screen time app for a living, so we watched the keynote with more interest than most. Here's our honest read: the updates are real improvements. And almost none of them are for you.</p>
+
+        <h2>What Apple Actually Announced</h2>
+
+        <p><strong>A redesigned Screen Time experience.</strong> The Screen Time settings and reports get a cleaner layout. Less digging through nested menus, more glanceable summaries. Overdue and welcome.</p>
+
+        <p><strong>Time Allowances.</strong> This is the headline feature. Parents can set exactly how long a child spends in specific apps, and which apps are available at different times of day. You can set per-category budgets too, so games and social apps follow different rules than learning apps. It's a smarter, more flexible version of the old App Limits.</p>
+
+        <p><strong>Ask to Browse.</strong> A new web permission model for kids. Instead of a blunt allowlist, children can request access to sites and parents approve from their own device.</p>
+
+        <p><strong>Streamlined Child Accounts.</strong> Setting up a kid's device now walks parents through the whole thing automatically, with a recommended set of essential apps. Child Accounts are mandatory under 13 and available up to 18.</p>
+
+        <p><strong>Safety APIs for developers.</strong> Apps can now respect a child's age range and adjust their experience automatically, without a parent configuring every app by hand. As developers, this is the part we'll be digging into before the fall release.</p>
+
+        <h2>Notice the Pattern?</h2>
+
+        <p>Parents. Children. Child Accounts. Kids' browsing. A child's age.</p>
+
+        <p>Every single headline feature assumes one thing: there's a responsible adult holding the keys, and a kid on the other side of the wall.</p>
+
+        <p>Here's the uncomfortable part. The average American adult checks their phone around 352 times a day. Roughly half of US teens say they feel addicted to their phones, but adults are not far behind, and we spend over four hours a day on these things. Nobody is parenting us.</p>
+
+        <p>Apple keeps treating compulsive phone use as a parenting problem. It's not. It's an everyone problem. And the tools Apple gives adults, the same App Limits we've had for years, still come with the famous one-tap escape hatch: "Remind Me in 15 Minutes." If you've ever tapped that button five times in a row (we have), you already know how this story ends.</p>
+
+        <h2>Why Walls Don't Work When You Own the Keys</h2>
+
+        <p>Time Allowances will genuinely help parents. When someone else sets the limit and holds the password, walls work.</p>
+
+        <p>But when you set your own limit on your own device, the wall is theater. You built it. You can unbuild it. The hard part of screen time was never the blocking mechanism. It's the moment of decision when the block kicks in and your thumb is already moving toward "ignore."</p>
+
+        <p>That's a motivation problem, not an access problem. And it's exactly the gap third-party apps live in. The research backs this up: interventions that add friction and intention, rather than hard locks, show real measurable results. A <a href="https://mhealth.jmir.org/2026/1/e56824" target="_blank" rel="noopener">randomized controlled trial published this year</a> found that a self-regulation app cut time on people's most problematic app by about 29 minutes a day. Not by locking anyone out. By making them notice.</p>
+
+        <h2>The Part Nobody Says Out Loud</h2>
+
+        <p>Apple ships screen time features every June. Screen time keeps going up every year.</p>
+
+        <p>We don't think that's a conspiracy. But it is an incentive problem. The company that sells you the device, the services, and the App Store cut is not the company best positioned to help you use all of it less. Engagement pays Apple's bills too.</p>
+
+        <p>So Apple builds what it can credibly build: protection for kids, where the incentives are clean and the PR is good. Protection for adults from their own habits? That stays a one-tap-to-dismiss afterthought.</p>
+
+        <h2>What This Means If You're Trying to Cut Back</h2>
+
+        <p><strong>If you're a parent:</strong> the iOS 27 updates are legitimately good. Use Time Allowances when they arrive this fall. They're better than anything third-party apps can offer for managing a kid's device, because Apple controls the OS.</p>
+
+        <p><strong>If you're an adult trying to manage your own phone:</strong> nothing announced this week changes your situation. You still need something that works on motivation, not just access. Scheduled breaks you commit to in advance. Friction at the moment of temptation. Streaks that make you want to stay off, instead of walls that dare you to climb.</p>
+
+        <p>That's the approach we took with BreakOff. Pick the apps that eat your time, schedule breaks from them, and build a streak. Flexible mode when you want a nudge, locked mode when you mean it. It works with Apple's Screen Time framework underneath, but the design is built for someone who owns their own keys.</p>
+
+        <div class="blog-cta">
+            <p><strong>Don't wait for iOS 27 to fix your scrolling.</strong> BreakOff is free, takes 30 seconds to set up, and is built for adults, not just kids.</p>
+            <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="btn-primary" target="_blank" rel="noopener">Download BreakOff Free</a>
+        </div>
+
+        <h2>Sources</h2>
+        <ul>
+            <li><a href="https://www.fonearena.com/blog/484607/apple-wwdc26-child-safety-features.html" target="_blank" rel="noopener">FoneArena: Apple WWDC26 child safety features</a></li>
+            <li><a href="https://appleosophy.com/2026/06/08/apple-unveils-major-parental-control-upgrades-at-wwdc-2026/" target="_blank" rel="noopener">Appleosophy: Apple unveils major parental control upgrades at WWDC 2026</a></li>
+            <li><a href="https://www.newegg.com/insider/apple-parental-controls-at-wwdc-2026-the-new-child-account-tools-explained" target="_blank" rel="noopener">Newegg Insider: The new Child Account tools explained</a></li>
+            <li><a href="https://developer.apple.com/documentation/screentimeapidocumentation" target="_blank" rel="noopener">Apple Developer: Screen Time Technology Frameworks</a></li>
+            <li><a href="https://mhealth.jmir.org/2026/1/e56824" target="_blank" rel="noopener">JMIR mHealth: Wellspent randomized controlled trial</a></li>
+        </ul>
+
+        <hr style="margin: 48px 0 24px; border: none; border-top: 1px solid #e5e5e5;">
+        <p style="font-size: 0.8rem; color: #a3a3a3; line-height: 1.6;"><em>Disclaimer: This article is for informational purposes only and does not constitute medical, psychological, or professional health advice. If you have concerns about screen time, device usage, or digital wellness, please consult a qualified healthcare professional. BreakOff is a productivity and wellness tool, not a medical device or treatment. Apple, iOS, and Screen Time are trademarks of Apple Inc. Feature details are based on Apple's WWDC 2026 announcements and may change before public release.</em></p>
+    </article>
+
+    <!-- Footer -->
+    <footer class="blog-footer">
+        <p>&copy; 2026 BreakOff LLC &middot; <a href="/privacy/">Privacy</a> &middot; <a href="/terms/">Terms</a> &middot; <a href="/support/">Support</a></p>
+    </footer>
+
+    <script src="/script.js"></script>
+</body>
+</html>
