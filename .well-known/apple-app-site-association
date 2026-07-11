@@ -1,0 +1,11 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "YKXL225CA7.com.breakoffio.breakoff",
+        "paths": ["/invite/*", "/s/*"]
+      }
+    ]
+  }
+}

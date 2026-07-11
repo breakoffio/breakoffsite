@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Join a Phone-Free Break on BreakOff</title>
+
+  <meta name="description" content="A friend invited you to a phone-free break on BreakOff. Open the app to join, or download it from the App Store." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BreakOff" />
+  <meta property="og:title" content="Join a Phone-Free Break on BreakOff" />
+  <meta property="og:description" content="A friend invited you to a phone-free break. Tap to join." />
+  <meta property="og:image" content="https://breakoff.io/og-invite.png" />
+  <meta property="og:url" content="https://breakoff.io/invite" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Join a Phone-Free Break on BreakOff" />
+  <meta name="twitter:description" content="A friend invited you to a phone-free break. Tap to join." />
+  <meta name="twitter:image" content="https://breakoff.io/og-invite.png" />
+
+  <meta name="apple-itunes-app" content="app-id=6751491331" />
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #0A0A0A;
+      color: #F7FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 24px;
+      gap: 32px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .logo {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #5A4AA9, #6B7DD8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: -0.5px;
+      color: #fff;
+    }
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      letter-spacing: -0.4px;
+    }
+    p.lede {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #A0A0A0;
+      text-align: center;
+      margin: 0;
+    }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #6B7DD8;
+      background: rgba(107, 125, 216, 0.12);
+      border: 1px solid rgba(107, 125, 216, 0.3);
+      padding: 6px 12px;
+      border-radius: 8px;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+    a.btn {
+      display: block;
+      padding: 16px 20px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    a.btn:active { opacity: 0.8; }
+    a.btn.primary {
+      background: #F7FAFC;
+      color: #0A0A0A;
+    }
+    a.btn.secondary {
+      background: transparent;
+      color: #F7FAFC;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    footer {
+      font-size: 13px;
+      color: #5e5e5e;
+      text-align: center;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="logo">B</div>
+    <h1>Join a Phone-Free Break on BreakOff</h1>
+    <p class="lede">A friend invited you. Open the app to join their break, or download BreakOff if you don't have it yet.</p>
+    <span class="code" id="code-display"></span>
+
+    <div class="actions">
+      <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
+      <a class="btn secondary" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
+    </div>
+
+    <footer>BreakOff is a screen-time app for iPhone.</footer>
+  </main>
+
+  <script>
+    (function () {
+      // Derive the code from the path. /invite/{code} → code = last segment.
+      // Fall back gracefully if the static host serves this file at /invite.
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var code = parts.length >= 2 && parts[0] === 'invite' ? parts[1] : '';
+
+      if (code && /^[A-Za-z0-9]{8}$/.test(code)) {
+        document.getElementById('code-display').textContent = 'Invite code: ' + code;
+        document.getElementById('open-btn').href = 'breakoff://invite/' + code;
+      } else {
+        document.getElementById('code-display').style.display = 'none';
+        document.getElementById('open-btn').href = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+      }
+    })();
+  </script>
+
+  <!-- PostHog web snippet. Same project, same write-only client key. -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    try {
+      posthog.init('phc_vkUKHJJ6ot5zWo3rdyB94o8Zg2Kv5qrofWRJ6iD5eJEv', {
+        api_host: 'https://us.i.posthog.com',
+        capture_pageview: true,
+        disable_session_recording: true
+      });
+      var inviteCode = (window.location.pathname.split('/').filter(Boolean)[1]) || '';
+      posthog.capture('invite_link_opened', { code: inviteCode, source: 'web_landing' });
+    } catch (e) {}
+  </script>
+</body>
+</html>

@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>BreakOff</title>
+
+  <meta name="description" content="Add this phone-free break to BreakOff. Free, no account needed." />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="BreakOff" />
+  <meta property="og:title" content="Add this break to BreakOff" />
+  <meta property="og:description" content="Scan to add it to your BreakOff Schedules." />
+  <meta property="og:image" content="https://breakoff.io/og-invite.png" />
+  <meta property="og:url" content="https://breakoff.io/" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Add this break to BreakOff" />
+  <meta name="twitter:description" content="Scan to add it to your BreakOff Schedules." />
+  <meta name="twitter:image" content="https://breakoff.io/og-invite.png" />
+
+  <meta name="apple-itunes-app" content="app-id=6751491331" />
+
+  <!--
+    GitHub Pages fallback router for breakoff.io.
+
+    GitHub Pages has no rewrite rules, so /s/{code} and /invite/{code}
+    (paths with no real file behind them) land here. GitHub serves this
+    page AT the requested URL, so location.pathname still holds the
+    original path and we render the right experience client-side:
+
+      /s/{code}       -> schedule-share landing (Host a break poster lane)
+      /invite/{code}  -> open-invite landing (friends lane)
+      anything else   -> plain not-found with a link home
+
+    Note: the HTTP status is 404 by GitHub Pages design. Humans see the
+    correct page; universal links are unaffected (iOS reads the AASA
+    file, never this page).
+  -->
+
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #0A0A0A;
+      color: #F7FAFC;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    main {
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px 24px;
+      gap: 28px;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+    .wordmark {
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.6px;
+      color: #FFFFFF;
+    }
+    h1 {
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      text-align: center;
+      margin: 0;
+      letter-spacing: -0.4px;
+    }
+    .lede {
+      color: #A0A0A0;
+      font-size: 15px;
+      line-height: 1.5;
+      text-align: center;
+      margin: 0;
+    }
+    .preview {
+      width: 100%;
+      background: #1E1E20;
+      border-radius: 22px;
+      padding: 22px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .preview .title {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+    .preview .meta {
+      color: #A0A0A0;
+      font-size: 14px;
+    }
+    .code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #B0B7C5;
+    }
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+    a.btn {
+      display: block;
+      padding: 16px 20px;
+      border-radius: 16px;
+      text-align: center;
+      font-weight: 600;
+      font-size: 17px;
+      text-decoration: none;
+      transition: opacity 0.15s ease;
+    }
+    a.btn:active { opacity: 0.8; }
+    a.btn.primary {
+      background: #F7FAFC;
+      color: #0A0A0A;
+    }
+    a.btn.secondary {
+      background: transparent;
+      color: #F7FAFC;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    footer {
+      font-size: 13px;
+      color: #5e5e5e;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="wordmark">BreakOff</div>
+    <h1 id="page-title">Add this break to BreakOff</h1>
+    <p class="lede hidden" id="page-lede"></p>
+
+    <div class="preview" id="preview-card">
+      <div class="title" id="preview-title">Loading...</div>
+      <div class="meta" id="preview-meta"></div>
+      <span class="code" id="preview-code"></span>
+    </div>
+
+    <div class="actions">
+      <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
+      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
+    </div>
+
+    <footer>BreakOff is a screen-time app for iPhone.</footer>
+  </main>
+
+  <script>
+    (function () {
+      var SUPABASE_URL = 'https://qpoywatpflqdbpfejnas.supabase.co';
+      var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
+      var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+      var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var CODE_RE = /^[A-Za-z0-9]{8}$/;
+
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var lane = parts[0] || '';
+      var code = parts[1] || '';
+
+      var titleH1 = document.getElementById('page-title');
+      var lede = document.getElementById('page-lede');
+      var card = document.getElementById('preview-card');
+      var titleEl = document.getElementById('preview-title');
+      var metaEl = document.getElementById('preview-meta');
+      var codeEl = document.getElementById('preview-code');
+      var openBtn = document.getElementById('open-btn');
+
+      function show(el) { el.classList.remove('hidden'); }
+      function hide(el) { el.classList.add('hidden'); }
+
+      function setNotFound(message) {
+        titleEl.textContent = 'This link is not active';
+        metaEl.textContent = message || 'Ask whoever shared it for a fresh link.';
+        hide(codeEl);
+        openBtn.href = APP_STORE;
+        openBtn.textContent = 'Get BreakOff';
+      }
+
+      function setPlainNotFound() {
+        titleH1.textContent = 'Page not found';
+        lede.textContent = 'That page does not exist. BreakOff helps you take scheduled breaks from your phone.';
+        show(lede);
+        hide(card);
+        openBtn.href = 'https://breakoff.io/';
+        openBtn.textContent = 'Go to breakoff.io';
+      }
+
+      // ------- lane: /invite/{code} (friends, open invites) -------
+      if (lane === 'invite') {
+        titleH1.textContent = 'Join a Phone-Free Break on BreakOff';
+        lede.textContent = "A friend invited you. Open the app to join their break, or download BreakOff if you don't have it yet.";
+        show(lede);
+        if (code && CODE_RE.test(code)) {
+          hide(card);
+          openBtn.href = 'breakoff://invite/' + code;
+          // Show the code under the buttons so it can be typed in manually.
+          show(codeEl);
+          codeEl.textContent = 'Invite code: ' + code;
+          card.classList.remove('hidden');
+          titleEl.textContent = 'Your invite code';
+          metaEl.textContent = 'If the app does not open, install BreakOff and enter this code.';
+        } else {
+          setNotFound('This invite link looks incomplete.');
+        }
+        return;
+      }
+
+      // ------- lane: /s/{code} (public schedule / Host a break) -------
+      if (lane === 's') {
+        if (!code || !CODE_RE.test(code)) {
+          setNotFound('This link looks incomplete.');
+          return;
+        }
+        codeEl.textContent = 'Code: ' + code;
+        openBtn.href = 'breakoff://share/' + code;
+
+        var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
+          + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name';
+        fetch(url, {
+          headers: {
+            apikey: SUPABASE_ANON,
+            Authorization: 'Bearer ' + SUPABASE_ANON,
+          },
+        }).then(function (r) {
+          return r.ok ? r.json() : [];
+        }).then(function (rows) {
+          if (!rows || rows.length === 0) {
+            setNotFound();
+            return;
+          }
+          var row = rows[0];
+          titleEl.textContent = row.title || 'Phone-free break';
+          var duration = row.duration_minutes
+            ? (row.duration_minutes >= 60 && row.duration_minutes % 60 === 0
+                ? (row.duration_minutes / 60) + ' hour break'
+                : row.duration_minutes + ' minute break')
+            : '';
+          if (row.share_type === 'instant') {
+            // Poster lane: no clock window, the break starts on scan.
+            var host = row.business_name ? 'Hosted by ' + row.business_name : '';
+            metaEl.textContent = [duration, 'Starts when you add it', host].filter(Boolean).join(' · ');
+          } else {
+            var days = '';
+            try {
+              var arr = Array.isArray(row.days) ? row.days : [];
+              var sorted = arr.slice().sort(function (a, b) { return a - b; });
+              days = sorted.length === 7 ? 'Every day' : sorted.map(function (d) {
+                return DAY_NAMES[d] || '?';
+              }).join(' · ');
+            } catch (e) {}
+            var window_ = (row.start_time && row.end_time)
+              ? row.start_time + ' to ' + row.end_time
+              : '';
+            metaEl.textContent = [days, window_, duration].filter(Boolean).join(' · ');
+          }
+        }).catch(function () {
+          setNotFound();
+        });
+        return;
+      }
+
+      // ------- anything else: real 404 -------
+      setPlainNotFound();
+    })();
+  </script>
+
+  <!-- PostHog web snippet. Same project, write-only client key. -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    try {
+      posthog.init('phc_vkUKHJJ6ot5zWo3rdyB94o8Zg2Kv5qrofWRJ6iD5eJEv', {
+        api_host: 'https://us.i.posthog.com',
+        capture_pageview: true,
+        disable_session_recording: true
+      });
+      var p = window.location.pathname.split('/').filter(Boolean);
+      if (p[0] === 'invite') {
+        posthog.capture('invite_link_opened', { code: p[1] || '', source: 'web_landing' });
+      } else if (p[0] === 's') {
+        posthog.capture('share_link_opened', { code: p[1] || '', source: 'web_landing' });
+      }
+    } catch (e) {}
+  </script>
+</body>
+</html>
