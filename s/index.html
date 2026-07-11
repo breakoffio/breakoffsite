@@ -66,58 +66,70 @@
       text-align: center;
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 12px;
       align-items: center;
     }
-    .logo {
-      width: 56px;
-      height: 56px;
-      border-radius: 16px;
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo-row img {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
       object-fit: cover;
       background: #2A2A2E;
-      display: none;
+    }
+    .logo-row .x {
+      color: #5E6570;
+      font-size: 15px;
+      font-weight: 600;
     }
     .preview .title {
-      font-size: 21px;
+      font-size: 22px;
       font-weight: 700;
       letter-spacing: -0.3px;
     }
     .preview .host {
       color: #A0A0A0;
       font-size: 14px;
-      margin-top: -4px;
+      margin-top: -6px;
     }
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
+    .details {
+      width: 100%;
+      border-top: 1px solid rgba(255,255,255,0.08);
       margin-top: 4px;
     }
-    .chip {
+    .detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 16px;
+      padding: 11px 2px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .detail-row:last-child { border-bottom: none; }
+    .detail-row .label {
+      color: #8A919C;
       font-size: 13px;
       font-weight: 600;
-      color: #E8ECF2;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.10);
-      border-radius: 999px;
-      padding: 6px 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      flex: none;
+    }
+    .detail-row .value {
+      color: #F0F3F7;
+      font-size: 15px;
+      font-weight: 600;
+      text-align: right;
+      line-height: 1.4;
     }
     .preview .meta {
       color: #A0A0A0;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.45;
     }
-    .apps-note {
-      color: #A0A0A0;
-      font-size: 13px;
-      line-height: 1.5;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      padding-top: 12px;
-      margin-top: 4px;
-      width: 100%;
-    }
-    .apps-note b { color: #D7DCE3; font-weight: 600; }
     .code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12px;
@@ -196,12 +208,15 @@
     <h1 id="page-title">Add this break to BreakOff</h1>
 
     <div class="preview" id="preview-card">
-      <img class="logo" id="host-logo" alt="" />
+      <div class="logo-row" id="logo-row">
+        <img id="host-logo" alt="" class="hidden" />
+        <span class="x hidden" id="logo-x">×</span>
+        <img src="/assets/icon-192.png" alt="BreakOff" />
+      </div>
       <div class="title" id="preview-title">Loading...</div>
       <div class="host" id="preview-host"></div>
-      <div class="chips" id="preview-chips"></div>
+      <div class="details hidden" id="details"></div>
       <div class="meta" id="preview-meta"></div>
-      <div class="apps-note hidden" id="apps-note"></div>
       <span class="code" id="preview-code"></span>
     </div>
 
@@ -230,20 +245,27 @@
       var code = parts.length >= 2 && parts[0] === 's' ? parts[1] : '';
       var titleH1 = document.getElementById('page-title');
       var logoEl = document.getElementById('host-logo');
+      var logoXEl = document.getElementById('logo-x');
       var codeEl = document.getElementById('preview-code');
       var titleEl = document.getElementById('preview-title');
       var hostEl = document.getElementById('preview-host');
-      var chipsEl = document.getElementById('preview-chips');
+      var detailsEl = document.getElementById('details');
       var metaEl = document.getElementById('preview-meta');
-      var appsNoteEl = document.getElementById('apps-note');
       var stepsEl = document.getElementById('steps');
       var openBtn = document.getElementById('open-btn');
 
-      function addChip(text) {
-        var c = document.createElement('span');
-        c.className = 'chip';
-        c.textContent = text;
-        chipsEl.appendChild(c);
+      function addDetail(label, value) {
+        var row = document.createElement('div');
+        row.className = 'detail-row';
+        var l = document.createElement('span');
+        l.className = 'label';
+        l.textContent = label;
+        var v = document.createElement('span');
+        v.className = 'value';
+        v.textContent = value;
+        row.appendChild(l);
+        row.appendChild(v);
+        detailsEl.appendChild(row);
       }
 
       function setNotFound() {
@@ -280,10 +302,12 @@
         var row = rows[0];
         titleEl.textContent = row.title || 'Phone-free break';
 
-        // Host identity: logo + name when the poster carries them.
+        // Co-branded logo row: org logo × BreakOff when the poster carries
+        // a logo, just the BreakOff mark otherwise.
         if (row.logo_url && /^https:\/\//i.test(row.logo_url)) {
           logoEl.src = row.logo_url;
-          logoEl.style.display = 'block';
+          logoEl.classList.remove('hidden');
+          logoXEl.classList.remove('hidden');
         }
         if (row.business_name) {
           hostEl.textContent = 'Hosted by ' + row.business_name;
@@ -297,41 +321,36 @@
               : row.duration_minutes + ' minutes')
           : '';
 
-        if (row.share_type === 'instant') {
-          titleH1.textContent = 'You found a phone-free break';
-          if (duration) addChip(duration);
-          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
-          metaEl.textContent = 'The timer starts the moment you add it, whenever that is.';
-        } else {
-          if (duration) addChip(duration + ' break');
-          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
+        // Break-details rows, mirroring the in-app card: Duration, Type,
+        // Apps allowed (the host's keep-open suggestions; blocking is
+        // always the scanner's own choice on their own phone).
+        detailsEl.classList.remove('hidden');
+        if (duration) addDetail('Duration', duration);
+        addDetail('Type', row.mode === 'locked' ? 'Locked' : 'Flexible');
+        if (row.share_type !== 'instant') {
           var days = '';
           try {
             var arr = Array.isArray(row.days) ? row.days : [];
             var sorted = arr.slice().sort(function (a, b) { return a - b; });
             days = sorted.length === 7 ? 'Every day' : sorted.map(function (d) {
               return DAY_NAMES[d] || '?';
-            }).join(' · ');
+            }).join(', ');
           } catch (e) {}
-          var window_ = (row.start_time && row.end_time)
-            ? row.start_time + ' to ' + row.end_time
-            : '';
-          metaEl.textContent = [days, window_].filter(Boolean).join(' · ');
+          if (days) addDetail('Days', days);
+          if (row.start_time && row.end_time) {
+            addDetail('Time', row.start_time + ' to ' + row.end_time);
+          }
         }
-
-        // Keep-open suggestions ride along for display only; the scanner
-        // always picks their own blocked apps on their own phone.
         var apps = Array.isArray(row.recommended_apps)
           ? row.recommended_apps.filter(function (a) { return typeof a === 'string' && a; })
           : [];
-        if (apps.length > 0) {
-          appsNoteEl.innerHTML = '';
-          var b = document.createElement('b');
-          b.textContent = apps.join(', ');
-          appsNoteEl.appendChild(document.createTextNode('The host suggests keeping '));
-          appsNoteEl.appendChild(b);
-          appsNoteEl.appendChild(document.createTextNode(' open. You choose what blocks on your phone.'));
-          appsNoteEl.classList.remove('hidden');
+        addDetail('Apps allowed', apps.length > 0 ? apps.join(', ') : 'Your choice');
+
+        if (row.share_type === 'instant') {
+          titleH1.textContent = 'You found a phone-free break';
+          metaEl.textContent = 'The timer starts the moment you add it. You choose what blocks on your phone.';
+        } else {
+          metaEl.textContent = 'Adds to your Schedules. You choose what blocks on your phone.';
         }
       }).catch(function () {
         setNotFound();
