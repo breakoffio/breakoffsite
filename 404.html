@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>BreakOff</title>
+  <title>Add this break to BreakOff</title>
 
   <meta name="description" content="Add this phone-free break to BreakOff. Free, no account needed." />
 
@@ -12,7 +12,7 @@
   <meta property="og:title" content="Add this break to BreakOff" />
   <meta property="og:description" content="Scan to add it to your BreakOff Schedules." />
   <meta property="og:image" content="https://breakoff.io/og-invite.png" />
-  <meta property="og:url" content="https://breakoff.io/" />
+  <meta property="og:url" content="https://breakoff.io/s" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Add this break to BreakOff" />
@@ -20,23 +20,6 @@
   <meta name="twitter:image" content="https://breakoff.io/og-invite.png" />
 
   <meta name="apple-itunes-app" content="app-id=6751491331" />
-
-  <!--
-    GitHub Pages fallback router for breakoff.io.
-
-    GitHub Pages has no rewrite rules, so /s/{code} and /invite/{code}
-    (paths with no real file behind them) land here. GitHub serves this
-    page AT the requested URL, so location.pathname still holds the
-    original path and we render the right experience client-side:
-
-      /s/{code}       -> schedule-share landing (Host a break poster lane)
-      /invite/{code}  -> open-invite landing (friends lane)
-      anything else   -> plain not-found with a link home
-
-    Note: the HTTP status is 404 by GitHub Pages design. Humans see the
-    correct page; universal links are unaffected (iOS reads the AASA
-    file, never this page).
-  -->
 
   <style>
     :root { color-scheme: dark; }
@@ -57,30 +40,23 @@
       justify-content: center;
       align-items: center;
       padding: 32px 24px;
-      gap: 28px;
+      gap: 22px;
       max-width: 480px;
       margin: 0 auto;
     }
     .wordmark {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.6px;
       color: #FFFFFF;
     }
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1.2;
       font-weight: 700;
       text-align: center;
       margin: 0;
       letter-spacing: -0.4px;
-    }
-    .lede {
-      color: #A0A0A0;
-      font-size: 15px;
-      line-height: 1.5;
-      text-align: center;
-      margin: 0;
     }
     .preview {
       width: 100%;
@@ -91,22 +67,98 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      align-items: center;
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: #2A2A2E;
+      display: none;
     }
     .preview .title {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: -0.3px;
+    }
+    .preview .host {
+      color: #A0A0A0;
+      font-size: 14px;
+      margin-top: -4px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 13px;
+      font-weight: 600;
+      color: #E8ECF2;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      padding: 6px 12px;
     }
     .preview .meta {
       color: #A0A0A0;
       font-size: 14px;
+      line-height: 1.45;
     }
+    .apps-note {
+      color: #A0A0A0;
+      font-size: 13px;
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 12px;
+      margin-top: 4px;
+      width: 100%;
+    }
+    .apps-note b { color: #D7DCE3; font-weight: 600; }
     .code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 1px;
-      color: #B0B7C5;
+      color: #7d8592;
     }
+    .steps {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .step .n {
+      flex: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      color: #E8ECF2;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .step p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #C7CCD4;
+    }
+    .step p b { color: #F7FAFC; font-weight: 600; }
     .actions {
       display: flex;
       flex-direction: column;
@@ -124,10 +176,7 @@
       transition: opacity 0.15s ease;
     }
     a.btn:active { opacity: 0.8; }
-    a.btn.primary {
-      background: #F7FAFC;
-      color: #0A0A0A;
-    }
+    a.btn.primary { background: #F7FAFC; color: #0A0A0A; }
     a.btn.secondary {
       background: transparent;
       color: #F7FAFC;
@@ -137,21 +186,36 @@
       font-size: 13px;
       color: #5e5e5e;
       text-align: center;
-      margin-top: 8px;
     }
-    .hidden { display: none; }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
+  <!--
+    GitHub Pages fallback router for breakoff.io. GH Pages has no rewrite
+    rules, so /s/{code} and /invite/{code} land here; location.pathname
+    still holds the original path and we render the right lane client-side.
+    HTTP status is 404 by GH Pages design; humans see the correct page and
+    universal links read the AASA file, never this page.
+  -->
   <main>
     <div class="wordmark">BreakOff</div>
     <h1 id="page-title">Add this break to BreakOff</h1>
-    <p class="lede hidden" id="page-lede"></p>
 
     <div class="preview" id="preview-card">
+      <img class="logo" id="host-logo" alt="" />
       <div class="title" id="preview-title">Loading...</div>
+      <div class="host" id="preview-host"></div>
+      <div class="chips" id="preview-chips"></div>
       <div class="meta" id="preview-meta"></div>
+      <div class="apps-note hidden" id="apps-note"></div>
       <span class="code" id="preview-code"></span>
+    </div>
+
+    <div class="steps" id="steps">
+      <div class="step"><span class="n">1</span><p><b>Get BreakOff</b> from the App Store. It's free and you don't need an account.</p></div>
+      <div class="step"><span class="n">2</span><p><b>Scan the poster again</b> (or tap this link). You'll pick which apps to pause. That choice always stays on your phone.</p></div>
+      <div class="step"><span class="n">3</span><p><b>Start the break.</b> Your picked apps go quiet, calls and anything you kept still work.</p></div>
     </div>
 
     <div class="actions">
@@ -159,7 +223,7 @@
       <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
     </div>
 
-    <footer>BreakOff is a screen-time app for iPhone.</footer>
+    <footer>Free · No account needed · BreakOff is a screen-time app for iPhone</footer>
   </main>
 
   <script>
@@ -168,116 +232,148 @@
       var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
       var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
       var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
-      var CODE_RE = /^[A-Za-z0-9]{8}$/;
 
       var parts = window.location.pathname.split('/').filter(Boolean);
       var lane = parts[0] || '';
       var code = parts[1] || '';
-
       var titleH1 = document.getElementById('page-title');
-      var lede = document.getElementById('page-lede');
-      var card = document.getElementById('preview-card');
-      var titleEl = document.getElementById('preview-title');
-      var metaEl = document.getElementById('preview-meta');
+      var logoEl = document.getElementById('host-logo');
       var codeEl = document.getElementById('preview-code');
+      var titleEl = document.getElementById('preview-title');
+      var hostEl = document.getElementById('preview-host');
+      var chipsEl = document.getElementById('preview-chips');
+      var metaEl = document.getElementById('preview-meta');
+      var appsNoteEl = document.getElementById('apps-note');
+      var stepsEl = document.getElementById('steps');
       var openBtn = document.getElementById('open-btn');
-
-      function show(el) { el.classList.remove('hidden'); }
-      function hide(el) { el.classList.add('hidden'); }
-
-      function setNotFound(message) {
-        titleEl.textContent = 'This link is not active';
-        metaEl.textContent = message || 'Ask whoever shared it for a fresh link.';
-        hide(codeEl);
-        openBtn.href = APP_STORE;
-        openBtn.textContent = 'Get BreakOff';
-      }
 
       function setPlainNotFound() {
         titleH1.textContent = 'Page not found';
-        lede.textContent = 'That page does not exist. BreakOff helps you take scheduled breaks from your phone.';
-        show(lede);
-        hide(card);
+        titleEl.textContent = 'That page does not exist';
+        metaEl.textContent = 'BreakOff helps you take scheduled breaks from your phone.';
+        codeEl.classList.add('hidden');
+        stepsEl.classList.add('hidden');
+        document.getElementById('host-logo').classList.add('hidden');
         openBtn.href = 'https://breakoff.io/';
         openBtn.textContent = 'Go to breakoff.io';
       }
 
-      // ------- lane: /invite/{code} (friends, open invites) -------
       if (lane === 'invite') {
+        // Friends lane: simpler card, the app handles the rest.
         titleH1.textContent = 'Join a Phone-Free Break on BreakOff';
-        lede.textContent = "A friend invited you. Open the app to join their break, or download BreakOff if you don't have it yet.";
-        show(lede);
-        if (code && CODE_RE.test(code)) {
-          hide(card);
-          openBtn.href = 'breakoff://invite/' + code;
-          // Show the code under the buttons so it can be typed in manually.
-          show(codeEl);
+        stepsEl.classList.add('hidden');
+        if (code && /^[A-Za-z0-9]{8}$/.test(code)) {
+          titleEl.textContent = 'A friend invited you';
+          metaEl.textContent = 'Open the app to join their break, or download BreakOff first. If the app does not open, install it and enter the code below.';
           codeEl.textContent = 'Invite code: ' + code;
-          card.classList.remove('hidden');
-          titleEl.textContent = 'Your invite code';
-          metaEl.textContent = 'If the app does not open, install BreakOff and enter this code.';
+          openBtn.href = 'breakoff://invite/' + code;
         } else {
-          setNotFound('This invite link looks incomplete.');
+          setNotFound();
         }
         return;
       }
+      if (lane !== 's') {
+        setPlainNotFound();
+        return;
+      }
 
-      // ------- lane: /s/{code} (public schedule / Host a break) -------
-      if (lane === 's') {
-        if (!code || !CODE_RE.test(code)) {
-          setNotFound('This link looks incomplete.');
+      function addChip(text) {
+        var c = document.createElement('span');
+        c.className = 'chip';
+        c.textContent = text;
+        chipsEl.appendChild(c);
+      }
+
+      function setNotFound() {
+        titleEl.textContent = 'This link is not active';
+        metaEl.textContent = 'Ask whoever shared it for a fresh link.';
+        codeEl.classList.add('hidden');
+        stepsEl.classList.add('hidden');
+        openBtn.href = APP_STORE;
+        openBtn.textContent = 'Get BreakOff';
+      }
+
+      if (!code || !/^[A-Za-z0-9]{8}$/.test(code)) {
+        setNotFound();
+        return;
+      }
+
+      codeEl.textContent = 'Code: ' + code;
+      openBtn.href = 'breakoff://share/' + code;
+
+      var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
+        + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name,logo_url,recommended_apps';
+      fetch(url, {
+        headers: {
+          apikey: SUPABASE_ANON,
+          Authorization: 'Bearer ' + SUPABASE_ANON,
+        },
+      }).then(function (r) {
+        return r.ok ? r.json() : [];
+      }).then(function (rows) {
+        if (!rows || rows.length === 0) {
+          setNotFound();
           return;
         }
-        codeEl.textContent = 'Code: ' + code;
-        openBtn.href = 'breakoff://share/' + code;
+        var row = rows[0];
+        titleEl.textContent = row.title || 'Phone-free break';
 
-        var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-          + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name';
-        fetch(url, {
-          headers: {
-            apikey: SUPABASE_ANON,
-            Authorization: 'Bearer ' + SUPABASE_ANON,
-          },
-        }).then(function (r) {
-          return r.ok ? r.json() : [];
-        }).then(function (rows) {
-          if (!rows || rows.length === 0) {
-            setNotFound();
-            return;
-          }
-          var row = rows[0];
-          titleEl.textContent = row.title || 'Phone-free break';
-          var duration = row.duration_minutes
-            ? (row.duration_minutes >= 60 && row.duration_minutes % 60 === 0
-                ? (row.duration_minutes / 60) + ' hour break'
-                : row.duration_minutes + ' minute break')
+        // Host identity: logo + name when the poster carries them.
+        if (row.logo_url && /^https:\/\//i.test(row.logo_url)) {
+          logoEl.src = row.logo_url;
+          logoEl.style.display = 'block';
+        }
+        if (row.business_name) {
+          hostEl.textContent = 'Hosted by ' + row.business_name;
+        } else {
+          hostEl.textContent = 'A phone-free break made in BreakOff';
+        }
+
+        var duration = row.duration_minutes
+          ? (row.duration_minutes >= 60 && row.duration_minutes % 60 === 0
+              ? (row.duration_minutes / 60) + (row.duration_minutes === 60 ? ' hour' : ' hours')
+              : row.duration_minutes + ' minutes')
+          : '';
+
+        if (row.share_type === 'instant') {
+          titleH1.textContent = 'You found a phone-free break';
+          if (duration) addChip(duration);
+          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
+          metaEl.textContent = 'The timer starts the moment you add it, whenever that is.';
+        } else {
+          if (duration) addChip(duration + ' break');
+          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
+          var days = '';
+          try {
+            var arr = Array.isArray(row.days) ? row.days : [];
+            var sorted = arr.slice().sort(function (a, b) { return a - b; });
+            days = sorted.length === 7 ? 'Every day' : sorted.map(function (d) {
+              return DAY_NAMES[d] || '?';
+            }).join(' · ');
+          } catch (e) {}
+          var window_ = (row.start_time && row.end_time)
+            ? row.start_time + ' to ' + row.end_time
             : '';
-          if (row.share_type === 'instant') {
-            // Poster lane: no clock window, the break starts on scan.
-            var host = row.business_name ? 'Hosted by ' + row.business_name : '';
-            metaEl.textContent = [duration, 'Starts when you add it', host].filter(Boolean).join(' · ');
-          } else {
-            var days = '';
-            try {
-              var arr = Array.isArray(row.days) ? row.days : [];
-              var sorted = arr.slice().sort(function (a, b) { return a - b; });
-              days = sorted.length === 7 ? 'Every day' : sorted.map(function (d) {
-                return DAY_NAMES[d] || '?';
-              }).join(' · ');
-            } catch (e) {}
-            var window_ = (row.start_time && row.end_time)
-              ? row.start_time + ' to ' + row.end_time
-              : '';
-            metaEl.textContent = [days, window_, duration].filter(Boolean).join(' · ');
-          }
-        }).catch(function () {
-          setNotFound();
-        });
-        return;
-      }
+          metaEl.textContent = [days, window_].filter(Boolean).join(' · ');
+        }
 
-      // ------- anything else: real 404 -------
-      setPlainNotFound();
+        // Keep-open suggestions ride along for display only; the scanner
+        // always picks their own blocked apps on their own phone.
+        var apps = Array.isArray(row.recommended_apps)
+          ? row.recommended_apps.filter(function (a) { return typeof a === 'string' && a; })
+          : [];
+        if (apps.length > 0) {
+          appsNoteEl.innerHTML = '';
+          var b = document.createElement('b');
+          b.textContent = apps.join(', ');
+          appsNoteEl.appendChild(document.createTextNode('The host suggests keeping '));
+          appsNoteEl.appendChild(b);
+          appsNoteEl.appendChild(document.createTextNode(' open. You choose what blocks on your phone.'));
+          appsNoteEl.classList.remove('hidden');
+        }
+      }).catch(function () {
+        setNotFound();
+      });
     })();
   </script>
 
@@ -290,11 +386,11 @@
         capture_pageview: true,
         disable_session_recording: true
       });
-      var p = window.location.pathname.split('/').filter(Boolean);
-      if (p[0] === 'invite') {
-        posthog.capture('invite_link_opened', { code: p[1] || '', source: 'web_landing' });
-      } else if (p[0] === 's') {
-        posthog.capture('share_link_opened', { code: p[1] || '', source: 'web_landing' });
+      var p2 = window.location.pathname.split('/').filter(Boolean);
+      if (p2[0] === 's') {
+        posthog.capture('share_link_opened', { code: p2[1] || '', source: 'web_landing' });
+      } else if (p2[0] === 'invite') {
+        posthog.capture('invite_link_opened', { code: p2[1] || '', source: 'web_landing' });
       }
     } catch (e) {}
   </script>

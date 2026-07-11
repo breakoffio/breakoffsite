@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Add this break to BreakOff</title>
 
-  <meta name="description" content="Add this phone-free break to your BreakOff Schedules. Free, no account needed." />
+  <meta name="description" content="Add this phone-free break to BreakOff. Free, no account needed." />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BreakOff" />
@@ -40,18 +40,18 @@
       justify-content: center;
       align-items: center;
       padding: 32px 24px;
-      gap: 28px;
+      gap: 22px;
       max-width: 480px;
       margin: 0 auto;
     }
     .wordmark {
-      font-size: 26px;
+      font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.6px;
       color: #FFFFFF;
     }
     h1 {
-      font-size: 28px;
+      font-size: 26px;
       line-height: 1.2;
       font-weight: 700;
       text-align: center;
@@ -67,22 +67,98 @@
       display: flex;
       flex-direction: column;
       gap: 10px;
+      align-items: center;
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      object-fit: cover;
+      background: #2A2A2E;
+      display: none;
     }
     .preview .title {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 700;
       letter-spacing: -0.3px;
+    }
+    .preview .host {
+      color: #A0A0A0;
+      font-size: 14px;
+      margin-top: -4px;
+    }
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+      margin-top: 4px;
+    }
+    .chip {
+      font-size: 13px;
+      font-weight: 600;
+      color: #E8ECF2;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: 999px;
+      padding: 6px 12px;
     }
     .preview .meta {
       color: #A0A0A0;
       font-size: 14px;
+      line-height: 1.45;
     }
+    .apps-note {
+      color: #A0A0A0;
+      font-size: 13px;
+      line-height: 1.5;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 12px;
+      margin-top: 4px;
+      width: 100%;
+    }
+    .apps-note b { color: #D7DCE3; font-weight: 600; }
     .code {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 1px;
-      color: #B0B7C5;
+      color: #7d8592;
     }
+    .steps {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: rgba(255,255,255,0.04);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+    .step .n {
+      flex: none;
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.10);
+      color: #E8ECF2;
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 1px;
+    }
+    .step p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.45;
+      color: #C7CCD4;
+    }
+    .step p b { color: #F7FAFC; font-weight: 600; }
     .actions {
       display: flex;
       flex-direction: column;
@@ -100,10 +176,7 @@
       transition: opacity 0.15s ease;
     }
     a.btn:active { opacity: 0.8; }
-    a.btn.primary {
-      background: #F7FAFC;
-      color: #0A0A0A;
-    }
+    a.btn.primary { background: #F7FAFC; color: #0A0A0A; }
     a.btn.secondary {
       background: transparent;
       color: #F7FAFC;
@@ -113,48 +186,73 @@
       font-size: 13px;
       color: #5e5e5e;
       text-align: center;
-      margin-top: 8px;
     }
-    .hidden { display: none; }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
   <main>
     <div class="wordmark">BreakOff</div>
-    <h1>Add this break to BreakOff</h1>
+    <h1 id="page-title">Add this break to BreakOff</h1>
 
     <div class="preview" id="preview-card">
+      <img class="logo" id="host-logo" alt="" />
       <div class="title" id="preview-title">Loading...</div>
+      <div class="host" id="preview-host"></div>
+      <div class="chips" id="preview-chips"></div>
       <div class="meta" id="preview-meta"></div>
+      <div class="apps-note hidden" id="apps-note"></div>
       <span class="code" id="preview-code"></span>
+    </div>
+
+    <div class="steps" id="steps">
+      <div class="step"><span class="n">1</span><p><b>Get BreakOff</b> from the App Store. It's free and you don't need an account.</p></div>
+      <div class="step"><span class="n">2</span><p><b>Scan the poster again</b> (or tap this link). You'll pick which apps to pause. That choice always stays on your phone.</p></div>
+      <div class="step"><span class="n">3</span><p><b>Start the break.</b> Your picked apps go quiet, calls and anything you kept still work.</p></div>
     </div>
 
     <div class="actions">
       <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
-      <a class="btn secondary" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
+      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
     </div>
 
-    <footer>BreakOff is a screen-time app for iPhone.</footer>
+    <footer>Free · No account needed · BreakOff is a screen-time app for iPhone</footer>
   </main>
 
   <script>
     (function () {
       var SUPABASE_URL = 'https://qpoywatpflqdbpfejnas.supabase.co';
       var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
+      var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
       var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
       var parts = window.location.pathname.split('/').filter(Boolean);
       var code = parts.length >= 2 && parts[0] === 's' ? parts[1] : '';
+      var titleH1 = document.getElementById('page-title');
+      var logoEl = document.getElementById('host-logo');
       var codeEl = document.getElementById('preview-code');
       var titleEl = document.getElementById('preview-title');
+      var hostEl = document.getElementById('preview-host');
+      var chipsEl = document.getElementById('preview-chips');
       var metaEl = document.getElementById('preview-meta');
+      var appsNoteEl = document.getElementById('apps-note');
+      var stepsEl = document.getElementById('steps');
       var openBtn = document.getElementById('open-btn');
+
+      function addChip(text) {
+        var c = document.createElement('span');
+        c.className = 'chip';
+        c.textContent = text;
+        chipsEl.appendChild(c);
+      }
 
       function setNotFound() {
         titleEl.textContent = 'This link is not active';
-        metaEl.textContent = 'Ask your friend for a fresh one.';
+        metaEl.textContent = 'Ask whoever shared it for a fresh link.';
         codeEl.classList.add('hidden');
-        openBtn.href = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+        stepsEl.classList.add('hidden');
+        openBtn.href = APP_STORE;
+        openBtn.textContent = 'Get BreakOff';
       }
 
       if (!code || !/^[A-Za-z0-9]{8}$/.test(code)) {
@@ -165,10 +263,8 @@
       codeEl.textContent = 'Code: ' + code;
       openBtn.href = 'breakoff://share/' + code;
 
-      // Fetch the snapshot via the anon REST endpoint. RLS allows SELECT
-      // for anon on non-revoked rows.
       var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-        + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name';
+        + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name,logo_url,recommended_apps';
       fetch(url, {
         headers: {
           apikey: SUPABASE_ANON,
@@ -183,16 +279,32 @@
         }
         var row = rows[0];
         titleEl.textContent = row.title || 'Phone-free break';
+
+        // Host identity: logo + name when the poster carries them.
+        if (row.logo_url && /^https:\/\//i.test(row.logo_url)) {
+          logoEl.src = row.logo_url;
+          logoEl.style.display = 'block';
+        }
+        if (row.business_name) {
+          hostEl.textContent = 'Hosted by ' + row.business_name;
+        } else {
+          hostEl.textContent = 'A phone-free break made in BreakOff';
+        }
+
         var duration = row.duration_minutes
           ? (row.duration_minutes >= 60 && row.duration_minutes % 60 === 0
-              ? (row.duration_minutes / 60) + ' hour break'
-              : row.duration_minutes + ' minute break')
+              ? (row.duration_minutes / 60) + (row.duration_minutes === 60 ? ' hour' : ' hours')
+              : row.duration_minutes + ' minutes')
           : '';
+
         if (row.share_type === 'instant') {
-          // Poster lane: no clock window, the break starts on scan.
-          var host = row.business_name ? 'Hosted by ' + row.business_name : '';
-          metaEl.textContent = [duration, 'Starts when you add it', host].filter(Boolean).join(' · ');
+          titleH1.textContent = 'You found a phone-free break';
+          if (duration) addChip(duration);
+          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
+          metaEl.textContent = 'The timer starts the moment you add it, whenever that is.';
         } else {
+          if (duration) addChip(duration + ' break');
+          addChip(row.mode === 'locked' ? 'Locked mode' : 'Flexible mode');
           var days = '';
           try {
             var arr = Array.isArray(row.days) ? row.days : [];
@@ -204,12 +316,41 @@
           var window_ = (row.start_time && row.end_time)
             ? row.start_time + ' to ' + row.end_time
             : '';
-          metaEl.textContent = [days, window_, duration].filter(Boolean).join(' · ');
+          metaEl.textContent = [days, window_].filter(Boolean).join(' · ');
+        }
+
+        // Keep-open suggestions ride along for display only; the scanner
+        // always picks their own blocked apps on their own phone.
+        var apps = Array.isArray(row.recommended_apps)
+          ? row.recommended_apps.filter(function (a) { return typeof a === 'string' && a; })
+          : [];
+        if (apps.length > 0) {
+          appsNoteEl.innerHTML = '';
+          var b = document.createElement('b');
+          b.textContent = apps.join(', ');
+          appsNoteEl.appendChild(document.createTextNode('The host suggests keeping '));
+          appsNoteEl.appendChild(b);
+          appsNoteEl.appendChild(document.createTextNode(' open. You choose what blocks on your phone.'));
+          appsNoteEl.classList.remove('hidden');
         }
       }).catch(function () {
         setNotFound();
       });
     })();
+  </script>
+
+  <!-- PostHog web snippet. Same project, write-only client key. -->
+  <script>
+    !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
+    try {
+      posthog.init('phc_vkUKHJJ6ot5zWo3rdyB94o8Zg2Kv5qrofWRJ6iD5eJEv', {
+        api_host: 'https://us.i.posthog.com',
+        capture_pageview: true,
+        disable_session_recording: true
+      });
+      var shareCode = (window.location.pathname.split('/').filter(Boolean)[1]) || '';
+      posthog.capture('share_link_opened', { code: shareCode, source: 'web_landing' });
+    } catch (e) {}
   </script>
 </body>
 </html>
