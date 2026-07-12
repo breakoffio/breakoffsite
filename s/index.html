@@ -21,6 +21,16 @@
 
   <meta name="apple-itunes-app" content="app-id=6751491331" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Break Acceptance Page (web fallback). Recreated from the 2026-07-12
+       design handoff (design_handoff_break_acceptance): single centered
+       420px column on #0A0A0A, Inter only, orange reserved for streaks
+       (never used here). All content renders from the schedule_shares row
+       fetched by short code; the only client behavior beyond that is the
+       deep-link-then-App-Store fallback on the primary CTA. -->
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
@@ -29,252 +39,337 @@
       padding: 0;
       min-height: 100%;
       background: #0A0A0A;
-      color: #F7FAFC;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      color: #F2F2F2;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    main {
+    .page {
       min-height: 100dvh;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 32px 24px;
-      gap: 22px;
-      max-width: 480px;
-      margin: 0 auto;
-    }
-    .wordmark {
-      font-size: 24px;
-      font-weight: 800;
-      letter-spacing: -0.6px;
-      color: #FFFFFF;
-    }
-    h1 {
-      font-size: 26px;
-      line-height: 1.2;
-      font-weight: 700;
-      text-align: center;
-      margin: 0;
-      letter-spacing: -0.4px;
-    }
-    .preview {
-      width: 100%;
-      background: #1E1E20;
-      border-radius: 22px;
-      padding: 22px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-    }
-    .logo-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-    .logo-row img {
-      width: 52px;
-      height: 52px;
-      border-radius: 14px;
-      object-fit: cover;
-      background: #2A2A2E;
-    }
-    .logo-row .x {
-      color: #5E6570;
-      font-size: 15px;
-      font-weight: 600;
-    }
-    .preview .title {
-      font-size: 22px;
-      font-weight: 700;
-      letter-spacing: -0.3px;
-    }
-    .preview .host {
-      color: #A0A0A0;
-      font-size: 14px;
-      margin-top: -6px;
-    }
-    .details {
-      width: 100%;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 4px;
-    }
-    .detail-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 16px;
-      padding: 11px 2px;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
-    .detail-row:last-child { border-bottom: none; }
-    .detail-row .label {
-      color: #8A919C;
-      font-size: 13px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.4px;
-      flex: none;
-    }
-    .detail-row .value {
-      color: #F0F3F7;
-      font-size: 15px;
-      font-weight: 600;
-      text-align: right;
-      line-height: 1.4;
-    }
-    .preview .meta {
-      color: #A0A0A0;
-      font-size: 13px;
-      line-height: 1.45;
-    }
-    .code {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12px;
-      letter-spacing: 1px;
-      color: #7d8592;
-    }
-    .steps {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .step {
-      display: flex;
       align-items: flex-start;
-      gap: 12px;
-      background: rgba(255,255,255,0.04);
-      border-radius: 14px;
-      padding: 12px 14px;
-    }
-    .step .n {
-      flex: none;
-      width: 22px;
-      height: 22px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.10);
-      color: #E8ECF2;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      margin-top: 1px;
+      padding: 40px 20px;
     }
-    .step p {
-      margin: 0;
-      font-size: 14px;
-      line-height: 1.45;
-      color: #C7CCD4;
-    }
-    .step p b { color: #F7FAFC; font-weight: 600; }
-    .actions {
+    .col {
+      width: 100%;
+      max-width: 420px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
-      width: 100%;
-    }
-    a.btn {
-      display: block;
-      padding: 16px 20px;
-      border-radius: 16px;
-      text-align: center;
-      font-weight: 600;
-      font-size: 17px;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-    a.btn:active { opacity: 0.8; }
-    a.btn.primary { background: #F7FAFC; color: #0A0A0A; }
-    a.btn.secondary {
-      background: transparent;
-      color: #F7FAFC;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    footer {
-      font-size: 13px;
-      color: #5e5e5e;
-      text-align: center;
+      align-items: center;
     }
     .hidden { display: none !important; }
+
+    /* Org pill */
+    .org-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 9999px;
+      background: #171717;
+      border: 1px solid #262626;
+    }
+    .org-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 9999px;
+      overflow: hidden;
+      background: #0A0A0A;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #99A1AF;
+      font-size: 12px;
+      font-weight: 700;
+    }
+    .org-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .org-name { font-size: 13px; font-weight: 600; color: #F2F2F2; }
+
+    h1.break-title {
+      margin: 24px 0 0;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #F2F2F2;
+      text-align: center;
+    }
+
+    /* Big duration */
+    .duration {
+      margin-top: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .duration .num {
+      font-size: 92px;
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      color: #F2F2F2;
+      font-variant-numeric: tabular-nums;
+    }
+    .duration .unit {
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #F2F2F2;
+    }
+
+    /* Break-type pill */
+    .mode-pill {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px 6px 10px;
+      border-radius: 9999px;
+      background: #171717;
+      border: 1px solid #262626;
+      font-size: 13px;
+      font-weight: 600;
+      color: #F2F2F2;
+      letter-spacing: 0.01em;
+    }
+
+    /* Schedule line */
+    .when-line {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #BBBBBB;
+    }
+
+    .pitch {
+      margin: 22px 0 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #BBBBBB;
+      text-align: center;
+      max-width: 300px;
+      text-wrap: pretty;
+    }
+
+    .divider { width: 100%; height: 1px; background: #1c1c1c; }
+    .divider.top { margin: 28px 0 22px; }
+    .divider.bottom { margin: 24px 0; }
+
+    /* Apps Allowed */
+    .apps-section {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .apps-eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #737373;
+    }
+    .apps-row { display: flex; flex-wrap: wrap; gap: 8px; }
+    .app-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 15px 8px 8px;
+      border-radius: 9999px;
+      background: #171717;
+      border: 1px solid #262626;
+      font-size: 14px;
+      font-weight: 600;
+      color: #F2F2F2;
+    }
+    .app-tile {
+      width: 26px;
+      height: 26px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* CTAs */
+    .btn {
+      width: 100%;
+      height: 54px;
+      border-radius: 9999px;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 200ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn.primary {
+      border: none;
+      background: #F2F2F2;
+      color: #0A0A0A;
+      font-size: 16px;
+      font-weight: 700;
+    }
+    .btn.primary:hover { background: #FFFFFF; }
+    .btn.primary:active { opacity: 0.9; }
+    .btn.secondary {
+      margin-top: 10px;
+      border: 1px solid #2a2a2a;
+      background: transparent;
+      color: #F2F2F2;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .btn.secondary:hover { background: #141414; }
+    .btn.secondary:active { opacity: 0.9; }
+
+    .short-link {
+      margin-top: 20px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #5E5E5E;
+    }
   </style>
 </head>
 <body>
-  <main>
-    <div class="wordmark">BreakOff</div>
-    <h1 id="page-title">Add this break to BreakOff</h1>
+  <div class="page">
+    <div class="col">
 
-    <div class="preview" id="preview-card">
-      <div class="logo-row" id="logo-row">
-        <img id="host-logo" alt="" class="hidden" />
-        <span class="x hidden" id="logo-x">×</span>
-        <img src="/assets/icon-192.png" alt="BreakOff" />
+      <div class="org-pill hidden" id="org-pill">
+        <span class="org-logo" id="org-logo"><span id="org-initial"></span></span>
+        <span class="org-name" id="org-name"></span>
       </div>
-      <div class="title" id="preview-title">Loading...</div>
-      <div class="host" id="preview-host"></div>
-      <div class="details hidden" id="details"></div>
-      <div class="meta" id="preview-meta"></div>
-      <span class="code" id="preview-code"></span>
-    </div>
 
-    <div class="steps" id="steps">
-      <div class="step"><span class="n">1</span><p><b>Get BreakOff</b> from the App Store. It's free and you don't need an account.</p></div>
-      <div class="step"><span class="n">2</span><p><b>Scan the poster again</b> (or tap this link). You'll pick which apps to pause. That choice always stays on your phone.</p></div>
-      <div class="step"><span class="n">3</span><p><b>Start the break.</b> Your picked apps go quiet, calls and anything you kept still work.</p></div>
-    </div>
+      <h1 class="break-title" id="break-title">Loading break</h1>
 
-    <div class="actions">
+      <div class="duration hidden" id="duration">
+        <span class="num" id="duration-num"></span>
+        <span class="unit" id="duration-unit"></span>
+      </div>
+
+      <div class="mode-pill hidden" id="mode-pill">
+        <svg id="lock-closed" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        <svg id="lock-open" class="hidden" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 7.5-2"></path></svg>
+        <span id="mode-label">Locked</span>
+      </div>
+
+      <div class="when-line hidden" id="when-line">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        <span id="when-label"></span>
+      </div>
+
+      <p class="pitch" id="pitch">Put your phone down and be here. Distracting apps pause. Music, maps, and calls still work.</p>
+
+      <div class="divider top" id="divider-top"></div>
+
+      <div class="apps-section" id="apps-section">
+        <div class="apps-eyebrow">Apps Allowed</div>
+        <div class="apps-row" id="apps-row"></div>
+      </div>
+
+      <div class="divider bottom" id="divider-bottom"></div>
+
       <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
-      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
-    </div>
+      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">
+        <svg width="16" height="16" viewBox="0 0 384 512" fill="#F2F2F2"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg>
+        Download on the App Store
+      </a>
 
-    <footer>Free · No account needed · BreakOff is a screen-time app for iPhone</footer>
-  </main>
+      <div class="short-link" id="short-link"></div>
+
+    </div>
+  </div>
 
   <script>
     (function () {
       var SUPABASE_URL = 'https://qpoywatpflqdbpfejnas.supabase.co';
       var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
       var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
-      var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      var DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+      // Known category chips: icon tile color + inline SVG glyph. Anything
+      // the host typed that we don't recognize renders as a neutral tile
+      // with the first letter.
+      var CHIP_STYLES = {
+        music: { color: '#FA2E44', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M9 17.5a2.5 2.5 0 1 1-2-2.45V7l9-2v8a2.5 2.5 0 1 1-2-2.45V6.2L9 7.6z"></path></svg>' },
+        camera: { color: '#3A3A3C', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l1.5-2h7L16 8h3a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"></path><circle cx="12" cy="12.5" r="3"></circle></svg>' },
+        phone: { color: '#34C759', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6.5 4c-1 0-2 .8-2.2 1.9C3.7 11 8.9 17.6 14 18.7c1.1.2 2-.8 2.3-1.8l.4-1.6a1.2 1.2 0 0 0-.7-1.4l-2.4-1a1.2 1.2 0 0 0-1.4.4l-.6.8c-1.7-.9-3-2.2-3.8-3.9l.8-.6a1.2 1.2 0 0 0 .4-1.4l-1-2.4A1.2 1.2 0 0 0 7.3 4z"></path></svg>' },
+        calls: { color: '#34C759', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M6.5 4c-1 0-2 .8-2.2 1.9C3.7 11 8.9 17.6 14 18.7c1.1.2 2-.8 2.3-1.8l.4-1.6a1.2 1.2 0 0 0-.7-1.4l-2.4-1a1.2 1.2 0 0 0-1.4.4l-.6.8c-1.7-.9-3-2.2-3.8-3.9l.8-.6a1.2 1.2 0 0 0 .4-1.4l-1-2.4A1.2 1.2 0 0 0 7.3 4z"></path></svg>' },
+        messages: { color: '#34C759', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 4C6.8 4 3 7.4 3 11.5c0 2.1 1 4 2.7 5.3-.1.9-.5 2.1-1.5 3.2 1.8-.2 3.2-.9 4.1-1.5.9.3 2 .5 3.7.5 5.2 0 9-3.4 9-7.5S17.2 4 12 4z"></path></svg>' },
+        maps: { color: '#3478F6', svg: '<svg width="15" height="15" viewBox="0 0 24 24" fill="#fff"><path d="M12 3a7 7 0 0 0-7 7c0 5 7 11 7 11s7-6 7-11a7 7 0 0 0-7-7zm0 9.5A2.5 2.5 0 1 1 12 7a2.5 2.5 0 0 1 0 5.5z"></path></svg>' }
+      };
 
       var parts = window.location.pathname.split('/').filter(Boolean);
       var code = parts.length >= 2 && parts[0] === 's' ? parts[1] : '';
-      var titleH1 = document.getElementById('page-title');
-      var logoEl = document.getElementById('host-logo');
-      var logoXEl = document.getElementById('logo-x');
-      var codeEl = document.getElementById('preview-code');
-      var titleEl = document.getElementById('preview-title');
-      var hostEl = document.getElementById('preview-host');
-      var detailsEl = document.getElementById('details');
-      var metaEl = document.getElementById('preview-meta');
-      var stepsEl = document.getElementById('steps');
-      var openBtn = document.getElementById('open-btn');
 
-      function addDetail(label, value) {
-        var row = document.createElement('div');
-        row.className = 'detail-row';
-        var l = document.createElement('span');
-        l.className = 'label';
-        l.textContent = label;
-        var v = document.createElement('span');
-        v.className = 'value';
-        v.textContent = value;
-        row.appendChild(l);
-        row.appendChild(v);
-        detailsEl.appendChild(row);
+      var el = function (id) { return document.getElementById(id); };
+
+      function fmtTime(hhmm) {
+        var m = /^(\d{2}):(\d{2})$/.exec(hhmm || '');
+        if (!m) return '';
+        var h = parseInt(m[1], 10);
+        var min = m[2];
+        var ampm = h < 12 ? 'AM' : 'PM';
+        var h12 = h % 12 === 0 ? 12 : h % 12;
+        return h12 + ':' + min + ' ' + ampm;
+      }
+
+      function fmtDate(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+        if (!m) return '';
+        var d = new Date(+m[1], +m[2] - 1, +m[3]);
+        return DAY_NAMES[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate();
+      }
+
+      // Collapse weekday ints into runs: [1..5] -> "Mon to Fri",
+      // [1,3,5] -> "Mon, Wed, Fri", full week -> "Every day".
+      function fmtDays(days) {
+        var sorted = days.slice().sort(function (a, b) { return a - b; });
+        if (sorted.length === 7) return 'Every day';
+        if (sorted.length === 2 && sorted[0] === 0 && sorted[1] === 6) return 'Sat, Sun';
+        var out = [];
+        var runStart = sorted[0];
+        var prev = sorted[0];
+        function flush() {
+          if (runStart === prev) out.push(DAY_NAMES[runStart]);
+          else if (prev - runStart === 1) out.push(DAY_NAMES[runStart] + ', ' + DAY_NAMES[prev]);
+          else out.push(DAY_NAMES[runStart] + ' to ' + DAY_NAMES[prev]);
+        }
+        for (var i = 1; i < sorted.length; i++) {
+          if (sorted[i] === prev + 1) { prev = sorted[i]; continue; }
+          flush();
+          runStart = sorted[i];
+          prev = sorted[i];
+        }
+        flush();
+        return out.join(', ');
       }
 
       function setNotFound() {
-        titleEl.textContent = 'This link is not active';
-        metaEl.textContent = 'Ask whoever shared it for a fresh link.';
-        codeEl.classList.add('hidden');
-        stepsEl.classList.add('hidden');
-        openBtn.href = APP_STORE;
-        openBtn.textContent = 'Get BreakOff';
+        el('break-title').textContent = 'This link is not active';
+        el('pitch').textContent = 'Ask whoever shared it for a fresh link.';
+        el('org-pill').classList.add('hidden');
+        el('duration').classList.add('hidden');
+        el('mode-pill').classList.add('hidden');
+        el('when-line').classList.add('hidden');
+        el('divider-top').classList.add('hidden');
+        el('apps-section').classList.add('hidden');
+        el('divider-bottom').classList.add('hidden');
+        var open = el('open-btn');
+        open.textContent = 'Get BreakOff';
+        open.href = APP_STORE;
+        open.onclick = null;
       }
 
       if (!code || !/^[A-Za-z0-9]{8}$/.test(code)) {
@@ -282,11 +377,20 @@
         return;
       }
 
-      codeEl.textContent = 'Code: ' + code;
+      el('short-link').textContent = 'breakoff.io/s/' + code;
+
+      // Primary CTA: attempt the deep link; if the app didn't take over
+      // within a short window (page still visible), fall to the App Store.
+      var openBtn = el('open-btn');
       openBtn.href = 'breakoff://share/' + code;
+      openBtn.onclick = function () {
+        setTimeout(function () {
+          if (!document.hidden) window.location.href = APP_STORE;
+        }, 1600);
+      };
 
       var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-        + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name,logo_url,recommended_apps';
+        + '&select=title,duration_minutes,days,start_time,end_time,one_shot_dates,mode,share_type,business_name,logo_url,recommended_apps';
       fetch(url, {
         headers: {
           apikey: SUPABASE_ANON,
@@ -300,57 +404,93 @@
           return;
         }
         var row = rows[0];
-        titleEl.textContent = row.title || 'Phone-free break';
 
-        // Co-branded logo row: org logo × BreakOff when the poster carries
-        // a logo, just the BreakOff mark otherwise.
-        if (row.logo_url && /^https:\/\//i.test(row.logo_url)) {
-          logoEl.src = row.logo_url;
-          logoEl.classList.remove('hidden');
-          logoXEl.classList.remove('hidden');
-        }
+        el('break-title').textContent = row.title || 'Phone-free break';
+
+        // Org pill: only when the share carries a host identity.
         if (row.business_name) {
-          hostEl.textContent = 'Hosted by ' + row.business_name;
-        } else {
-          hostEl.textContent = 'A phone-free break made in BreakOff';
-        }
-
-        var duration = row.duration_minutes
-          ? (row.duration_minutes >= 60 && row.duration_minutes % 60 === 0
-              ? (row.duration_minutes / 60) + (row.duration_minutes === 60 ? ' hour' : ' hours')
-              : row.duration_minutes + ' minutes')
-          : '';
-
-        // Break-details rows, mirroring the in-app card: Duration, Type,
-        // Apps allowed (the host's keep-open suggestions; blocking is
-        // always the scanner's own choice on their own phone).
-        detailsEl.classList.remove('hidden');
-        if (duration) addDetail('Duration', duration);
-        addDetail('Type', row.mode === 'locked' ? 'Locked' : 'Flexible');
-        if (row.share_type !== 'instant') {
-          var days = '';
-          try {
-            var arr = Array.isArray(row.days) ? row.days : [];
-            var sorted = arr.slice().sort(function (a, b) { return a - b; });
-            days = sorted.length === 7 ? 'Every day' : sorted.map(function (d) {
-              return DAY_NAMES[d] || '?';
-            }).join(', ');
-          } catch (e) {}
-          if (days) addDetail('Days', days);
-          if (row.start_time && row.end_time) {
-            addDetail('Time', row.start_time + ' to ' + row.end_time);
+          el('org-name').textContent = row.business_name;
+          if (row.logo_url && /^https:\/\//i.test(row.logo_url)) {
+            var img = document.createElement('img');
+            img.src = row.logo_url;
+            img.alt = '';
+            el('org-logo').replaceChildren(img);
+          } else {
+            el('org-initial').textContent = row.business_name.charAt(0).toUpperCase();
           }
+          el('org-pill').classList.remove('hidden');
         }
+
+        // Duration: whole hours read as "1 hour"; anything else in minutes.
+        var mins = row.duration_minutes || 0;
+        if (mins > 0) {
+          if (mins >= 60 && mins % 60 === 0) {
+            el('duration-num').textContent = String(mins / 60);
+            el('duration-unit').textContent = mins === 60 ? 'hour' : 'hours';
+          } else {
+            el('duration-num').textContent = String(mins);
+            el('duration-unit').textContent = mins === 1 ? 'minute' : 'minutes';
+          }
+          el('duration').classList.remove('hidden');
+        }
+
+        // Mode pill. Design copy: Locked / Unlocked (Flexible reads as
+        // Unlocked to a first-time scanner).
+        var locked = row.mode === 'locked';
+        el('mode-label').textContent = locked ? 'Locked' : 'Unlocked';
+        el('lock-closed').classList.toggle('hidden', !locked);
+        el('lock-open').classList.toggle('hidden', locked);
+        el('mode-pill').classList.remove('hidden');
+
+        // Schedule line: specific dates, weekly days, or Anytime.
+        var whenLabel = 'Anytime';
+        var timeLabel = fmtTime(row.start_time);
+        var dates = Array.isArray(row.one_shot_dates) ? row.one_shot_dates.filter(Boolean).sort() : [];
+        var days = Array.isArray(row.days) ? row.days : [];
+        if (dates.length === 1) {
+          whenLabel = fmtDate(dates[0]);
+        } else if (dates.length > 1) {
+          whenLabel = fmtDate(dates[0]) + ' to ' + fmtDate(dates[dates.length - 1]);
+        } else if (days.length > 0) {
+          whenLabel = fmtDays(days);
+        }
+        if (whenLabel !== 'Anytime' && timeLabel) {
+          whenLabel += ' · ' + timeLabel;
+        }
+        el('when-label').textContent = whenLabel;
+        el('when-line').classList.remove('hidden');
+
+        // Apps Allowed chips. Suggestions only; blocking is always the
+        // scanner's own choice on their own phone.
         var apps = Array.isArray(row.recommended_apps)
           ? row.recommended_apps.filter(function (a) { return typeof a === 'string' && a; })
           : [];
-        addDetail('Apps allowed', apps.length > 0 ? apps.join(', ') : 'Your choice');
-
-        if (row.share_type === 'instant') {
-          titleH1.textContent = 'You found a phone-free break';
-          metaEl.textContent = 'The timer starts the moment you add it. You choose what blocks on your phone.';
+        var rowEl = el('apps-row');
+        if (apps.length === 0) {
+          var none = document.createElement('span');
+          none.className = 'app-chip';
+          none.style.padding = '8px 15px';
+          none.textContent = 'Your choice';
+          rowEl.appendChild(none);
         } else {
-          metaEl.textContent = 'Adds to your Schedules. You choose what blocks on your phone.';
+          apps.forEach(function (name) {
+            var key = name.trim().toLowerCase();
+            var style = CHIP_STYLES[key];
+            var chip = document.createElement('span');
+            chip.className = 'app-chip';
+            var tile = document.createElement('span');
+            tile.className = 'app-tile';
+            if (style) {
+              tile.style.background = style.color;
+              tile.innerHTML = style.svg;
+            } else {
+              tile.style.background = '#3A3A3C';
+              tile.textContent = name.charAt(0).toUpperCase();
+            }
+            chip.appendChild(tile);
+            chip.appendChild(document.createTextNode(name));
+            rowEl.appendChild(chip);
+          });
         }
       }).catch(function () {
         setNotFound();
