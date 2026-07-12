@@ -448,7 +448,12 @@
 
         // Schedule line: specific dates, weekly days, or Anytime.
         var whenLabel = 'Anytime';
+        // Time window: "12:00 PM to 1:00 PM" when both ends are known.
         var timeLabel = fmtTime(row.start_time);
+        var endLabel = fmtTime(row.end_time);
+        if (timeLabel && endLabel) {
+          timeLabel = timeLabel + ' to ' + endLabel;
+        }
         var dates = Array.isArray(row.one_shot_dates) ? row.one_shot_dates.filter(Boolean).sort() : [];
         var days = Array.isArray(row.days) ? row.days : [];
         if (dates.length === 1) {
