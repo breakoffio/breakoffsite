@@ -3,154 +3,437 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>Join a Phone-Free Break on BreakOff</title>
+  <title>Join a phone-free break on BreakOff</title>
 
   <meta name="description" content="A friend invited you to a phone-free break on BreakOff. Open the app to join, or download it from the App Store." />
 
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BreakOff" />
-  <meta property="og:title" content="Join a Phone-Free Break on BreakOff" />
+  <meta property="og:title" content="Join a phone-free break" />
   <meta property="og:description" content="A friend invited you to a phone-free break. Tap to join." />
   <meta property="og:image" content="https://breakoff.io/og-invite.png" />
   <meta property="og:url" content="https://breakoff.io/invite" />
 
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Join a Phone-Free Break on BreakOff" />
+  <meta name="twitter:title" content="Join a phone-free break" />
   <meta name="twitter:description" content="A friend invited you to a phone-free break. Tap to join." />
   <meta name="twitter:image" content="https://breakoff.io/og-invite.png" />
 
   <meta name="apple-itunes-app" content="app-id=6751491331" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Friend-invite landing page. Same break-acceptance design as /s
+       (2026-07-12 handoff), minus the Apps Allowed section: friend
+       invites don't carry an allow-list. Content renders from the
+       open_invite_public view fetched by code; the only client behavior
+       beyond that is the deep-link-then-App-Store fallback. -->
   <style>
-    :root {
-      color-scheme: dark;
-    }
+    :root { color-scheme: dark; }
     * { box-sizing: border-box; }
     html, body {
       margin: 0;
       padding: 0;
       min-height: 100%;
       background: #0A0A0A;
-      color: #F7FAFC;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
+      color: #F2F2F2;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
       -webkit-font-smoothing: antialiased;
     }
-    main {
+    .page {
       min-height: 100dvh;
       display: flex;
-      flex-direction: column;
+      align-items: flex-start;
       justify-content: center;
-      align-items: center;
-      padding: 32px 24px;
-      gap: 32px;
-      max-width: 480px;
-      margin: 0 auto;
+      padding: 40px 20px;
     }
-    .logo {
-      width: 64px;
-      height: 64px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, #5A4AA9, #6B7DD8);
+    .col {
+      width: 100%;
+      max-width: 420px;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hidden { display: none !important; }
+
+    .org-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 6px 14px 6px 6px;
+      border-radius: 9999px;
+      background: #171717;
+      border: 1px solid #262626;
+    }
+    .org-logo {
+      width: 26px;
+      height: 26px;
+      border-radius: 9999px;
+      overflow: hidden;
+      background: #0A0A0A;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
+      color: #99A1AF;
+      font-size: 12px;
       font-weight: 700;
-      font-size: 28px;
-      letter-spacing: -0.5px;
-      color: #fff;
     }
-    h1 {
-      font-size: 28px;
-      line-height: 1.2;
-      font-weight: 700;
+    .org-logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .org-name { font-size: 13px; font-weight: 600; color: #F2F2F2; }
+
+    h1.break-title {
+      margin: 24px 0 0;
+      font-size: 30px;
+      line-height: 1.1;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: #F2F2F2;
       text-align: center;
-      margin: 0;
-      letter-spacing: -0.4px;
     }
-    p.lede {
+
+    .duration {
+      margin-top: 20px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .duration .num {
+      font-size: 92px;
+      line-height: 1;
+      font-weight: 300;
+      letter-spacing: -0.04em;
+      color: #F2F2F2;
+      font-variant-numeric: tabular-nums;
+    }
+    .duration .unit {
+      font-size: 30px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: #F2F2F2;
+    }
+
+    .mode-pill {
+      margin-top: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 13px 6px 10px;
+      border-radius: 9999px;
+      background: #171717;
+      border: 1px solid #262626;
+      font-size: 13px;
+      font-weight: 600;
+      color: #F2F2F2;
+      letter-spacing: 0.01em;
+    }
+
+    .when-line {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #BBBBBB;
+    }
+
+    .pitch {
+      margin: 22px 0 0;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #BBBBBB;
+      text-align: center;
+      max-width: 300px;
+      text-wrap: pretty;
+    }
+
+    .divider { width: 100%; height: 1px; background: #1c1c1c; margin: 28px 0 24px; }
+
+    .btn {
+      width: 100%;
+      height: 54px;
+      border-radius: 9999px;
+      font-family: inherit;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      transition: all 200ms ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .btn.primary {
+      border: none;
+      background: #F2F2F2;
+      color: #0A0A0A;
       font-size: 16px;
-      line-height: 1.5;
-      color: #A0A0A0;
-      text-align: center;
-      margin: 0;
+      font-weight: 700;
     }
-    .code {
+    .btn.primary:hover { background: #FFFFFF; }
+    .btn.primary:active { opacity: 0.9; }
+    .btn.secondary {
+      margin-top: 10px;
+      border: 1px solid #2a2a2a;
+      background: transparent;
+      color: #F2F2F2;
+      font-size: 15px;
+      font-weight: 600;
+    }
+    .btn.secondary:hover { background: #141414; }
+    .btn.secondary:active { opacity: 0.9; }
+
+    .short-link {
+      margin-top: 20px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 13px;
-      letter-spacing: 1px;
-      color: #6B7DD8;
-      background: rgba(107, 125, 216, 0.12);
-      border: 1px solid rgba(107, 125, 216, 0.3);
-      padding: 6px 12px;
-      border-radius: 8px;
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      width: 100%;
-    }
-    a.btn {
-      display: block;
-      padding: 16px 20px;
-      border-radius: 16px;
-      text-align: center;
       font-weight: 600;
-      font-size: 17px;
-      text-decoration: none;
-      transition: opacity 0.15s ease;
-    }
-    a.btn:active { opacity: 0.8; }
-    a.btn.primary {
-      background: #F7FAFC;
-      color: #0A0A0A;
-    }
-    a.btn.secondary {
-      background: transparent;
-      color: #F7FAFC;
-      border: 1px solid rgba(255,255,255,0.2);
-    }
-    footer {
-      font-size: 13px;
-      color: #5e5e5e;
-      text-align: center;
-      margin-top: 8px;
+      color: #5E5E5E;
     }
   </style>
 </head>
 <body>
-  <main>
-    <div class="logo">B</div>
-    <h1>Join a Phone-Free Break on BreakOff</h1>
-    <p class="lede">A friend invited you. Open the app to join their break, or download BreakOff if you don't have it yet.</p>
-    <span class="code" id="code-display"></span>
+  <div class="page">
+    <div class="col">
 
-    <div class="actions">
+      <div class="org-pill hidden" id="org-pill">
+        <span class="org-logo" id="org-logo"><span id="org-initial"></span></span>
+        <span class="org-name" id="org-name"></span>
+      </div>
+
+      <h1 class="break-title" id="break-title">Loading break</h1>
+
+      <div class="duration hidden" id="duration">
+        <span class="num" id="duration-num"></span>
+        <span class="unit" id="duration-unit"></span>
+      </div>
+
+      <div class="mode-pill hidden" id="mode-pill">
+        <svg id="lock-closed" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 8 0v3"></path></svg>
+        <svg id="lock-open" class="hidden" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"></rect><path d="M8 11V8a4 4 0 0 1 7.5-2"></path></svg>
+        <span id="mode-label">Locked</span>
+      </div>
+
+      <div class="when-line hidden" id="when-line">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#99A1AF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        <span id="when-label"></span>
+      </div>
+
+      <p class="pitch" id="pitch">A friend invited you to a phone-free break. Open it in BreakOff to join them.</p>
+
+      <div class="divider"></div>
+
       <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
-      <a class="btn secondary" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">Download BreakOff</a>
-    </div>
+      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331">
+        <svg width="16" height="16" viewBox="0 0 384 512" fill="#F2F2F2"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"></path></svg>
+        Download on the App Store
+      </a>
 
-    <footer>BreakOff is a screen-time app for iPhone.</footer>
-  </main>
+      <div class="short-link" id="short-link"></div>
+
+    </div>
+  </div>
 
   <script>
     (function () {
-      // Derive the code from the path. /invite/{code} → code = last segment.
-      // Fall back gracefully if the static host serves this file at /invite.
-      var parts = window.location.pathname.split('/').filter(Boolean);
-      var code = parts.length >= 2 && parts[0] === 'invite' ? parts[1] : '';
+      var SUPABASE_URL = 'https://qpoywatpflqdbpfejnas.supabase.co';
+      var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
+      var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+      var DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+      var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-      if (code && /^[A-Za-z0-9]{8}$/.test(code)) {
-        document.getElementById('code-display').textContent = 'Invite code: ' + code;
-        document.getElementById('open-btn').href = 'breakoff://invite/' + code;
-      } else {
-        document.getElementById('code-display').style.display = 'none';
-        document.getElementById('open-btn').href = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+      var parts = window.location.pathname.split('/').filter(Boolean);
+      var qsCode = new URLSearchParams(window.location.search).get('code') || '';
+      var code = parts.length >= 2 && parts[0] === 'invite' ? parts[1] : qsCode;
+
+      var el = function (id) { return document.getElementById(id); };
+
+      function fmtHM(t) {
+        if (!t || typeof t.hour !== 'number') return '';
+        var h = t.hour;
+        var min = String(t.minute ?? 0).padStart(2, '0');
+        var ampm = h < 12 ? 'AM' : 'PM';
+        var h12 = h % 12 === 0 ? 12 : h % 12;
+        return h12 + ':' + min + ' ' + ampm;
       }
+
+      function fmtClock(d) {
+        var h = d.getHours();
+        var min = String(d.getMinutes()).padStart(2, '0');
+        var ampm = h < 12 ? 'AM' : 'PM';
+        var h12 = h % 12 === 0 ? 12 : h % 12;
+        return h12 + ':' + min + ' ' + ampm;
+      }
+
+      function fmtDateObj(d) {
+        return DAY_NAMES[d.getDay()] + ', ' + MONTHS[d.getMonth()] + ' ' + d.getDate();
+      }
+
+      function fmtDateIso(iso) {
+        var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || '');
+        if (!m) return '';
+        return fmtDateObj(new Date(+m[1], +m[2] - 1, +m[3]));
+      }
+
+      function fmtDays(days) {
+        var sorted = days.slice().sort(function (a, b) { return a - b; });
+        if (sorted.length === 7) return 'Every day';
+        if (sorted.length === 2 && sorted[0] === 0 && sorted[1] === 6) return 'Sat, Sun';
+        var out = [];
+        var runStart = sorted[0];
+        var prev = sorted[0];
+        function flush() {
+          if (runStart === prev) out.push(DAY_NAMES[runStart]);
+          else if (prev - runStart === 1) out.push(DAY_NAMES[runStart] + ', ' + DAY_NAMES[prev]);
+          else out.push(DAY_NAMES[runStart] + ' to ' + DAY_NAMES[prev]);
+        }
+        for (var i = 1; i < sorted.length; i++) {
+          if (sorted[i] === prev + 1) { prev = sorted[i]; continue; }
+          flush();
+          runStart = sorted[i];
+          prev = sorted[i];
+        }
+        flush();
+        return out.join(', ');
+      }
+
+      function setNotFound() {
+        el('break-title').textContent = 'This invite is not active';
+        el('pitch').textContent = 'Ask your friend for a fresh link.';
+        el('org-pill').classList.add('hidden');
+        el('duration').classList.add('hidden');
+        el('mode-pill').classList.add('hidden');
+        el('when-line').classList.add('hidden');
+        var open = el('open-btn');
+        open.textContent = 'Get BreakOff';
+        open.href = APP_STORE;
+        open.onclick = null;
+      }
+
+      if (!code || !/^[A-Za-z0-9]{8}$/.test(code)) {
+        setNotFound();
+        return;
+      }
+
+      el('short-link').textContent = 'breakoff.io/invite/' + code;
+
+      var openBtn = el('open-btn');
+      openBtn.href = 'breakoff://invite/' + code;
+      openBtn.onclick = function () {
+        setTimeout(function () {
+          if (!document.hidden) window.location.href = APP_STORE;
+        }, 1600);
+      };
+
+      var url = SUPABASE_URL + '/rest/v1/open_invite_public?code=eq.' + encodeURIComponent(code)
+        + '&select=code,name,kind,break_type,start_at,end_at,schedule_payload';
+      fetch(url, {
+        headers: {
+          apikey: SUPABASE_ANON,
+          Authorization: 'Bearer ' + SUPABASE_ANON,
+        },
+      }).then(function (r) {
+        return r.ok ? r.json() : [];
+      }).then(function (rows) {
+        if (!rows || rows.length === 0) {
+          setNotFound();
+          return;
+        }
+        var row = rows[0];
+        var payload = row.schedule_payload || {};
+
+        el('break-title').textContent = row.name || payload.name || 'Phone-free break';
+
+        // Sender pill: person name + avatar, or org name + logo, from the
+        // sender-identity snapshot on the payload.
+        var hostName = payload.hostName;
+        if (hostName) {
+          el('org-name').textContent = hostName;
+          if (payload.hostLogoUrl && /^https:\/\//i.test(payload.hostLogoUrl)) {
+            var img = document.createElement('img');
+            img.src = payload.hostLogoUrl;
+            img.alt = '';
+            el('org-logo').replaceChildren(img);
+          } else {
+            el('org-initial').textContent = hostName.charAt(0).toUpperCase();
+          }
+          el('org-pill').classList.remove('hidden');
+        }
+
+        // Duration: payload.durationMinutes, else start/end wall-clock,
+        // else the invite's absolute start_at/end_at window.
+        var mins = 0;
+        if (typeof payload.durationMinutes === 'number' && payload.durationMinutes > 0) {
+          mins = payload.durationMinutes;
+        } else if (payload.startTime && payload.endTime) {
+          var startM = payload.startTime.hour * 60 + (payload.startTime.minute || 0);
+          var endM = payload.endTime.hour * 60 + (payload.endTime.minute || 0);
+          mins = endM - startM;
+          if (mins <= 0) mins += 24 * 60;
+        } else if (row.start_at && row.end_at) {
+          mins = Math.round((new Date(row.end_at) - new Date(row.start_at)) / 60000);
+        }
+        if (mins > 0) {
+          if (mins >= 60 && mins % 60 === 0) {
+            el('duration-num').textContent = String(mins / 60);
+            el('duration-unit').textContent = mins === 60 ? 'hour' : 'hours';
+          } else {
+            el('duration-num').textContent = String(mins);
+            el('duration-unit').textContent = mins === 1 ? 'minute' : 'minutes';
+          }
+          el('duration').classList.remove('hidden');
+        }
+
+        var locked = (row.break_type || payload.breakType) === 'locked';
+        el('mode-label').textContent = locked ? 'Locked' : 'Unlocked';
+        el('lock-closed').classList.toggle('hidden', !locked);
+        el('lock-open').classList.toggle('hidden', locked);
+        el('mode-pill').classList.remove('hidden');
+
+        // Schedule line: payload weekly days / one-shot dates with the
+        // wall-clock window, else the invite's absolute start moment,
+        // else Anytime.
+        var whenLabel = 'Anytime';
+        var windowLabel = '';
+        if (payload.startTime && payload.endTime) {
+          windowLabel = fmtHM(payload.startTime) + ' to ' + fmtHM(payload.endTime);
+        }
+        var dates = Array.isArray(payload.oneShotDates) && payload.oneShotDates.length > 0
+          ? payload.oneShotDates.slice().sort()
+          : (payload.oneShotDate ? [payload.oneShotDate] : []);
+        var days = Array.isArray(payload.repeatDays) ? payload.repeatDays : [];
+        if (dates.length === 1) {
+          whenLabel = fmtDateIso(dates[0]);
+        } else if (dates.length > 1) {
+          whenLabel = fmtDateIso(dates[0]) + ' to ' + fmtDateIso(dates[dates.length - 1]);
+        } else if (days.length > 0) {
+          whenLabel = fmtDays(days);
+        } else if (row.start_at) {
+          var sd = new Date(row.start_at);
+          whenLabel = fmtDateObj(sd);
+          if (!windowLabel) {
+            windowLabel = fmtClock(sd) + (row.end_at ? ' to ' + fmtClock(new Date(row.end_at)) : '');
+          }
+        }
+        if (whenLabel !== 'Anytime' && windowLabel) {
+          whenLabel += ' · ' + windowLabel;
+        }
+        el('when-label').textContent = whenLabel;
+        el('when-line').classList.remove('hidden');
+
+        // Pitch: personalize with the sender's name when we have it.
+        if (hostName) {
+          el('pitch').textContent = hostName + ' invited you to a phone-free break. Open it in BreakOff to join them.';
+        }
+      }).catch(function () {
+        setNotFound();
+      });
     })();
   </script>
 
-  <!-- PostHog web snippet. Same project, same write-only client key. -->
+  <!-- PostHog web snippet. Same project, write-only client key. -->
   <script>
     !function(t,e){var o,n,p,r;e.__SV||(window.posthog=e,e._i=[],e.init=function(i,s,a){function g(t,e){var o=e.split(".");2==o.length&&(t=t[o[0]],e=o[1]),t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}}(p=t.createElement("script")).type="text/javascript",p.async=!0,p.src=s.api_host+"/static/array.js",(r=t.getElementsByTagName("script")[0]).parentNode.insertBefore(p,r);var u=e;for(void 0!==a?u=e[a]=[]:a="posthog",u.people=u.people||[],u.toString=function(t){var e="posthog";return"posthog"!==a&&(e+="."+a),t||(e+=" (stub)"),e},u.people.toString=function(){return u.toString(1)+".people (stub)"},o="capture identify alias people.set people.set_once set_config register register_once unregister opt_out_capturing has_opted_out_capturing opt_in_capturing reset isFeatureEnabled onFeatureFlags getFeatureFlag getFeatureFlagPayload reloadFeatureFlags group updateEarlyAccessFeatureEnrollment getEarlyAccessFeatures getActiveMatchingSurveys getSurveys".split(" "),n=0;n<o.length;n++)g(u,o[n]);e._i.push([i,s,a])},e.__SV=1)}(document,window.posthog||[]);
     try {
@@ -159,7 +442,8 @@
         capture_pageview: true,
         disable_session_recording: true
       });
-      var inviteCode = (window.location.pathname.split('/').filter(Boolean)[1]) || '';
+      var inviteCode = (window.location.pathname.split('/').filter(Boolean)[1])
+        || new URLSearchParams(window.location.search).get('code') || '';
       posthog.capture('invite_link_opened', { code: inviteCode, source: 'web_landing' });
     } catch (e) {}
   </script>

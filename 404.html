@@ -11,6 +11,10 @@
       if (m) {
         window.location.replace('/s/?code=' + m[1]);
       }
+      var mi = /^\/invite\/([A-Za-z0-9]{8})\/?$/.exec(window.location.pathname);
+      if (mi) {
+        window.location.replace('/invite/?code=' + mi[1]);
+      }
     })();
   </script>
   <meta charset="utf-8" />
