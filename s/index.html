@@ -311,7 +311,11 @@
       };
 
       var parts = window.location.pathname.split('/').filter(Boolean);
-      var code = parts.length >= 2 && parts[0] === 's' ? parts[1] : '';
+      // Path form (/s/CODE) via the 404 router redirect, or query form
+      // (/s/?code=CODE) directly. The query form also makes local preview
+      // servers work without path routing.
+      var qsCode = new URLSearchParams(window.location.search).get('code') || '';
+      var code = parts.length >= 2 && parts[0] === 's' ? parts[1] : qsCode;
 
       var el = function (id) { return document.getElementById(id); };
 
@@ -507,7 +511,8 @@
         capture_pageview: true,
         disable_session_recording: true
       });
-      var shareCode = (window.location.pathname.split('/').filter(Boolean)[1]) || '';
+      var shareCode = (window.location.pathname.split('/').filter(Boolean)[1])
+        || new URLSearchParams(window.location.search).get('code') || '';
       posthog.capture('share_link_opened', { code: shareCode, source: 'web_landing' });
     } catch (e) {}
   </script>

@@ -1,6 +1,18 @@
 <!doctype html>
 <html lang="en">
 <head>
+  <script>
+    // /s/{code} now renders from s/index.html (redesigned break
+    // acceptance page, 2026-07-12). GitHub Pages serves deep links
+    // through this 404 router, so bounce to the real page immediately;
+    // everything below only handles the remaining lanes (/invite).
+    (function () {
+      var m = /^\/s\/([A-Za-z0-9]{8})\/?$/.exec(window.location.pathname);
+      if (m) {
+        window.location.replace('/s/?code=' + m[1]);
+      }
+    })();
+  </script>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Add this break to BreakOff</title>
