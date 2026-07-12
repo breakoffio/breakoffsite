@@ -394,7 +394,7 @@
       };
 
       var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-        + '&select=title,duration_minutes,days,start_time,end_time,one_shot_dates,mode,share_type,business_name,logo_url,recommended_apps';
+        + '&select=title,duration_minutes,days,start_time,end_time,one_shot_dates,mode,share_type,business_name,description,logo_url,recommended_apps';
       fetch(url, {
         headers: {
           apikey: SUPABASE_ANON,
@@ -410,6 +410,11 @@
         var row = rows[0];
 
         el('break-title').textContent = row.title || 'Phone-free break';
+
+        // Host-written pitch replaces the default line when present.
+        if (row.description) {
+          el('pitch').textContent = row.description;
+        }
 
         // Org pill: only when the share carries a host identity.
         if (row.business_name) {
