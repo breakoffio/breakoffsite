@@ -1,0 +1,8 @@
+# Serve the AASA as JSON so Apple's CDN accepts it (GitHub Pages served it
+# as application/octet-stream, the prime suspect if universal links do not
+# fire). Inert on GitHub Pages.
+/.well-known/apple-app-site-association
+  Content-Type: application/json
+
+/apple-app-site-association
+  Content-Type: application/json

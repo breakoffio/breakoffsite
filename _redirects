@@ -1,0 +1,5 @@
+# Cloudflare Pages SPA rewrites. These return HTTP 200 (unlike the GitHub
+# Pages 404.html router, which served link pages with a 404 status and
+# broke iMessage/social link previews). Inert on GitHub Pages.
+/s/* /s/index.html 200
+/invite/* /invite/index.html 200
