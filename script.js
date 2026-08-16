@@ -66,21 +66,3 @@ window.addEventListener('scroll', () => {
         nav.style.borderBottomColor = 'rgba(0, 0, 0, 0.04)';
     }
 }, { passive: true });
-
-// Break mode cards: click to expand details
-document.querySelectorAll('.mode-card').forEach(card => {
-    const toggle = () => {
-        card.classList.toggle('open');
-        card.setAttribute('aria-expanded', card.classList.contains('open'));
-    };
-    card.addEventListener('click', (e) => {
-        if (e.target.closest('a')) return; // let links inside details work
-        toggle();
-    });
-    card.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            toggle();
-        }
-    });
-});
