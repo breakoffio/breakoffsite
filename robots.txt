@@ -1,3 +1,61 @@
+# breakoff.io — robots.txt
+# AI answer engines and training crawlers are explicitly welcome.
+# Cloudflare's managed robots.txt injection is disabled (Security → Settings →
+# Manage your robots.txt → Off), so this file is served verbatim.
+
+# --- OpenAI ---
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+# --- Anthropic ---
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Google ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+# --- Apple ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- Microsoft / DuckDuckGo ---
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+# --- Everyone else ---
 User-agent: *
 Allow: /
+
 Sitemap: https://breakoff.io/sitemap.xml

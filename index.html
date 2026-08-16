@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BreakOff - Take Back Your Time</title>
-    <meta name="description" content="BreakOff helps you unplug and reclaim your time. Build streaks, earn rewards, and take control of your screen time with scheduled breaks and daily progress tracking.">
-    <meta name="keywords" content="digital wellness, screen time, digital detox, phone break, productivity, focus, NFC tag, QR code break">
+    <title>BreakOff: App Blocker &amp; Focus — Take Back Your Time</title>
+    <meta name="description" content="BreakOff blocks distracting apps until you scan a QR code or tap an NFC tag. Put the code in another room and your break holds. Scheduled breaks, streaks, and shared breaks with friends, free on iPhone.">
+    <meta name="keywords" content="NFC tag app blocker, QR code app blocker, block apps with NFC tag, QR code break, commitment device, digital wellness, screen time, digital detox, phone break, focus">
     <meta name="robots" content="index, follow">
     <meta property="og:title" content="BreakOff - Take Back Your Time">
-    <meta property="og:description" content="Unplug and reclaim your time with BreakOff. Scheduled breaks, daily progress tracking, and real rewards for your digital wellness journey.">
+    <meta property="og:description" content="Scan a QR code or tap an NFC tag to lock your apps, then leave it in the kitchen. Your break holds until you go back and scan it again.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://breakoff.io">
     <meta property="og:image" content="https://breakoff.io/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="BreakOff - Take Back Your Time">
-    <meta name="twitter:description" content="Unplug and reclaim your time. Build streaks, earn real rewards, and finally take control of your screen time.">
+    <meta name="twitter:description" content="Scan a QR code or tap an NFC tag to lock your apps, then leave it in the kitchen. Your break holds until you go back and scan it again.">
     <meta name="twitter:image" content="https://breakoff.io/assets/og-image.png">
     <link rel="canonical" href="https://breakoff.io/">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
@@ -23,15 +23,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css?v=2">
+    <link rel="stylesheet" href="styles.css?v=4">
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "SoftwareApplication",
         "name": "BreakOff",
         "operatingSystem": "iOS",
-        "applicationCategory": "HealthApplication",
-        "description": "BreakOff helps you unplug and reclaim your time. Build streaks, earn rewards, and take control of your screen time.",
+        "applicationCategory": "ProductivityApplication",
+        "description": "BreakOff helps you unplug and reclaim your time. Block distracting apps until you scan a QR code or tap an NFC tag, build streaks, and take breaks with friends.",
+        "featureList": [
+            "QR code breaks: scan any QR code to start a break and scan it again to end it",
+            "NFC tag breaks: tap a standard NTAG sticker to start and end a break",
+            "Scheduled one-off and repeating breaks",
+            "App blocking with custom groups and Flip Phone mode",
+            "I'm Done for the Day lockout until midnight",
+            "Daily goals, streaks and history",
+            "Friends, break invites and a leaderboard"
+        ],
         "offers": [
             {
                 "@type": "Offer",
@@ -45,8 +54,22 @@
                 "price": "4.99",
                 "priceCurrency": "USD",
                 "category": "subscription"
+            },
+            {
+                "@type": "Offer",
+                "name": "BreakOff Pro (annual)",
+                "price": "49.99",
+                "priceCurrency": "USD",
+                "category": "subscription"
             }
         ],
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5.0",
+            "bestRating": "5",
+            "worstRating": "1",
+            "ratingCount": "8"
+        },
         "url": "https://breakoff.io",
         "downloadUrl": "https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331",
         "contentRating": "4+"
@@ -64,6 +87,7 @@
             </a>
             <div class="nav-links">
                 <a href="#features">Features</a>
+                <a href="#tag-breaks">QR &amp; NFC</a>
                 <a href="#how-it-works">How It Works</a>
             </div>
             <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
@@ -80,6 +104,7 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu">
         <a href="#features">Features</a>
+        <a href="#tag-breaks">QR &amp; NFC</a>
         <a href="#how-it-works">How It Works</a>
         <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
     </div>
@@ -204,7 +229,7 @@
                         </svg>
                     </div>
                     <h4>QR Code &amp; NFC Breaks</h4>
-                    <p>Turn any QR code or NFC tag into a commitment device. Scan a code or tap a tag to lock in, stick it on the fridge, leave it in another room, and your break won't end until you come back and scan or tap it again.</p>
+                    <p>Turn any QR code or NFC tag into a commitment device. Scan or tap to start, and your break won't end until you go back and scan or tap it again. <a href="#tag-breaks" class="feature-card-link">See how it works</a></p>
                 </div>
 
                 <div class="feature-card">
@@ -242,6 +267,108 @@
                     <h4>Leaderboard</h4>
                     <p>See how your streaks and focus hours stack up against your friends. A little friendly competition goes a long way toward staying off your phone.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- QR &amp; NFC Tag Breaks -->
+    <section class="tag-breaks" id="tag-breaks">
+        <div class="container">
+            <div class="tag-breaks-panel">
+
+                <div class="tag-breaks-intro">
+                    <div class="tag-breaks-copy">
+                        <div class="section-badge">QR &amp; NFC Breaks</div>
+                        <h2>Put the off switch<br>in another room</h2>
+                        <p class="tag-breaks-lede">Most app blockers keep the escape hatch in your pocket. BreakOff lets you start a break by scanning a QR code or tapping an NFC tag, and that same code is the only thing that ends it. Leave it on the fridge and your apps stay blocked until you walk to the fridge.</p>
+                    </div>
+                    <div class="tag-breaks-phone">
+                        <img src="assets/app-start-break-v2.png" alt="BreakOff Start a Break sheet showing Flexible, Locked, QR Code and NFC modes" width="260" height="588" loading="lazy">
+                    </div>
+                </div>
+
+                <div class="tag-breaks-modes">
+                    <div class="tag-breaks-mode">
+                        <div class="tag-breaks-mode-head">
+                            <span class="tag-breaks-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <rect x="3" y="3" width="7" height="7"/>
+                                    <rect x="14" y="3" width="7" height="7"/>
+                                    <rect x="3" y="14" width="7" height="7"/>
+                                    <line x1="14" y1="14" x2="14" y2="21"/>
+                                    <line x1="21" y1="14" x2="21" y2="21"/>
+                                    <line x1="14" y1="17.5" x2="21" y2="17.5"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3>QR Code Breaks</h3>
+                                <span class="tag-breaks-mode-kicker">Free. Works today.</span>
+                            </div>
+                        </div>
+                        <p>Any QR code works. Print one, or use a code that is already sitting in your house: on a coffee bag, a poster, a piece of mail. Scan it to start the break, scan it again to end it. Nothing to buy and nothing to assemble.</p>
+                    </div>
+
+                    <div class="tag-breaks-mode">
+                        <div class="tag-breaks-mode-head">
+                            <span class="tag-breaks-icon">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 8.5a10 10 0 0 1 0 7"/>
+                                    <path d="M9 6a15 15 0 0 1 0 12"/>
+                                    <path d="M13 4.2a19 19 0 0 1 0 15.6"/>
+                                    <circle cx="18.5" cy="12" r="1.4" fill="currentColor" stroke="none"/>
+                                </svg>
+                            </span>
+                            <div>
+                                <h3>NFC Tag Breaks</h3>
+                                <span class="tag-breaks-mode-kicker">One tap. No camera.</span>
+                            </div>
+                        </div>
+                        <p>Hold your phone to an NFC sticker and the break starts. Bring your own tag, standard NTAG stickers run about a dollar each. Stick one wherever you want your phone to stay out of, then tap it again when you are ready to come back.</p>
+                    </div>
+                </div>
+
+                <div class="tag-breaks-sub">
+                    <h3 class="tag-breaks-subhead">Where people put them</h3>
+                    <ul class="tag-breaks-places">
+                        <li><strong>Fridge door.</strong> The break ends in the kitchen, not on the couch.</li>
+                        <li><strong>Bedroom doorframe.</strong> Your phone stays down until you are actually up.</li>
+                        <li><strong>Desk at the office.</strong> Scan in when you sit down, scan out when you leave.</li>
+                        <li><strong>Inside a drawer.</strong> The drawer becomes the lock.</li>
+                        <li><strong>Gym bag.</strong> One tap on the way in, one on the way out.</li>
+                        <li><strong>Front door.</strong> Tap it when you get home, and be home.</li>
+                    </ul>
+                </div>
+
+                <div class="tag-breaks-sub">
+                    <h3 class="tag-breaks-subhead">Why it works</h3>
+                    <div class="tag-breaks-reasons">
+                        <div class="tag-breaks-reason">
+                            <span class="tag-breaks-reason-num">01</span>
+                            <h4>Distance does the work</h4>
+                            <p>You are not fighting the urge at 9pm. You are just too far from the code to give in without noticing what you are doing.</p>
+                        </div>
+                        <div class="tag-breaks-reason">
+                            <span class="tag-breaks-reason-num">02</span>
+                            <h4>A decision you can feel</h4>
+                            <p>Tapping a tag is a physical act with a start and a finish. Changing a setting is not, which is why settings are so easy to change back.</p>
+                        </div>
+                        <div class="tag-breaks-reason">
+                            <span class="tag-breaks-reason-num">03</span>
+                            <h4>You already have what you need</h4>
+                            <p>QR works out of the box with any code you can find or print. A ten pack of NFC stickers costs about ten dollars and lasts for years.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tag-breaks-sub">
+                    <h3 class="tag-breaks-subhead">Setting one up takes a minute</h3>
+                    <ol class="tag-breaks-steps">
+                        <li><span>1</span> Start a break and choose QR Code or NFC.</li>
+                        <li><span>2</span> Scan any code or tap any tag. BreakOff remembers it.</li>
+                        <li><span>3</span> Put it somewhere you would have to get up for.</li>
+                    </ol>
+                </div>
+
             </div>
         </div>
     </section>
