@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BreakOff: App Blocker &amp; Focus — Take Back Your Time</title>
-    <meta name="description" content="BreakOff blocks distracting apps until you scan a QR code or tap an NFC tag. Put the code in another room and your break holds. Scheduled breaks, streaks, and shared breaks with friends, free on iPhone.">
+    <title>BreakOff: App Blocker for iPhone with QR and NFC Breaks</title>
+    <meta name="description" content="BreakOff blocks the apps that pull you in and makes space for what's in front of you. Choose how committed you want to be, build breaks into a Routine, take them with your Circle, or put a whole room on one with Host. Free on iPhone.">
     <meta name="keywords" content="NFC tag app blocker, QR code app blocker, block apps with NFC tag, QR code break, commitment device, digital wellness, screen time, digital detox, phone break, focus">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="BreakOff - Take Back Your Time">
-    <meta property="og:description" content="BreakOff helps you decide when your phone is useful, and when it should get out of the way. Lock your apps with a QR code or NFC tag until you scan it again.">
+    <meta property="og:title" content="BreakOff - Put your phone down. Be here.">
+    <meta property="og:description" content="Block the apps that pull you in and make space for what's in front of you. Take a break now, build it into your routine, or put your phone down together.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://breakoff.io">
     <meta property="og:image" content="https://breakoff.io/assets/og-image.png">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BreakOff - Take Back Your Time">
-    <meta name="twitter:description" content="BreakOff helps you decide when your phone is useful, and when it should get out of the way. Lock your apps with a QR code or NFC tag until you scan it again.">
+    <meta name="twitter:title" content="BreakOff - Put your phone down. Be here.">
+    <meta name="twitter:description" content="Block the apps that pull you in and make space for what's in front of you. Take a break now, build it into your routine, or put your phone down together.">
     <meta name="twitter:image" content="https://breakoff.io/assets/og-image.png">
     <link rel="canonical" href="https://breakoff.io/">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
@@ -31,18 +31,19 @@
         "name": "BreakOff",
         "operatingSystem": "iOS",
         "applicationCategory": "ProductivityApplication",
-        "description": "BreakOff helps you decide when your phone is useful, and when it should get out of the way. Block distracting apps until you scan a QR code or tap an NFC tag, build streaks, and take breaks with friends.",
+        "description": "BreakOff blocks the apps that pull you in and makes space for what is in front of you. Choose how committed a break is, build breaks into a Routine, take them with your Circle, or put a whole room on one with Host.",
         "featureList": [
-            "Five break modes, ordered by how hard they are to exit",
+            "Modes: three levels of commitment that decide how a break ends",
             "Flexible mode: your apps are blocked, but you can end the break whenever you want",
-            "Locked mode: strict mode, the break runs its full length and cannot be ended early",
-            "QR code mode: scan a QR code to start a break and scan the same code again to end it",
-            "NFC tag mode: tap a standard NTAG sticker to start and end a break",
-            "I'm Done for the Day: locks your apps until midnight",
-            "Scheduled one-off and repeating breaks",
+            "Locked mode: the break runs its full length, with a break-glass escape for emergencies",
+            "Physical mode: the break ends only when you scan the same QR code or tap the same NFC sticker",
+            "Routines: named sets of Rules that run on the days and times you choose",
+            "Ready-made Routines including Work Focus, Slow Morning, Better Sleep, School Focus, Family Time and Weekend Reset",
+            "One-off Rules for a single date",
             "App blocking with custom app groups",
             "Daily goals, streaks and history",
-            "Shared breaks with friends, break invites and a leaderboard"
+            "Circles: take breaks with the people you choose, with shared streaks and invites",
+            "Host: one QR poster that puts a whole room on the same break"
         ],
         "offers": [
             {
@@ -89,10 +90,10 @@
                 <span>BreakOff</span>
             </a>
             <div class="nav-links">
-                <a href="#features">Features</a>
                 <a href="#modes">Modes</a>
-                <a href="#tag-breaks">QR &amp; NFC</a>
-                <a href="#how-it-works">How It Works</a>
+                <a href="#routines">Routines</a>
+                <a href="#circles">Circles</a>
+                <a href="#host">Host</a>
             </div>
             <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="nav-cta" target="_blank" rel="noopener">
                 Download
@@ -107,10 +108,10 @@
 
     <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <a href="#features">Features</a>
         <a href="#modes">Modes</a>
-        <a href="#tag-breaks">QR &amp; NFC</a>
-        <a href="#how-it-works">How It Works</a>
+        <a href="#routines">Routines</a>
+        <a href="#circles">Circles</a>
+        <a href="#host">Host</a>
         <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
     </div>
 
@@ -118,8 +119,8 @@
     <section class="hero">
         <div class="hero-content">
             <div class="hero-badge">Digital Wellness</div>
-            <h1>Take Back <br>Your Time</h1>
-            <p class="hero-subtitle">BreakOff helps you decide when your phone is useful, and when it should get out of the way. Build streaks, earn real rewards, and take control of your screen time.</p>
+            <h1>Put your phone down.<br>Be here.</h1>
+            <p class="hero-subtitle">Block the apps that pull you in and make space for what's in front of you. Take a break now, build it into your routine, or put your phone down together.</p>
             <div class="hero-actions">
                 <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="btn-primary" target="_blank" rel="noopener">
                     <svg width="20" height="24" viewBox="0 0 20 24" fill="currentColor">
@@ -145,107 +146,65 @@
             <!-- Phone 1: Active Break (Flexible, Social blocked) -->
             <div class="phone phone-left">
                 <div class="phone-frame">
-                    <img src="assets/phone-active-break.png" alt="BreakOff active break screen with Social apps blocked" class="phone-screenshot" style="border-radius:0;box-shadow:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.18));">
+                    <img src="assets/shot-active-break.png" alt="BreakOff active break screen with Social apps blocked" class="phone-screenshot" style="border-radius:26px;box-shadow:0 20px 44px rgba(0,0,0,0.20);">
                 </div>
             </div>
             <!-- Phone 2: Home Screen -->
             <div class="phone phone-center">
                 <div class="phone-frame">
-                    <img src="assets/phone-home.png" alt="BreakOff home screen showing time saved and start a break" class="phone-screenshot" style="border-radius:0;box-shadow:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.18));">
+                    <img src="assets/shot-home.png" alt="BreakOff home screen showing time saved and start a break" class="phone-screenshot" style="border-radius:26px;box-shadow:0 20px 44px rgba(0,0,0,0.20);">
                 </div>
             </div>
             <!-- Phone 3: Mode Picker -->
             <div class="phone phone-right">
                 <div class="phone-frame">
-                    <img src="assets/phone-modes.png" alt="BreakOff mode picker showing the five break modes" class="phone-screenshot" style="border-radius:0;box-shadow:none;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.18));">
+                    <img src="assets/shot-modes.png" alt="BreakOff mode picker showing the five break modes" class="phone-screenshot" style="border-radius:26px;box-shadow:0 20px 44px rgba(0,0,0,0.20);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- The Four Parts -->
     <section class="features" id="features">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">Why BreakOff</div>
-                <h2>Built for your<br>digital wellness</h2>
-                <p>Your phone should work for you, not the other way around. BreakOff gives you the tools to decide when it's useful, and when it should get out of the way.</p>
+                <div class="section-badge">What's Inside</div>
+                <h2>Four parts,<br>one habit</h2>
+                <p>Modes decide how a break ends. Routines decide when breaks happen. Circles are the people you take them with. Host puts a whole room on one.</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card-large">
-                    <div class="feature-phone" style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-                        <img src="assets/phone-schedules.png" alt="BreakOff Schedules screen with repeating breaks" class="feature-phone-screenshot" style="width:240px;border-radius:0;box-shadow:none;filter:drop-shadow(0 10px 30px rgba(0,0,0,0.15));">
-                    </div>
-                    <div class="feature-card-large-content">
-                        <h3>Scheduled Breaks</h3>
-                        <p>Plan a one-off break for the future or set up a repeating one. Pick the days, set the time, and choose what gets blocked. BreakOff takes care of the rest.</p>
-                    </div>
-                </div>
-
-                <div class="feature-cards-right">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <circle cx="12" cy="12" r="10"/>
-                                <polyline points="12 6 12 12 16 14"/>
-                            </svg>
-                        </div>
-                        <h4>Flexible Scheduling</h4>
-                        <p>Create custom break schedules that fit your life. Set different rules for weekdays, weekends, or specific times.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 20V10"/>
-                                <path d="M18 20V4"/>
-                                <path d="M6 20v-4"/>
-                            </svg>
-                        </div>
-                        <h4>Daily Progress & Goals</h4>
-                        <p>Track your daily break goals and watch your streaks grow. Stay motivated with clear, visual progress indicators.</p>
-                    </div>
-
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
-                            </svg>
-                        </div>
-                        <h4>App Blocking</h4>
-                        <p>Block distracting apps during your break sessions. Build your own app groups, or start from a preset and adjust it.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="features-grid-extra" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px;margin-top:24px;">
-                <div class="feature-card">
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;">
+                <a href="#modes" class="feature-card" style="text-decoration:none;color:inherit;display:block;">
                     <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
                     </div>
-                    <h4>Friends</h4>
-                    <p>Add friends by username and take phone-free breaks together. Accountability works better with someone in it with you. Available for ages 16 and up.</p>
-                </div>
+                    <h3>Modes</h3>
+                    <p>Three levels of commitment, from a break you can end anytime to one whose off switch is a code across the room.</p>
+                </a>
 
-                <div class="feature-card">
+                <a href="#routines" class="feature-card" style="text-decoration:none;color:inherit;display:block;">
                     <div class="feature-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                            <line x1="4" y1="21" x2="4" y2="12"/>
-                            <line x1="12" y1="21" x2="12" y2="4"/>
-                            <line x1="20" y1="21" x2="20" y2="14"/>
-                        </svg>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/><circle cx="9" cy="6" r="2" fill="currentColor" stroke="none"/><circle cx="15" cy="12" r="2" fill="currentColor" stroke="none"/><circle cx="8" cy="18" r="2" fill="currentColor" stroke="none"/></svg>
                     </div>
-                    <h4>Leaderboard</h4>
-                    <p>See how your streaks and focus hours stack up against your friends. A little friendly competition goes a long way toward staying off your phone.</p>
-                </div>
+                    <h3>Routines</h3>
+                    <p>Decide once when your phone steps aside. Repeating routines, one-off dates, and ready-made ones to start from.</p>
+                </a>
+
+                <a href="#circles" class="feature-card" style="text-decoration:none;color:inherit;display:block;">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <h3>Circles</h3>
+                    <p>The people you take breaks with. Shared streaks and invites, so being present is something you do together.</p>
+                </a>
+
+                <a href="#host" class="feature-card" style="text-decoration:none;color:inherit;display:block;">
+                    <div class="feature-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 14h3v3h-3z"/><path d="M20 14v3M17 20h4"/></svg>
+                    </div>
+                    <h3>Host</h3>
+                    <p>One poster, one QR code. The whole room takes the same break.</p>
+                </a>
             </div>
         </div>
     </section>
@@ -254,9 +213,9 @@
     <section class="modes" id="modes" style="padding:0 0 32px;">
         <div class="container">
             <div class="section-header">
-                <div class="section-badge">Break Modes</div>
-                <h2>Five ways<br>to lock in</h2>
-                <p>Every break has a mode that decides how it ends. Flexible trusts you, I'm Done doesn't have to. Pick the level of commitment that matches your day.</p>
+                <div class="section-badge">Modes</div>
+                <h2>Choose how committed<br>you want to be</h2>
+                <p>Every break has a mode, and the mode decides how it ends. Some days you want the door left open. Some days you want it closed. Pick the one that fits the day you are having.</p>
             </div>
         </div>
     </section>
@@ -264,14 +223,14 @@
     <!-- Mode 01: Flexible -->
     <section class="mode-showcase" style="padding:0 0 32px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;">
+            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
                     <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">Flexible</h2>
-                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">Quit whenever, no judgment</h3>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Pick your apps, set a length, and start. Your distracting apps disappear while the timer runs, but the door stays open &mdash; pause or end the break whenever you want. The easiest way to start building the habit.</p>
+                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">The door stays open</h3>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Pick your apps, set a length, and start. The apps that pull you in step aside while the timer runs, and you can end the break whenever you want. The easiest place to begin.</p>
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;">
-                    <img src="assets/mode-row-flexible.png" alt="Flexible mode in BreakOff: quit whenever, no judgment" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/mode-row-flexible.png" alt="Flexible mode in BreakOff" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
                 </div>
             </div>
         </div>
@@ -280,79 +239,85 @@
     <!-- Mode 02: Locked -->
     <section class="mode-showcase" style="padding:0 0 32px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;">
-                    <img src="assets/mode-row-locked.png" alt="Locked mode in BreakOff: locked in, break glass if needed" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/mode-row-locked.png" alt="Locked mode in BreakOff" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;">
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
                     <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">Locked</h2>
-                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">Locked in, break glass if needed</h3>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Start it and it runs its full length &mdash; there is no end button. For true emergencies there's a break-glass escape, deliberately uncomfortable so you never use it on autopilot. And the Phone app is never blocked, so calls always work.</p>
+                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">It runs the full length</h3>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Start it and it runs to the end. There is a break-glass escape for real emergencies, with enough friction that you will not reach for it by accident. The Phone app is never blocked, so calls always work.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mode 03: QR Code -->
-    <section class="mode-showcase" id="tag-breaks" style="padding:0 0 32px;">
+    <!-- Mode 03: Physical -->
+    <section class="mode-showcase" id="tag-breaks" style="padding:0 0 64px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;">
-                    <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">QR Code</h2>
-                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">Same scan in, same scan out</h3>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Scan any QR code or barcode to start the break &mdash; print one, or use a code already sitting in your house: a coffee bag, a poster, a piece of mail. The only thing that ends the break is scanning that exact code again. Leave it on the fridge and your apps stay blocked until you walk to the fridge. Nothing to buy, and setup takes a minute.</p>
+            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
+                    <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">Physical</h2>
+                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">The off switch lives across the room</h3>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">The break ends when you scan a QR code or tap an NFC sticker, and only that exact one. Leave it on the fridge, by the front door, or in your gym bag, and the distance does the work for you.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">Any code already in your house counts: a coffee bag, a poster, a piece of mail. NFC stickers run about a dollar each. Nothing to buy to get started, and setup takes a minute.</p>
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;">
-                    <img src="assets/mode-row-qr.png" alt="QR code mode in BreakOff: same scan in, same scan out" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;flex-direction:column;gap:16px;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/mode-row-qr.png" alt="QR code breaks in BreakOff" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+                    <img src="assets/mode-row-nfc.png" alt="NFC tag breaks in BreakOff" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mode 04: NFC Tag -->
-    <section class="mode-showcase" style="padding:0 0 32px;">
+    <!-- Routines -->
+    <section class="routines-showcase" id="routines" style="padding:0 0 64px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;">
-                    <img src="assets/mode-row-nfc.png" alt="NFC tag mode in BreakOff: same tap in, same tap out" width="840" height="181" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:0 0 250px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/shot-rules.png" alt="Routines in BreakOff, showing Slow Morning and Morning Focus" class="phone-screenshot" style="width:250px;display:block;border-radius:26px;box-shadow:0 18px 44px rgba(0,0,0,0.18);">
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;">
-                    <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">NFC Tag</h2>
-                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">Same tap in, same tap out</h3>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Hold your phone to a standard NFC sticker and the break starts. Tap the same one to end it &mdash; no camera needed. NTAG stickers run about a dollar each: stick one on your desk, the bedroom doorframe, your gym bag, or the front door, and distance does the willpower for you.</p>
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
+                    <div class="section-badge">Routines</div>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">Decide once,<br>then let it run</h2>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">A Routine is a set of Rules that run on their own. Pick the days, the times, and the apps that step aside, and BreakOff arms it for you. The decision happens once, in the morning, not at 9pm when you are tired.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">Start from one that is already written, Work Focus, Slow Morning, Better Sleep, School Focus, Family Time, Weekend Reset, and change anything you like. Or set a single Rule for one date, for a dinner, a flight, or an exam.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">Life happens. Skip the next one and your streak stays where it is.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mode 05: I'm Done -->
-    <section class="mode-showcase" style="padding:0 0 64px;">
+    <!-- Circles -->
+    <section class="circles-showcase" id="circles" style="padding:0 0 64px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;">
-                    <h2 style="font-size:clamp(2.25rem,5vw,3.25rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:0 0 8px;">I'm Done</h2>
-                    <h3 style="font-size:clamp(1.25rem,2.5vw,1.6rem);font-weight:600;color:#404040;letter-spacing:-0.01em;margin:0 0 14px;">Done-done, until midnight</h3>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">One tap locks your distracting apps for the rest of the day. No pause, no undo &mdash; they come back at midnight. The strongest commitment BreakOff offers, for the nights you already know how the scroll would have gone.</p>
+            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
+                    <div class="section-badge">Circles</div>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">Be more present,<br>together</h2>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Circles are the people you choose to take breaks with. Send an invite and your phones go quiet at the same time.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">Together This Week shows the streaks across your Circle, so being present becomes something you do with people rather than alone. Available for ages 16 and up.</p>
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;max-width:420px;display:flex;justify-content:center;">
-                    <img src="assets/mode-row-imdone.png" alt="I'm Done mode in BreakOff: done-done, try again tomorrow" width="840" height="198" loading="lazy" style="width:100%;height:auto;border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,0.25);">
+                <div style="flex:0 0 250px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/shot-circles.png" alt="The Circles tab in BreakOff, showing shared streaks and recent activity" class="phone-screenshot" style="width:250px;display:block;border-radius:26px;box-shadow:0 18px 44px rgba(0,0,0,0.18);">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Friends Showcase -->
-    <section class="friends-showcase" style="padding:0 0 64px;">
+    <!-- Host -->
+    <section class="host-showcase" id="host" style="padding:0 0 64px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:0 0 auto;display:flex;justify-content:center;gap:20px;flex-wrap:wrap;">
-                    <img src="assets/phone-friends.png" alt="BreakOff Friends screen with leaderboard and activity" class="phone-screenshot" style="width:220px;border-radius:0;box-shadow:none;filter:drop-shadow(0 16px 36px rgba(0,0,0,0.16));">
-                    <img src="assets/phone-share-break.png" alt="BreakOff Share Break sheet with a QR code to take a break together" class="phone-screenshot" style="width:220px;border-radius:0;box-shadow:none;filter:drop-shadow(0 16px 36px rgba(0,0,0,0.16));">
+            <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:0 0 250px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/shot-host.png" alt="The Host tab in BreakOff, showing a shared break and its QR code" class="phone-screenshot" style="width:250px;display:block;border-radius:26px;box-shadow:0 18px 44px rgba(0,0,0,0.18);">
                 </div>
-                <div style="flex:1 1 320px;min-width:280px;">
-                    <div class="section-badge">Friends &amp; Leaderboard</div>
-                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">Stay off your phone,<br>together</h2>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Add friends by username, send break invites, and take phone-free time together. The leaderboard ranks your streaks and focus hours against the friends you've added, a little accountability goes a long way. Friends is available for ages 16 and up.</p>
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
+                    <div class="section-badge">Host</div>
+                    <h2 style="font-size:clamp(2rem,4.6vw,3rem);font-weight:800;letter-spacing:-0.02em;line-height:1.05;margin:8px 0 18px;">Put the whole room<br>on a break</h2>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">One poster, one QR code. Everyone who scans it starts the same break on their own phone, and the room goes quiet together. A dinner table, a classroom, a studio, the front of a workshop.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">Change the time, the length or the name whenever you want, and the same poster keeps working. One permanent poster, not a new code every week.</p>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;margin-top:14px;">You never see who joined. The dashboard shows a count, never names, and nobody's app list or screen time ever leaves their phone. Host is part of BreakOff Pro.</p>
                 </div>
             </div>
         </div>
@@ -361,14 +326,14 @@
     <!-- Streak Showcase -->
     <section class="streak-showcase" style="padding:0 0 64px;">
         <div class="container">
-            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px;">
-                <div style="flex:1 1 320px;min-width:280px;">
+            <div style="display:flex;flex-wrap:wrap-reverse;align-items:center;justify-content:center;gap:48px;background:#fafafa;border:1px solid #e5e5e5;border-radius:24px;padding:48px 48px 0;">
+                <div style="flex:1 1 320px;min-width:280px;padding-bottom:48px;">
                     <div class="section-badge">Streaks &amp; History</div>
-                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">Watch your streak<br>grow, day by day</h2>
-                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Every break you take lights up your calendar. See your current streak, your best streak, and the days you hit your goal at a glance. A simple visual nudge to keep showing up for yourself.</p>
+                    <h2 style="font-size:clamp(1.75rem,4vw,2.5rem);font-weight:800;letter-spacing:-0.02em;line-height:1.1;margin:8px 0 16px;">See the habit<br>taking shape</h2>
+                    <p style="color:#737373;font-size:1.05rem;line-height:1.7;">Every break you take fills in a day on the calendar. Not a score to chase, just a quiet record of the time you have been getting back.</p>
                 </div>
-                <div style="flex:0 0 240px;display:flex;justify-content:center;">
-                    <img src="assets/phone-streaks.png" alt="BreakOff Streak History calendar showing a 56 day streak" class="phone-screenshot" style="width:240px;border-radius:0;box-shadow:none;filter:drop-shadow(0 16px 36px rgba(0,0,0,0.16));">
+                <div style="flex:0 0 250px;display:flex;justify-content:center;padding-bottom:48px;">
+                    <img src="assets/shot-streaks.png" alt="Streak history in BreakOff, showing the days a break was taken" class="phone-screenshot" style="width:250px;display:block;border-radius:26px;box-shadow:0 18px 44px rgba(0,0,0,0.18);">
                 </div>
             </div>
         </div>
@@ -379,27 +344,27 @@
         <div class="container">
             <div class="section-header">
                 <div class="section-badge">How It Works</div>
-                <h2>Three steps to<br>a better you</h2>
+                <h2>Three steps to<br>being here</h2>
                 <p>Getting started with BreakOff is simple. No complicated setup, no learning curve.</p>
             </div>
 
             <div class="steps-grid">
                 <div class="step-card">
                     <div class="step-number">01</div>
-                    <h3>Set Your Schedule</h3>
-                    <p>Choose when you want to disconnect. Set daily schedules, pick specific days, and configure your break intensity.</p>
+                    <h3>Build a Routine</h3>
+                    <p>Pick the days, the times and the apps. Build a Routine for the things you repeat, or set one Rule for a single date.</p>
                 </div>
                 <div class="step-connector"></div>
                 <div class="step-card">
                     <div class="step-number">02</div>
                     <h3>Start Your Break</h3>
-                    <p>Pick how hard you want it to be. Flexible lets you end the break whenever you like. Locked is strict mode and runs the full length with no early exit. QR and NFC hand the off switch to a code in another room, and I'm Done shuts everything down until midnight.</p>
+                    <p>Choose how committed you want to be. Flexible leaves the door open. Locked runs the full length. Physical hands the off switch to a QR code or NFC sticker across the room.</p>
                 </div>
                 <div class="step-connector"></div>
                 <div class="step-card">
                     <div class="step-number">03</div>
-                    <h3>Build Your Streak</h3>
-                    <p>Track your progress, build daily streaks, and earn rewards for staying consistent with your digital wellness goals.</p>
+                    <h3>Bring People In</h3>
+                    <p>Take breaks with your Circle, or put a whole room on one with a QR poster. The habit builds either way.</p>
                 </div>
             </div>
         </div>
@@ -409,8 +374,8 @@
     <section class="cta">
         <div class="container">
             <div class="cta-content">
-                <h2>Ready to take back your time?</h2>
-                <p>Join thousands building healthier relationships with their phones. Free to download, sign in with Apple, no password required. BreakOff Pro available from $4.99/month with a 14-day free trial.</p>
+                <h2>Ready to put your phone down?</h2>
+                <p>Free to download, sign in with Apple, no password required. BreakOff Pro adds Host, extra routines and app groups, from $4.99 a month with a free trial.</p>
                 <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" class="btn-primary" target="_blank" rel="noopener">
                     <svg width="20" height="24" viewBox="0 0 20 24" fill="currentColor">
                         <path d="M16.52 12.46c-.03-2.87 2.34-4.25 2.45-4.32-1.33-1.95-3.41-2.22-4.15-2.25-1.76-.18-3.45 1.04-4.34 1.04-.9 0-2.28-1.01-3.75-.99-1.93.03-3.71 1.12-4.7 2.85-2.01 3.49-.51 8.66 1.44 11.49.96 1.39 2.1 2.95 3.6 2.89 1.44-.06 1.99-.93 3.73-.93 1.74 0 2.23.93 3.75.9 1.56-.03 2.54-1.41 3.49-2.81 1.1-1.61 1.55-3.17 1.58-3.25-.03-.01-3.03-1.16-3.06-4.62zM13.67 3.88c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.55.77-3.37 1.73-.74.86-1.38 2.23-1.21 3.55 1.28.1 2.59-.65 3.39-1.63z"/>
@@ -430,12 +395,15 @@
                         <img class="nav-logo-icon" src="assets/logo-dark.png" alt="BreakOff" width="32" height="32">
                         <span>BreakOff</span>
                     </a>
-                    <p>Unplug and reclaim your time.</p>
+                    <p>Be where you are.</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-col">
                         <h5>Product</h5>
-                        <a href="#features">Features</a>
+                        <a href="#modes">Modes</a>
+                        <a href="#routines">Routines</a>
+                        <a href="#circles">Circles</a>
+                        <a href="#host">Host</a>
                         <a href="#how-it-works">How It Works</a>
                         <a href="/blog/">Blog</a>
                         <a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" target="_blank" rel="noopener">Download</a>
