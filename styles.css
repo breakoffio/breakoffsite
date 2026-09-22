@@ -1857,3 +1857,102 @@ img {
         padding: 22px;
     }
 }
+
+/* === APP STORE BADGE (CSS build of Apple's black "Download on the App Store" badge) === */
+.appstore-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 54px;
+    padding: 0 18px 0 14px;
+    background: #000;
+    color: #fff;
+    border: 1px solid #a6a6a6;
+    border-radius: 10px;
+    text-decoration: none;
+    line-height: 1;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.appstore-badge:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.appstore-badge-logo {
+    width: 24px;
+    height: 29px;
+    flex-shrink: 0;
+}
+
+.appstore-badge-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+}
+
+.appstore-badge-small {
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.appstore-badge-large {
+    font-size: 1.55rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-top: 2px;
+}
+
+.blog-article a.appstore-badge,
+.blog-article a.appstore-badge:hover {
+    color: #fff;
+    text-decoration: none;
+    opacity: 1;
+}
+
+.hero-appstore {
+    margin: 4px 0 24px;
+}
+
+.appstore-note {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--gray-500);
+}
+
+.blog-cta .appstore-note {
+    margin: 10px 0 0;
+}
+
+/* Landing page FAQ + related guides */
+.landing-faq h3 {
+    margin-top: 28px;
+}
+
+.landing-related {
+    margin: 40px 0 0;
+    padding: 24px 28px;
+    border: 1px solid var(--gray-200);
+    border-radius: var(--radius-lg);
+}
+
+.landing-related h2 {
+    margin-top: 0;
+}
+
+@media (max-width: 480px) {
+    .hero-appstore {
+        margin: 0 0 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-links {
+        flex-wrap: wrap;
+        gap: 32px 48px;
+    }
+}
