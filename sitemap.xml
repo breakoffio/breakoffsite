@@ -26,9 +26,15 @@
   </url>
   <url>
     <loc>https://breakoff.io/blog/</loc>
-    <lastmod>2026-06-03</lastmod>
+    <lastmod>2026-10-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://breakoff.io/blog/does-screen-time-work-blockers-vs-reminders/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://breakoff.io/blog/meta-settlement-midnight-lockout-teens-adults</loc>
