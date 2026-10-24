@@ -37,6 +37,8 @@
 
   <meta name="apple-itunes-app" content="app-id=6751491331" />
 
+  <link rel="icon" href="/favicon.ico" sizes="48x48">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <style>
     :root { color-scheme: dark; }
     * { box-sizing: border-box; }
@@ -61,6 +63,9 @@
       margin: 0 auto;
     }
     .wordmark {
+      height: 26px;
+      width: auto;
+      display: block;
       font-size: 24px;
       font-weight: 800;
       letter-spacing: -0.6px;
@@ -216,6 +221,9 @@
       text-align: center;
     }
     .hidden { display: none !important; }
+    .inv-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .inv-badges .store-badge { display: block; line-height: 0; border-radius: 10px; }
+    .inv-badges .store-badge img { height: 48px; width: auto; display: block; }
   </style>
 </head>
 <body>
@@ -227,7 +235,7 @@
     universal links read the AASA file, never this page.
   -->
   <main>
-    <div class="wordmark">BreakOff</div>
+    <img class="wordmark" src="/assets/wordmark-silver.png" alt="BreakOff" width="133" height="26">
     <h1 id="page-title">Add this break to BreakOff</h1>
 
     <div class="preview" id="preview-card">
@@ -244,24 +252,24 @@
     </div>
 
     <div class="steps" id="steps">
-      <div class="step"><span class="n">1</span><p><b>Get BreakOff</b> from the App Store. It's free and you don't need an account.</p></div>
+      <div class="step"><span class="n">1</span><p><b>Get BreakOff</b> from the App Store or Google Play. It's free and you don't need an account.</p></div>
       <div class="step"><span class="n">2</span><p><b>Scan the poster again</b> (or tap this link). You'll pick which apps to pause. That choice always stays on your phone.</p></div>
       <div class="step"><span class="n">3</span><p><b>Start the break.</b> Your picked apps go quiet, calls and anything you kept still work.</p></div>
     </div>
 
     <div class="actions">
       <a class="btn primary" id="open-btn" href="#">Open in BreakOff</a>
-      <a class="btn secondary" id="store-btn" href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&ct=web-404&mt=8">Download BreakOff</a>
+      <div class="store-badges inv-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-404&amp;mt=8" target="_blank" rel="noopener"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff" target="_blank" rel="noopener"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
     </div>
 
-    <footer>Free · No account needed · BreakOff is a screen-time app for iPhone</footer>
+    <footer>Free · No account needed · BreakOff is a screen-time app for iPhone and Android</footer>
   </main>
 
   <script>
     (function () {
       var SUPABASE_URL = 'https://qpoywatpflqdbpfejnas.supabase.co';
       var SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwb3l3YXRwZmxxZGJwZmVqbmFzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzIxNTU0OTcsImV4cCI6MjA4NzczMTQ5N30.2hJnOumhVxRLaniBkuX6ukGDHbJ5z4RJgcSC7lysoVw';
-      var APP_STORE = 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
+      var APP_STORE = /Android/i.test(navigator.userAgent) ? 'https://play.google.com/store/apps/details?id=com.breakoffio.breakoff' : 'https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331';
       var DAY_NAMES = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
 
       var parts = window.location.pathname.split('/').filter(Boolean);

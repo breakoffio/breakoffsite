@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="apple-itunes-app" content="app-id=6751491331">
 <title>BreakOff: App Blocker to Put Phones Down Together</title>
-<meta name="description" content="BreakOff blocks the apps that pull you in and makes space for what's in front of you. Start a break, share it so friends join the same room, and see who stayed. Routines, Circles and Host included. Free on iPhone.">
+<meta name="description" content="BreakOff blocks the apps that pull you in and makes space for what's in front of you. Start a break, share it so friends join the same room, and see who stayed. Routines, Circles and Host included. Free on iPhone and Android.">
 <meta name="keywords" content="NFC tag app blocker, QR code app blocker, block apps with NFC tag, QR code break, commitment device, digital wellness, screen time, digital detox, phone break, focus">
 <meta name="robots" content="index, follow">
 <meta name="theme-color" content="#0a0a0a">
@@ -19,15 +19,17 @@
 <meta name="twitter:description" content="Block the apps that pull you in and make space for what's in front of you. Take a break now, build it into your routine, or put your phone down together.">
 <meta name="twitter:image" content="https://breakoff.io/assets/og-image.png">
 <link rel="canonical" href="https://breakoff.io/">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/assets/icon-16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <script type="application/ld+json">
 {
 "@context": "https://schema.org",
 "@type": "SoftwareApplication",
 "name": "BreakOff",
-"operatingSystem": "iOS",
+"operatingSystem": "iOS, Android",
 "applicationCategory": "ProductivityApplication",
 "description": "BreakOff blocks the apps that pull you in and makes space for what is in front of you. Choose how committed a break is, share it so friends join the same room, build breaks into a Routine, take them with your Circle, or put a whole room on one with Host.",
 "featureList": [
@@ -50,12 +52,20 @@
 ],
 "aggregateRating": {"@type": "AggregateRating", "ratingValue": "5.0", "bestRating": "5", "worstRating": "1", "ratingCount": "11"},
 "url": "https://breakoff.io",
-"downloadUrl": "https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331",
+"downloadUrl": ["https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331", "https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"],
 "contentRating": "4+"
 }
 </script>
 <style>
 html{scroll-behavior:smooth}
+.store-badges{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
+.store-badge{display:block;line-height:0;border-radius:10px;transition:transform .2s}
+.store-badge:hover{transform:translateY(-2px)}
+.store-badge img{height:54px;width:auto;display:block}
+.nav-badges{gap:8px}.nav-badges .store-badge img{height:38px}
+.footer-badges{justify-content:flex-start;gap:10px}.footer-badges .store-badge img{height:42px}
+@media (max-width:760px){.topnav{display:none!important}.nav-badges .store-badge img{height:32px}.nav-badges{gap:6px}.store-badge img{height:46px}.footer-badges .store-badge img{height:40px}}
+@media (max-width:400px){.nav-badges .store-badge img{height:28px}.nav-badges{gap:5px}}
 body{margin:0;background:#0a0a0a;-webkit-font-smoothing:antialiased}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
 a{color:#ffffff}a:hover{color:rgba(255,255,255,0.8)}
@@ -71,27 +81,24 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 <div style="background: #0a0a0a; color: #ffffff; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'SF Pro Display', system-ui, 'Helvetica Neue', sans-serif; padding: 0 20px">
 <div style="max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 112px; padding: 28px 0 96px">
 
-<header style="display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap">
-<img loading="lazy" decoding="async" src="/assets/home-wordmark-white.png" alt="BreakOff" style="height: 26px; width: auto; display: block">
+<header style="display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap">
+<img decoding="async" src="/assets/wordmark-silver.png" alt="BreakOff" width="133" height="26" style="height: 26px; width: auto; display: block">
 <nav class="topnav" style="display: flex; gap: 24px; flex-wrap: wrap; font-size: 15px; font-weight: 600; color: rgba(255,255,255,0.58)">
 <a href="#rooms" style="color: rgba(255,255,255,0.58); text-decoration: none; padding: 12px 0">Break rooms</a>
 <a href="#share" style="color: rgba(255,255,255,0.58); text-decoration: none; padding: 12px 0">Share</a>
 <a href="#modes" style="color: rgba(255,255,255,0.58); text-decoration: none; padding: 12px 0">Modes</a>
 <a href="#pricing" style="color: rgba(255,255,255,0.58); text-decoration: none; padding: 12px 0">Pricing</a>
 <a href="#more" style="color: rgba(255,255,255,0.58); text-decoration: none; padding: 12px 0">More</a>
-<a href="https://apps.apple.com/us/app/breakoff-app-blocker-focus/id6751491331" style="color: #ffffff; text-decoration: none; padding: 12px 0">Download</a>
 </nav>
+<div class="store-badges nav-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-home-nav&amp;mt=8"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
 </header>
 
 <section style="display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px; padding-top: 24px">
 <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: rgba(255,255,255,0.45)">DIGITAL WELLNESS</div>
 <h1 style="margin: 0; font-size: clamp(44px, 8vw, 84px); line-height: 1.02; font-weight: 700; letter-spacing: -2px">Put your phone down.<br>Be here.</h1>
 <p style="margin: 0; max-width: 620px; font-size: 19px; line-height: 1.5; color: rgba(255,255,255,0.58)">Block the apps that pull you in and make space for what's in front of you. Take a break now, build it into your routine, or put your phones down together.</p>
-<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
-<a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&amp;ct=web-home&amp;mt=8" aria-label="Download BreakOff on the App Store" style="display: inline-flex; flex-direction: column; justify-content: center; height: 60px; min-width: 190px; box-sizing: border-box; padding: 0 24px; border-radius: 16px; background: #ffffff; border: 1px solid #ffffff; color: #0a0a0a; text-decoration: none; text-align: left; line-height: 1.1"><span style="font-size: 11px; font-weight: 500">Download on the</span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">App Store</span></a>
-<a href="#android" aria-label="Coming soon to Google Play" style="display: inline-flex; flex-direction: column; justify-content: center; height: 60px; min-width: 190px; box-sizing: border-box; padding: 0 24px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; text-decoration: none; text-align: left; line-height: 1.1; font-family: inherit; cursor: pointer"><span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.58)">Coming soon to</span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">Google Play</span></a>
-</div>
-<div style="font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45)">Free on iPhone. No account needed. 7 days of Pro free.</div>
+<div class="store-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-home&amp;mt=8"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
+<div style="font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.45)">Free on the App Store and Google Play. No account needed. 7 days of Pro free.</div>
 
 <div style="width: 100%; display: flex; gap: 16px; flex-wrap: wrap; margin-top: 20px; text-align: left">
 <div style="flex: 1 1 220px; background: #131313; border: 1px solid rgba(255,255,255,0.075); border-radius: 22px; padding: 24px; display: flex; flex-direction: column; gap: 10px; justify-content: center">
@@ -125,15 +132,15 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 </div>
 <div class="shots" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px">
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center">
-<img loading="lazy" decoding="async" src="/assets/home-shot-home.jpg" alt="BreakOff Home screen with Start Break" style="width: 100%; max-width: 280px; height: auto; display: block; border-radius: 40px; border: 1px solid rgba(255,255,255,0.12)">
+<picture style="display: block; width: 100%; max-width: 280px"><source srcset="/assets/shot-v2-home.webp" type="image/webp"><img loading="lazy" decoding="async" src="/assets/shot-v2-home.jpg" alt="BreakOff Home screen with protected time, up next and a Start a break card, under the headline Take your time back" width="680" height="1477" style="width: 100%; height: auto; display: block; border-radius: 28px; border: 1px solid rgba(255,255,255,0.12)"></picture>
 <div style="font-size: 15px; font-weight: 600">Start a break</div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center">
-<img loading="lazy" decoding="async" src="/assets/home-shot-modes.jpg" alt="Mode picker: Flexible, Locked, QR code, NFC tag" style="width: 100%; max-width: 280px; height: auto; display: block; border-radius: 40px; border: 1px solid rgba(255,255,255,0.12)">
+<picture style="display: block; width: 100%; max-width: 280px"><source srcset="/assets/shot-v2-modes.webp" type="image/webp"><img loading="lazy" decoding="async" src="/assets/shot-v2-modes.jpg" alt="Mode picker with Flexible, Locked, QR code and NFC tag, under the headline Four ways to break" width="680" height="1477" style="width: 100%; height: auto; display: block; border-radius: 28px; border: 1px solid rgba(255,255,255,0.12)"></picture>
 <div style="font-size: 15px; font-weight: 600">Pick how it ends</div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 14px; align-items: center">
-<img loading="lazy" decoding="async" src="/assets/home-shot-recap.jpg" alt="Group break recap: who stayed and who left early" style="width: 100%; max-width: 280px; height: auto; display: block; border-radius: 40px; border: 1px solid rgba(255,255,255,0.12)">
+<picture style="display: block; width: 100%; max-width: 280px"><source srcset="/assets/shot-v2-recap.webp" type="image/webp"><img loading="lazy" decoding="async" src="/assets/shot-v2-recap.jpg" alt="Group break recap showing who ended it, who left early and who is still active, under the headline See how everyone did" width="680" height="1477" style="width: 100%; height: auto; display: block; border-radius: 28px; border: 1px solid rgba(255,255,255,0.12)"></picture>
 <div style="font-size: 15px; font-weight: 600">See how it went</div>
 </div>
 </div>
@@ -161,7 +168,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 </div>
 
 <div style="flex: 1 1 340px; display: flex; justify-content: center">
-<img loading="lazy" decoding="async" src="/assets/home-shot-room.jpg" alt="A live break room with three people, all active" style="width: 100%; max-width: 340px; height: auto; display: block; border-radius: 44px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 32px rgba(0,0,0,0.28)">
+<picture style="display: block; width: 100%; max-width: 340px"><source srcset="/assets/shot-v2-break.webp" type="image/webp"><img loading="lazy" decoding="async" src="/assets/shot-v2-break.jpg" alt="A shared Flexible break with three people in the room, under the headline Break together" width="680" height="1477" style="width: 100%; height: auto; display: block; border-radius: 32px; border: 1px solid rgba(255,255,255,0.12); box-shadow: 0 12px 32px rgba(0,0,0,0.28)"></picture>
 </div>
 </section>
 
@@ -189,7 +196,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 </div>
 </div>
 <div>
-<a href="https://apps.apple.com/us/app/breakoff-app-blocker-focus/id6751491331" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; border-radius: 28px; background: #ffffff; color: #0a0a0a; font-size: 16px; font-weight: 700; text-decoration: none">Start a Break</a>
+<a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" style="display: inline-flex; align-items: center; height: 56px; padding: 0 28px; border-radius: 28px; background: #ffffff; color: #0a0a0a; font-size: 16px; font-weight: 700; text-decoration: none">Start a Break</a>
 </div>
 </section>
 
@@ -267,7 +274,7 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 <div>Full stats and group streaks</div>
 <div>Unlimited app groups, rules and Circle</div>
 </div>
-<a href="https://apps.apple.com/us/app/breakoff-app-blocker-focus/id6751491331" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #0a0a0a; color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none; margin-top: 4px">Try Pro Free</a>
+<a href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331" style="display: inline-flex; align-items: center; justify-content: center; height: 56px; border-radius: 28px; background: #0a0a0a; color: #ffffff; font-size: 16px; font-weight: 700; text-decoration: none; margin-top: 4px">Try Pro Free</a>
 </div>
 </div>
 </section>
@@ -348,21 +355,19 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 </div>
 </section>
 
-<section id="android" style="scroll-margin-top: 24px; background: #131313; border: 1px solid rgba(255,255,255,0.075); border-radius: 28px; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
-<img loading="lazy" decoding="async" src="/assets/home-wordmark-white.png" alt="BreakOff" style="height: 30px; width: auto; display: block">
+<section id="download" style="scroll-margin-top: 24px; background: #131313; border: 1px solid rgba(255,255,255,0.075); border-radius: 28px; padding: 48px 32px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px">
+<img loading="lazy" decoding="async" src="/assets/wordmark-silver.png" alt="BreakOff" style="height: 30px; width: auto; display: block">
 <h2 style="margin: 0; font-size: clamp(30px, 4.5vw, 44px); line-height: 1.08; font-weight: 700; letter-spacing: -1px">Ready to put your phone down?</h2>
-<p style="margin: 0; max-width: 520px; font-size: 17px; line-height: 1.5; color: rgba(255,255,255,0.58)">Free on iPhone. Android is on the way.</p>
-<div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: center">
-<a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&amp;ct=web-home&amp;mt=8" aria-label="Download BreakOff on the App Store" style="display: inline-flex; flex-direction: column; justify-content: center; height: 60px; min-width: 190px; box-sizing: border-box; padding: 0 24px; border-radius: 16px; background: #ffffff; border: 1px solid #ffffff; color: #0a0a0a; text-decoration: none; text-align: left; line-height: 1.1"><span style="font-size: 11px; font-weight: 500">Download on the</span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">App Store</span></a>
-<div role="img" aria-label="Coming soon to Google Play" style="display: inline-flex; flex-direction: column; justify-content: center; height: 60px; min-width: 190px; box-sizing: border-box; padding: 0 24px; border-radius: 16px; background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.18); color: #ffffff; text-decoration: none; text-align: left; line-height: 1.1; font-family: inherit"><span style="font-size: 11px; font-weight: 500; color: rgba(255,255,255,0.58)">Coming soon to</span><span style="font-size: 22px; font-weight: 600; letter-spacing: -0.4px">Google Play</span></div>
-</div>
+<p style="margin: 0; max-width: 520px; font-size: 17px; line-height: 1.5; color: rgba(255,255,255,0.58)">Free on the App Store and Google Play.</p>
+<div class="store-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-home-cta&amp;mt=8"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
 </section>
 
 <footer style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 48px; display: flex; flex-direction: column; gap: 40px">
 <div style="display: flex; gap: 48px; flex-wrap: wrap; justify-content: space-between">
 <div style="display: flex; flex-direction: column; gap: 12px; min-width: 200px">
-<img loading="lazy" decoding="async" src="/assets/home-wordmark-white.png" alt="BreakOff" style="height: 24px; width: auto; display: block; align-self: flex-start">
+<img loading="lazy" decoding="async" src="/assets/wordmark-silver.png" alt="BreakOff" style="height: 24px; width: auto; display: block; align-self: flex-start">
 <div style="font-size: 15px; color: rgba(255,255,255,0.58)">Be where you are.</div>
+<div class="store-badges footer-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-home-footer&amp;mt=8"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
 </div>
 <div style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
 <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: rgba(255,255,255,0.45); margin-bottom: 8px">PRODUCT</div>
@@ -374,7 +379,6 @@ a:focus-visible,button:focus-visible{outline:2px solid #ffffff;outline-offset:3p
 <a href="#pricing" style="color: rgba(255,255,255,0.58); text-decoration: none; font-size: 15px; padding: 6px 0">Pricing</a>
 <a href="#how-it-works" style="color: rgba(255,255,255,0.58); text-decoration: none; font-size: 15px; padding: 6px 0">How It Works</a>
 <a href="/blog/" style="color: rgba(255,255,255,0.58); text-decoration: none; font-size: 15px; padding: 6px 0">Blog</a>
-<a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&amp;ct=web-home&amp;mt=8" style="color: rgba(255,255,255,0.58); text-decoration: none; font-size: 15px; padding: 6px 0">Download</a>
 </div>
 <div style="display: flex; flex-direction: column; gap: 4px; min-width: 150px">
 <div style="font-size: 12px; font-weight: 700; letter-spacing: 1.4px; color: rgba(255,255,255,0.45); margin-bottom: 8px">GUIDES</div>

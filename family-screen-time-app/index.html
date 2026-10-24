@@ -21,6 +21,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/assets/icon-32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/assets/icon-16.png">
     <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="icon" href="/favicon.ico" sizes="48x48">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="manifest" href="/site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -44,7 +47,7 @@
                 "name": "Does BreakOff work on Android?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "No. BreakOff is currently available for iPhone only, because it uses Apple's Screen Time technology (Family Controls) to block apps during a break."
+                    "text": "Yes. BreakOff is free on the App Store for iPhone and on Google Play for Android."
                 }
             },
             {
@@ -79,10 +82,10 @@
         "@context": "https://schema.org",
         "@type": "MobileApplication",
         "name": "BreakOff",
-        "operatingSystem": "iOS",
+        "operatingSystem": "iOS, Android",
         "applicationCategory": "LifestyleApplication",
         "url": "https://breakoff.io/",
-        "downloadUrl": "https://apps.apple.com/us/app/id6751491331",
+        "downloadUrl": ["https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331", "https://play.google.com/store/apps/details?id=com.breakoffio.breakoff"],
         "offers": {
             "@type": "Offer",
             "price": "0",
@@ -97,17 +100,13 @@
     <nav class="nav">
         <div class="nav-container">
             <a href="/" class="nav-logo">
-                <img class="nav-logo-icon" src="/assets/logo-dark.png" alt="BreakOff" width="32" height="32">
-                <span>BreakOff</span>
+                <img class="nav-logo-wordmark" src="/assets/wordmark-graphite.png" alt="BreakOff" width="123" height="24">
             </a>
             <div class="nav-links">
                 <a href="/#features">Features</a>
                 <a href="/blog/">Blog</a>
             </div>
-            <a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&ct=web-lp-family&mt=8" class="nav-cta" target="_blank" rel="noopener">
-                Download
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17l9.2-9.2M17 17V7.8H7.8"/></svg>
-            </a>
+            <div class="store-badges nav-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-lp-family&amp;mt=8" target="_blank" rel="noopener"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff" target="_blank" rel="noopener"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
             <button class="nav-mobile-toggle" aria-label="Toggle menu">
                 <span></span>
                 <span></span>
@@ -127,11 +126,8 @@
 
         <div class="blog-cta">
             <p><strong>Download BreakOff free on the App Store</strong></p>
-            <a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&ct=web-lp-family&mt=8" class="appstore-badge" target="_blank" rel="noopener" aria-label="Download BreakOff on the App Store">
-                <svg class="appstore-badge-logo" width="20" height="24" viewBox="0 0 20 24" fill="currentColor" aria-hidden="true"><path d="M16.52 12.46c-.03-2.87 2.34-4.25 2.45-4.32-1.33-1.95-3.41-2.22-4.15-2.25-1.76-.18-3.45 1.04-4.34 1.04-.9 0-2.28-1.01-3.75-.99-1.93.03-3.71 1.12-4.7 2.85-2.01 3.49-.51 8.66 1.44 11.49.96 1.39 2.1 2.95 3.6 2.89 1.44-.06 1.99-.93 3.73-.93 1.74 0 2.23.93 3.75.9 1.56-.03 2.54-1.41 3.49-2.81 1.1-1.61 1.55-3.17 1.58-3.25-.03-.01-3.03-1.16-3.06-4.62zM13.67 3.88c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.55.77-3.37 1.73-.74.86-1.38 2.23-1.21 3.55 1.28.1 2.59-.65 3.39-1.63z"/></svg>
-                <span class="appstore-badge-text"><span class="appstore-badge-small">Download on the</span><span class="appstore-badge-large">App Store</span></span>
-            </a>
-            <p class="appstore-note">Free on iPhone. Pro free trial available.</p>
+            <div class="store-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-lp-family&amp;mt=8" target="_blank" rel="noopener"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff" target="_blank" rel="noopener"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
+            <p class="appstore-note">Free on the App Store and Google Play. Pro free trial available.</p>
         </div>
 
         <h2>Why family screen time works better when parents join in</h2>
@@ -184,11 +180,8 @@
 
         <div class="blog-cta">
             <p><strong>Start your first family break: Download BreakOff</strong></p>
-            <a href="https://apps.apple.com/app/apple-store/id6751491331?pt=128483515&ct=web-lp-family&mt=8" class="appstore-badge" target="_blank" rel="noopener" aria-label="Download BreakOff on the App Store">
-                <svg class="appstore-badge-logo" width="20" height="24" viewBox="0 0 20 24" fill="currentColor" aria-hidden="true"><path d="M16.52 12.46c-.03-2.87 2.34-4.25 2.45-4.32-1.33-1.95-3.41-2.22-4.15-2.25-1.76-.18-3.45 1.04-4.34 1.04-.9 0-2.28-1.01-3.75-.99-1.93.03-3.71 1.12-4.7 2.85-2.01 3.49-.51 8.66 1.44 11.49.96 1.39 2.1 2.95 3.6 2.89 1.44-.06 1.99-.93 3.73-.93 1.74 0 2.23.93 3.75.9 1.56-.03 2.54-1.41 3.49-2.81 1.1-1.61 1.55-3.17 1.58-3.25-.03-.01-3.03-1.16-3.06-4.62zM13.67 3.88c.8-.97 1.34-2.31 1.19-3.65-1.15.05-2.55.77-3.37 1.73-.74.86-1.38 2.23-1.21 3.55 1.28.1 2.59-.65 3.39-1.63z"/></svg>
-                <span class="appstore-badge-text"><span class="appstore-badge-small">Download on the</span><span class="appstore-badge-large">App Store</span></span>
-            </a>
-            <p class="appstore-note">Free on iPhone. Pro free trial available.</p>
+            <div class="store-badges"><a class="store-badge" href="https://apps.apple.com/us/app/breakoff-digital-wellness/id6751491331?pt=128483515&amp;ct=web-lp-family&amp;mt=8" target="_blank" rel="noopener"><img src="/assets/badge-app-store.png" alt="Download on the App Store" width="146" height="54"></a><a class="store-badge" href="https://play.google.com/store/apps/details?id=com.breakoffio.breakoff" target="_blank" rel="noopener"><img src="/assets/badge-google-play.png" alt="Get it on Google Play" width="143" height="54"></a></div>
+            <p class="appstore-note">Free on the App Store and Google Play. Pro free trial available.</p>
         </div>
 
         <section class="landing-faq">
@@ -196,7 +189,7 @@
         <h3>What is a family screen time app?</h3>
         <p>A family screen time app helps a household manage phone use. Many focus on parents limiting a child's device. BreakOff focuses on shared breaks, where parents and kids put their phones down at the same time and distracting apps are blocked for the length of the break.</p>
         <h3>Does BreakOff work on Android?</h3>
-        <p>No. BreakOff is currently available for iPhone only, because it uses Apple's Screen Time technology (Family Controls) to block apps during a break.</p>
+        <p>Yes. BreakOff is free on the App Store for iPhone and on Google Play for Android.</p>
         <h3>Can my younger kids join a family break?</h3>
         <p>Yes. Circles, where you invite people to breaks, is for ages 16 and up. For younger kids, use Host: everyone scans one QR code poster and starts the same break on their own iPhone. You can also set a Family Time Routine directly on your child's phone.</p>
         <h3>Is BreakOff free?</h3>

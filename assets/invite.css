@@ -1,0 +1,240 @@
+/*
+ * BreakOff invite pages (/invite/<code>, /s/<code>): shared styles.
+ *
+ * The tokens below MIRROR the app's lib/designTokens.ts (BreakOff repo)
+ * so the web invite and the native invite read as one product: same bg,
+ * card surface, hairline, radii, text ramp and button. Change a value
+ * there, change it here.
+ *
+ * Layout mirrors components/invite/InviteLayout.tsx: wordmark, headline,
+ * optional message card, BREAK DETAILS, buttons. The web cannot choose
+ * blocked apps, so it has no Blocked Apps section.
+ */
+:root {
+  color-scheme: dark;
+  /* Surfaces */
+  --bg: #0A0A0A;
+  --card-surface: rgba(20, 20, 20, 0.92);
+  --card-border: rgba(255, 255, 255, 0.075);
+  --border-faint: rgba(255, 255, 255, 0.1);
+  /* Text ramp */
+  --text-primary: #FFFFFF;
+  --text-body: rgba(255, 255, 255, 0.58);
+  --text-tertiary: rgba(255, 255, 255, 0.45);
+  /* Warning (host poster Apps Allowed note) */
+  --warning: #FFB020;
+  --warning-bg: rgba(255, 176, 32, 0.10);
+  --warning-border: rgba(255, 176, 32, 0.45);
+  --warning-dim: rgba(255, 176, 32, 0.75);
+  /* Radii + card padding */
+  --r-card: 22px;
+  --r-field: 14px;
+  --r-pill: 999px;
+  --card-pad-h: 16px;
+  --card-pad-v: 14px;
+  /* Buttons */
+  --btn-height: 56px;
+  --btn-radius: 28px;
+  --btn-primary-surface: #FFFFFF;
+  --btn-primary-text: #0A0A0A;
+  --btn-secondary-surface: rgba(255, 255, 255, 0.06);
+  --btn-secondary-surface-pressed: rgba(255, 255, 255, 0.12);
+  --btn-secondary-border: rgba(255, 255, 255, 0.18);
+  /* Column */
+  --invite-max-w: 440px;
+  --gap: 16px;
+  --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Inter', system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font);
+  -webkit-font-smoothing: antialiased;
+}
+.hidden { display: none !important; }
+
+.inv-page {
+  min-height: 100dvh;
+  display: flex;
+  justify-content: center;
+  padding: max(24px, env(safe-area-inset-top)) 20px max(32px, env(safe-area-inset-bottom));
+}
+.inv-col {
+  width: 100%;
+  max-width: var(--invite-max-w);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* Header: wordmark, headline, optional subtitle */
+.inv-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 4px 0 8px;
+  text-align: center;
+}
+.inv-wordmark { width: auto; height: 26px; display: block; }
+.inv-title {
+  margin: 20px 0 0;
+  font-size: 28px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+.inv-subtitle {
+  margin: 6px 0 0;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--text-body);
+}
+
+/* The house card recipe */
+.inv-card {
+  width: 100%;
+  border-radius: var(--r-card);
+  background: var(--card-surface);
+  border: 1px solid var(--card-border);
+  padding: var(--card-pad-v) var(--card-pad-h);
+}
+.inv-message {
+  font-size: 15px;
+  line-height: 21px;
+  color: var(--text-body);
+  overflow-wrap: anywhere;
+}
+
+/* Section titles: white, 17px bold, sentence case (app parity with
+   components/invite/inviteStyles.ts INVITE_SECTION_TITLE, 2026-09-23). */
+.inv-eyebrow {
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
+  color: var(--text-primary);
+}
+
+/* BREAK DETAILS (twin of components/invite/BreakDetailsCard.tsx) */
+.bd-card { padding: 16px var(--card-pad-h) 4px; }
+.bd-hero {
+  margin-top: 8px;
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 700;
+  letter-spacing: -0.8px;
+  color: var(--text-primary);
+  font-variant-numeric: tabular-nums;
+}
+.bd-rows { margin: 10px 0 0; padding: 0; }
+.bd-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--border-faint);
+}
+.bd-row dt {
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.1px;
+  color: var(--text-body);
+}
+.bd-row dd {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  color: var(--text-primary);
+  text-align: right;
+}
+
+/* Sections (host poster Apps Allowed) */
+.inv-section { display: flex; flex-direction: column; gap: 10px; }
+.inv-section .inv-eyebrow { padding: 0 4px; }
+.inv-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.inv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 15px 8px 8px;
+  border-radius: var(--r-pill);
+  background: var(--card-surface);
+  border: 1px solid var(--card-border);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.inv-chip.plain { padding: 8px 15px; color: var(--text-body); }
+.inv-tile {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 700;
+}
+.inv-note {
+  border-radius: var(--r-field);
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 17px;
+  color: var(--warning-dim);
+}
+.inv-note strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--warning);
+}
+
+/* Buttons (twin of PrimaryBtn primary / secondary) */
+.inv-actions { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.inv-btn {
+  width: 100%;
+  height: var(--btn-height);
+  border-radius: var(--btn-radius);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 150ms ease;
+}
+.inv-btn.primary {
+  background: var(--btn-primary-surface);
+  color: var(--btn-primary-text);
+  border: none;
+}
+.inv-btn.primary:active { background: rgba(255, 255, 255, 0.85); }
+.inv-btn.secondary {
+  background: var(--btn-secondary-surface);
+  color: var(--text-primary);
+  border: 1px solid var(--btn-secondary-border);
+  font-size: 15px;
+}
+.inv-btn.secondary:hover,
+.inv-btn.secondary:active { background: var(--btn-secondary-surface-pressed); }
+
+/* Official store badges (App Store + Google Play) */
+.inv-badges { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 4px; }
+.inv-badges .store-badge { display: block; line-height: 0; border-radius: 10px; }
+.inv-badges .store-badge img { height: 48px; width: auto; display: block; }
