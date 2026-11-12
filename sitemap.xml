@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://breakoff.io/blog/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -219,6 +219,12 @@
   <url>
     <loc>https://breakoff.io/blog/lock-yourself-out-of-instagram-iphone/</loc>
     <lastmod>2026-10-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://breakoff.io/blog/opal-alternatives-iphone/</loc>
+    <lastmod>2026-11-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
