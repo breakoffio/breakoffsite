@@ -346,13 +346,18 @@
       codeEl.textContent = 'Code: ' + code;
       openBtn.href = 'breakoff://share/' + code;
 
-      var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-        + '&select=title,duration_minutes,days,start_time,end_time,mode,share_type,business_name,logo_url,recommended_apps';
+      // By-code lookup RPC (2026-07-26 lockdown: anon can no longer read
+      // schedule_shares directly; the table read returned [] and every
+      // link showed "not active"). Returns at most one public row.
+      var url = SUPABASE_URL + '/rest/v1/rpc/get_schedule_share_by_code';
       fetch(url, {
+        method: 'POST',
         headers: {
           apikey: SUPABASE_ANON,
           Authorization: 'Bearer ' + SUPABASE_ANON,
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ p_code: code }),
       }).then(function (r) {
         return r.ok ? r.json() : [];
       }).then(function (rows) {

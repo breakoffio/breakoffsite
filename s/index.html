@@ -10,13 +10,13 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="BreakOff" />
   <meta property="og:title" content="Add this break to BreakOff" />
-  <meta property="og:description" content="Scan to add it to your BreakOff Schedules." />
+  <meta property="og:description" content="Scan to add it to your BreakOff schedules." />
   <meta property="og:image" content="https://breakoff.io/og-invite-v2.png" />
   <meta property="og:url" content="https://breakoff.io/s" />
 
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Add this break to BreakOff" />
-  <meta name="twitter:description" content="Scan to add it to your BreakOff Schedules." />
+  <meta name="twitter:description" content="Scan to add it to your BreakOff schedules." />
   <meta name="twitter:image" content="https://breakoff.io/og-invite-v2.png" />
 
   <meta name="apple-itunes-app" content="app-id=6751491331" />
@@ -36,8 +36,8 @@
   <link rel="icon" href="/favicon.ico" sizes="48x48" />
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
-  <link rel="stylesheet" href="/assets/invite.css" />
-  <script src="/assets/break-details.js"></script>
+  <link rel="stylesheet" href="/assets/invite.css?v=20261101b" />
+  <script src="/assets/break-details.js?v=20261101c"></script>
 </head>
 <body>
   <main class="inv-page">
@@ -45,21 +45,18 @@
 
       <header class="inv-header">
         <img class="inv-wordmark" src="/assets/wordmark-silver.png" alt="BreakOff" width="133" height="26" />
+        <p class="inv-kicker hidden" id="kicker"></p>
         <h1 class="inv-title" id="title">Loading break</h1>
         <p class="inv-subtitle hidden" id="subtitle"></p>
+        <p class="inv-hero-desc hidden" id="message"></p>
       </header>
-
-      <div class="inv-card inv-message hidden" id="message"></div>
 
       <div id="details" class="hidden"></div>
 
       <section class="inv-section hidden" id="apps-section">
         <div class="inv-eyebrow">Apps allowed</div>
+        <p class="inv-desc hidden" id="apps-note">Add these to your Always allowed.</p>
         <div class="inv-chips" id="apps-row"></div>
-        <div class="inv-note hidden" id="apps-note">
-          <strong>These apps are allowed during this break</strong>
-          Keep these unblocked in your group so they stay open during the break. You choose what blocks on your phone.
-        </div>
       </section>
 
       <div class="inv-actions">
@@ -135,13 +132,18 @@
         }, 1600);
       };
 
-      var url = SUPABASE_URL + '/rest/v1/schedule_shares?code=eq.' + encodeURIComponent(code)
-        + '&select=title,duration_minutes,days,start_time,end_time,one_shot_dates,mode,share_type,business_name,description,logo_url,recommended_apps';
+      // By-code lookup RPC (2026-07-26 lockdown: anon can no longer read
+      // schedule_shares directly; the table read returned [] and every
+      // link showed "not active"). Returns at most one public row.
+      var url = SUPABASE_URL + '/rest/v1/rpc/get_schedule_share_by_code';
       fetch(url, {
+        method: 'POST',
         headers: {
           apikey: SUPABASE_ANON,
           Authorization: 'Bearer ' + SUPABASE_ANON,
+          'Content-Type': 'application/json',
         },
+        body: JSON.stringify({ p_code: code }),
       }).then(function (r) {
         return r.ok ? r.json() : [];
       }).then(function (rows) {
@@ -151,22 +153,37 @@
         }
         var row = rows[0];
         var host = (row.business_name || '').trim();
-        el('title').textContent = BD.headline(host);
-        // No subtitle under the headline (app parity, 2026-09-23).
+        // The break's name is the hero, "You're invited to a break" small
+        // above it, and the host's message right under it as its
+        // description (app parity: InviteHeader, 2026-11-01).
+        var breakName = (row.title || '').trim();
+        if (breakName) {
+          setText('kicker', BD.headline(host));
+          el('title').textContent = breakName;
+          el('title').classList.add('under-kicker');
+        } else {
+          el('title').textContent = BD.headline(host);
+        }
         setText('subtitle', '');
-        // Host-written message in its own subtle card.
         setText('message', (row.description || '').trim());
 
         // BREAK DETAILS, future emphasis: duration, date or repeat days,
         // start to end time, mode. Instant posters start when tapped.
         var start = parseHHMM(row.start_time);
         var end = parseHHMM(row.end_time);
-        var timeLabel = start && end
-          ? BD.clock(start.hour, start.minute) + ' to ' + BD.clock(end.hour, end.minute)
-          : '';
+        // A multi-day break without set times runs whole days, stored as
+        // 00:00 to 23:59 (app parity: isWholeDayWindow).
+        var wholeDay = row.start_time === '00:00' && row.end_time === '23:59';
+        var timeLabel = wholeDay
+          ? 'All day'
+          : start && end
+            ? BD.clock(start.hour, start.minute) + ' to ' + BD.clock(end.hour, end.minute)
+            : '';
         var dates = Array.isArray(row.one_shot_dates) ? row.one_shot_dates.filter(Boolean) : [];
         var days = Array.isArray(row.days) ? row.days : [];
-        var instant = row.share_type === 'instant' || (dates.length === 0 && days.length === 0);
+        // A dated host event is share_type 'instant' too, but it has a
+        // date and time: show those, not "When you tap Start".
+        var instant = dates.length === 0 && (row.share_type === 'instant' || days.length === 0);
         BD.render(el('details'), BD.future({
           durationMinutes: row.duration_minutes || 0,
           dateLabel: instant
@@ -175,7 +192,10 @@
           dateRowLabel: instant ? 'Starts' : undefined,
           repeats: !instant && dates.length === 0,
           timeLabel: instant ? '' : timeLabel,
-          mode: row.mode
+          mode: row.mode,
+          heroLabel: wholeDay && dates.length > 0
+            ? dates.length + (dates.length === 1 ? ' day' : ' days')
+            : undefined
         }));
 
         // Apps Allowed chips. Suggestions only; blocking is always the

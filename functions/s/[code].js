@@ -2,8 +2,8 @@
 //
 // iMessage, Slack, and social crawlers read Open Graph tags from the HTML
 // they fetch. The static /s/index.html carries a generic card; this
-// function fetches the share row (same public REST read the page itself
-// does client-side, anon key only) and rewrites the OG/Twitter tags so the
+// function fetches the share row (same by-code RPC the page itself
+// calls client-side, anon key only) and rewrites the OG/Twitter tags so the
 // card says who is hosting and what the break is called. Falls back to the
 // untouched static page on any failure. Humans see the exact same page
 // either way; only the <head> metadata differs.
@@ -37,16 +37,18 @@ export async function onRequestGet(context) {
     const code = params.code
     if (/^[A-Za-z0-9]{4,20}$/.test(code)) {
         try {
+            // By-code RPC: anon can't read schedule_shares directly since
+            // the 2026-07-26 lockdown.
             const r = await fetch(
-                SUPABASE_URL +
-                    '/rest/v1/schedule_shares?code=eq.' +
-                    encodeURIComponent(code) +
-                    '&select=title,business_name,description,share_type',
+                SUPABASE_URL + '/rest/v1/rpc/get_schedule_share_by_code',
                 {
+                    method: 'POST',
                     headers: {
                         apikey: SUPABASE_ANON,
                         Authorization: 'Bearer ' + SUPABASE_ANON,
+                        'Content-Type': 'application/json',
                     },
+                    body: JSON.stringify({ p_code: code }),
                     // Keep crawlers fast even if the DB is slow.
                     signal: AbortSignal.timeout(4000),
                 }

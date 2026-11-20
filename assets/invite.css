@@ -90,6 +90,23 @@ html, body {
   color: var(--text-primary);
   text-wrap: balance;
 }
+/* "You're invited to a break", small, above the break name; the host's
+   message 8px under the name (app parity: InviteHeader kicker /
+   description). */
+.inv-kicker {
+  margin: 20px 0 0;
+  font-size: 15px;
+  line-height: 21px;
+  color: var(--text-body);
+}
+.inv-title.under-kicker { margin-top: 4px; }
+.inv-hero-desc {
+  margin: 8px 0 0;
+  font-size: 15px;
+  line-height: 21px;
+  color: var(--text-body);
+  overflow-wrap: anywhere;
+}
 .inv-subtitle {
   margin: 6px 0 0;
   font-size: 13px;
@@ -183,6 +200,16 @@ html, body {
   color: #fff;
   font-size: 13px;
   font-weight: 700;
+}
+/* One-line description under a section title (Apps allowed): 8px under
+   the title, 12px above the pills (the section gap is 10px), and the same
+   4px side inset as .inv-eyebrow so the left edges line up. */
+.inv-section p.inv-desc {
+  margin: -2px 0 2px;
+  padding: 0 4px;
+  font-size: 14px;
+  line-height: 19px;
+  color: var(--text-body);
 }
 .inv-note {
   border-radius: var(--r-field);

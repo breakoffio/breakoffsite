@@ -113,7 +113,9 @@
     rows.push({ label: 'Mode', value: modeLabel(args.mode) });
     return {
       emphasis: 'future',
-      hero: args.durationMinutes > 0 ? durationLong(args.durationMinutes) : 'Phone-free break',
+      hero: args.heroLabel
+        ? args.heroLabel
+        : args.durationMinutes > 0 ? durationLong(args.durationMinutes) : 'Phone-free break',
       rows: rows
     };
   }
